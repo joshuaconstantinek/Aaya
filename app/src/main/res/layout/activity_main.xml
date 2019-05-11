@@ -76,4 +76,15 @@
         android:text="Medium Text"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:textColor="@color/darktext" />
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="176dp"
+        android:layout_height="102dp"
+        android:layout_alignStart="@+id/textViewtapto"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="-56dp"
+        android:layout_marginTop="62dp"
+        android:text="Jojo Test build"
+        android:textSize="36sp" />
 </RelativeLayout>

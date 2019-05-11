@@ -117,11 +117,17 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
                 intente.putExtra(Commands.EMERGENCY, true);
                 startActivity(intente);
                 break;
-            case Commands.locModule:
-                Toast.makeText(getBaseContext(), "Location Module", Toast.LENGTH_SHORT).show();
-                Intent intentl = new Intent(MainActivity.this, MapModule.class);
-                startActivity(intentl);
+            case Commands.sayModule:
+                Toast.makeText(getBaseContext(), "My identity", Toast.LENGTH_SHORT).show();
+                Intent intentn = new Intent(MainActivity.this, sayModule.class);
+                intentn.putExtra(Commands.sayModule, true);
+                startActivity(intentn);
                 break;
+           // case Commands.locModule:
+                //Toast.makeText(getBaseContext(), "Location Module", Toast.LENGTH_SHORT).show();
+               // Intent intentl = new Intent(MainActivity.this, MapModule.class);
+               // startActivity(intentl);
+                //break;
             case Commands.musicModule:
                 Toast.makeText(getBaseContext(), "Music Module", Toast.LENGTH_SHORT).show();
                 Intent intentmu = new Intent(MainActivity.this, Music.class);

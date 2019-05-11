@@ -4,11 +4,12 @@ package com.ideotic.edioticideas.aaya;
  * Created by Mukul on 13-05-2016.
  */
 public class Commands {
+    //say my name commands
+    public static final String sayModule = "my name";
 
     //Main Activity Commands
     public static final String mailModule = "mail";
     public static final String callModule = "phone";
-    public static final String locModule = "location";
     public static final String remmodule = "reminder";
     public static final String musicModule = "play music";
     public static final String emergencyModule = "emergency";
