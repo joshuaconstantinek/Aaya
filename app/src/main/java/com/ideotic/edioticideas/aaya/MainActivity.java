@@ -44,7 +44,7 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
     boolean check = false;
     private final int REQ_CODE = 100;
     private TextToSpeech tts;
-    String welcome, date;
+    String welcome, date , myname;
     String city = "jabalpur", country = "India";
     final String baseUrl = "https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20weather.forecast%20where%20woeid%20in%20(select%20woeid%20from%20geo.places(1)%20where%20text%3D%22" +
             city +
@@ -63,6 +63,7 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
         f = getFragmentManager();
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
         welcome = "Hi " + preferences.getString(Needs.NAME, " ") + " what can i do for u today ? ";
+        myname = "Hello your name is " + preferences.getString(Needs.NAME, " ") + " Have a good day" + preferences.getString(Needs.NAME, " ") ;
         //Grabbing References
         showUspeak = (TextView) findViewById(R.id.textViewShow);
         help = (Button) findViewById(R.id.buttonHelp);
@@ -117,12 +118,7 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
                 intente.putExtra(Commands.EMERGENCY, true);
                 startActivity(intente);
                 break;
-            case Commands.sayModule:
-                Toast.makeText(getBaseContext(), "My identity", Toast.LENGTH_SHORT).show();
-                Intent intentn = new Intent(MainActivity.this, sayModule.class);
-                intentn.putExtra(Commands.sayModule, true);
-                startActivity(intentn);
-                break;
+
            // case Commands.locModule:
                 //Toast.makeText(getBaseContext(), "Location Module", Toast.LENGTH_SHORT).show();
                // Intent intentl = new Intent(MainActivity.this, MapModule.class);
@@ -146,6 +142,19 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
                 bundle2.putString(Commands.DATE, date);
                 d2.setArguments(bundle2);
                 d2.show(getFragmentManager(), "sss");
+                break;
+            case Commands.sayModule:
+                display_frag d3 = new display_frag();
+                Bundle bundle3 = new Bundle();
+                bundle3.putString(Commands.DATE,myname);
+                d3.setArguments(bundle3);
+                d3.show(getFragmentManager(), "sss");
+                break;
+            case Commands.viaApps:
+                Intent launchIntent = getPackageManager().getLaunchIntentForPackage("mark.via.gp");
+                if (launchIntent != null) {
+                    startActivity(launchIntent);//null pointer check in case package name was not found
+                }
                 break;
             case Commands.remmodule:
                 Toast.makeText(getBaseContext(), "Reminder Module", Toast.LENGTH_SHORT).show();

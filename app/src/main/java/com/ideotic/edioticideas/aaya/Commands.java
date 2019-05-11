@@ -6,10 +6,11 @@ package com.ideotic.edioticideas.aaya;
 public class Commands {
     //say my name commands
     public static final String sayModule = "my name";
+    public static final String viaApps = "open browser apps";
 
     //Main Activity Commands
     public static final String mailModule = "mail";
-    public static final String callModule = "phone";
+    public static final String callModule = "open phone";
     public static final String remmodule = "reminder";
     public static final String musicModule = "play music";
     public static final String emergencyModule = "emergency";

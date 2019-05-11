@@ -23,9 +23,9 @@
         android:name="android.support.multidex.MultiDexApplication"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        //Splash Screen
+        
         <activity
-            android:name=".Splash"
+            android:name="Splash"
             android:label="@string/app_name"
             android:screenOrientation="portrait"
             android:theme="@android:style/Theme.Black.NoTitleBar">
@@ -35,40 +35,40 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        //Needs Activity
+        
         <activity
             android:name=".Needs"
             android:label="Registration"
             android:screenOrientation="portrait" />
 
-        //Main Activity
+        
         <activity
             android:name=".MainActivity"
             android:screenOrientation="portrait" />
 
-        //Gmail Module
+        
         <activity
             android:name=".GmailModule"
             android:screenOrientation="portrait" />
 
-        //Compose Mail
+        
         <activity
             android:name=".ComposeMail"
             android:label="Mail"
             android:screenOrientation="portrait" />
 
-        //Phone Module
+       
         <activity
             android:name=".PhoneModule"
             android:screenOrientation="portrait" />
 
-        //Reminder Module
+        
         <activity
             android:name=".ReminderModule"
             android:screenOrientation="portrait" />
         <receiver android:name=".AlarmReciver" />
 
-        //Map Module
+       
         <activity
             android:name=".MapModule"
             android:screenOrientation="portrait" />
@@ -90,7 +90,7 @@
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
 
-        //Note Module
+        
         <activity
             android:name=".NoteModule"
             android:screenOrientation="portrait" />
@@ -100,7 +100,7 @@
             android:label="@string/title_activity_main2"
             android:screenOrientation="portrait" />
 
-        //Music Module
+        
         <activity
             android:name=".Music"
             android:screenOrientation="portrait" />
