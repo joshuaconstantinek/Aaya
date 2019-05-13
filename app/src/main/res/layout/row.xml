@@ -10,7 +10,9 @@
         android:id="@+id/n_pri"
         android:layout_width="70sp"
         android:layout_height="70sp"
-        android:layout_margin="5sp"
+        android:layout_marginStart="5sp"
+        android:layout_marginTop="5sp"
+        android:layout_marginBottom="5sp"
         android:src="@drawable/h" />
 
     <TextView

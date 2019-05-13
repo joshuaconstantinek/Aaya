@@ -6,7 +6,20 @@ package com.ideotic.edioticideas.aaya;
 public class Commands {
     //say my name commands
     public static final String sayModule = "my name";
-    public static final String viaApps = "open browser apps";
+
+    //opem apps
+    public static final String viaApps = "open browser app";
+    public static final String vpnApps = "open VPN app";
+    public static final String sendMSG = "send Message";
+    public static final String oContacts = "view contact";
+    public static final String oGmail = "open Gmail";
+    public static final String oCalculator = "I need calculator";
+    public static final String oMusic = "open music";
+
+    //Profiler
+    public static final String Silent = "switch to silent mode";
+    public static final String Normal = "switch to normal mode";
+    public static final String Vibrate = "switch to vibrate mode";
 
     //Main Activity Commands
     public static final String mailModule = "mail";

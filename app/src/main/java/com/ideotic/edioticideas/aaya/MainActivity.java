@@ -4,8 +4,10 @@ import android.app.Activity;
 import android.app.FragmentManager;
 import android.app.SearchManager;
 import android.content.ActivityNotFoundException;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.media.AudioManager;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
@@ -36,6 +38,7 @@ import javax.xml.parsers.SAXParserFactory;
  */
 public class MainActivity extends Activity implements TextToSpeech.OnInitListener {
 
+    AudioManager am;
     TextView showUspeak, dateView;
     Button help;
     public static String module = "";
@@ -44,7 +47,7 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
     boolean check = false;
     private final int REQ_CODE = 100;
     private TextToSpeech tts;
-    String welcome, date , myname;
+    String welcome, date , myname,silent,salah;
     String city = "jabalpur", country = "India";
     final String baseUrl = "https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20weather.forecast%20where%20woeid%20in%20(select%20woeid%20from%20geo.places(1)%20where%20text%3D%22" +
             city +
@@ -54,16 +57,18 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
 
     String weatherText;
     FragmentManager f;
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        am = (AudioManager)getSystemService(Context.AUDIO_SERVICE);
         f = getFragmentManager();
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
         welcome = "Hi " + preferences.getString(Needs.NAME, " ") + " what can i do for u today ? ";
-        myname = "Hello your name is " + preferences.getString(Needs.NAME, " ") + " Have a good day" + preferences.getString(Needs.NAME, " ") ;
+        myname = "Hello your name is " + preferences.getString(Needs.NAME, " ") + " Have a good day " + preferences.getString(Needs.NAME, " ") ;
+        salah = "No database " + preferences.getString(Needs.NAME, " ");
+        silent = preferences.getString(Needs.NAME, " ") + " phone has entered silent mode";
         //Grabbing References
         showUspeak = (TextView) findViewById(R.id.textViewShow);
         help = (Button) findViewById(R.id.buttonHelp);
@@ -99,6 +104,8 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
             }
         });
     }
+
+
 
     private void launchModule(String commandTolaunch) {
         switch (commandTolaunch) {
@@ -156,10 +163,50 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
                     startActivity(launchIntent);//null pointer check in case package name was not found
                 }
                 break;
+            case Commands.vpnApps:
+                Intent launchIntent1 = getPackageManager().getLaunchIntentForPackage("free.vpn.unblock.proxy.turbovpn");
+                if (launchIntent1 != null) {
+                    startActivity(launchIntent1);//null pointer check in case package name was not found
+                }
+                break;
+            case Commands.sendMSG:
+                Intent launchIntent2 = getPackageManager().getLaunchIntentForPackage("com.android.messaging");
+                if (launchIntent2 != null) {
+                    startActivity(launchIntent2);//null pointer check in case package name was not found
+                }
+                break;
+            case Commands.oContacts:
+                Intent launchIntent3 = getPackageManager().getLaunchIntentForPackage("com.android.contacts");
+                if (launchIntent3 != null) {
+                    startActivity(launchIntent3);//null pointer check in case package name was not found
+                }
+                break;
+            case Commands.oGmail:
+                Intent launchIntent4 = getPackageManager().getLaunchIntentForPackage("com.google.android.gm");
+                if (launchIntent4 != null) {
+                    startActivity(launchIntent4);//null pointer check in case package name was not found
+                }
+                break;
+            case Commands.oCalculator:
+                Intent launchIntent5 = getPackageManager().getLaunchIntentForPackage("com.android.calculator2");
+                if (launchIntent5 != null) {
+                    startActivity(launchIntent5);//null pointer check in case package name was not found
+                }
+                break;
+            case Commands.oMusic:
+                Intent launchIntent6 = getPackageManager().getLaunchIntentForPackage("com.cyanogenmod.eleven");
+                if (launchIntent6 != null) {
+                    startActivity(launchIntent6);//null pointer check in case package name was not found
+                }
+                break;
             case Commands.remmodule:
                 Toast.makeText(getBaseContext(), "Reminder Module", Toast.LENGTH_SHORT).show();
                 Intent intentr = new Intent(MainActivity.this, ReminderModule.class);
                 startActivity(intentr);
+                break;
+            case Commands.Silent:
+                Toast.makeText(getBaseContext(), "Working !!", Toast.LENGTH_SHORT).show();
+                am.setRingerMode(AudioManager.RINGER_MODE_SILENT);
                 break;
             case Commands.helpModule:
                 module = "main";
@@ -181,6 +228,7 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
                 break;
             default:
                 try {
+                    Toast.makeText(getBaseContext(), "Error, Redirect to Google", Toast.LENGTH_SHORT).show();
                     Intent intents = new Intent(Intent.ACTION_WEB_SEARCH);
                     intents.putExtra(SearchManager.QUERY, commandTolaunch);
                     startActivity(intents);
