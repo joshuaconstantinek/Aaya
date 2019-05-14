@@ -169,20 +169,6 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
                     startActivity(launchIntent1);//null pointer check in case package name was not found
                 }
                 break;
-            case Commands.facebook:
-                Intent intentfb = new Intent();
-                intentfb.setAction(Intent.ACTION_VIEW);
-                intentfb.addCategory(Intent.CATEGORY_BROWSABLE);
-                intentfb.setData(Uri.parse("http://www.facebook.com"));
-                startActivity(intentfb);
-                break;
-            case Commands.twitter:
-                Intent intenttw = new Intent();
-                intenttw.setAction(Intent.ACTION_VIEW);
-                intenttw.addCategory(Intent.CATEGORY_BROWSABLE);
-                intenttw.setData(Uri.parse("http://www.twitter.com"));
-                startActivity(intenttw);
-                break;
             case Commands.sendMSG:
                 //Toast.makeText(getBaseContext(), "Choose Contatcs", Toast.LENGTH_SHORT).show();
                 Intent intentmsg = new Intent(Intent.ACTION_SEND);
@@ -230,6 +216,24 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
 
                 }
                 break;
+            case Commands.oSnapchat:
+                Intent launchIntentoSC = getPackageManager().getLaunchIntentForPackage("com.snapchat.android");
+
+                if (launchIntentoSC != null) {
+
+                    startActivity(launchIntentoSC);//null pointer check in case package name was not found
+                }
+                else if (launchIntentoSC == null) {
+                    Toast.makeText(getBaseContext(), "Snapchat App is not installed, Redirect to Play Store !!", Toast.LENGTH_SHORT).show();
+                    Intent webPS = new Intent();
+                    webPS.setAction(Intent.ACTION_VIEW);
+                    webPS.addCategory(Intent.CATEGORY_BROWSABLE);
+                    webPS.setData(Uri.parse("http://play.google.com/store/apps/details?id=com.snapchat.android"));
+                    startActivity(webPS);
+
+                }
+                break;
+                // Facebook "website and app"
             case Commands.oFacebook:
                 Intent launchIntentofb = getPackageManager().getLaunchIntentForPackage("com.facebook.katana");
                 if (launchIntentofb != null) {
@@ -246,6 +250,16 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
 
                 }
                 break;
+            case Commands.facebook:
+                Intent intentfb = new Intent();
+                intentfb.setAction(Intent.ACTION_VIEW);
+                intentfb.addCategory(Intent.CATEGORY_BROWSABLE);
+                intentfb.setData(Uri.parse("http://www.facebook.com"));
+                startActivity(intentfb);
+                break;
+                //end of facebook
+
+                //Twitter "website and app"
             case Commands.oTwitter:
                 Intent launchIntentotw = getPackageManager().getLaunchIntentForPackage("com.twitter.android");
                 if (launchIntentotw != null) {
@@ -262,6 +276,15 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
 
                 }
                 break;
+            case Commands.twitter:
+                Intent intenttw = new Intent();
+                intenttw.setAction(Intent.ACTION_VIEW);
+                intenttw.addCategory(Intent.CATEGORY_BROWSABLE);
+                intenttw.setData(Uri.parse("http://www.twitter.com"));
+                startActivity(intenttw);
+                break;
+                //end of twitter
+
             case Commands.oContacts:
                 Intent launchIntent3 = getPackageManager().getLaunchIntentForPackage("com.android.contacts");
                 if (launchIntent3 != null) {
@@ -296,6 +319,228 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
                 Intent launchIntent8 = getPackageManager().getLaunchIntentForPackage("com.google.android.apps.docs");
                 if (launchIntent8 != null) {
                     startActivity(launchIntent8);//null pointer check in case package name was not found
+                }
+                break;
+            case Commands.oTelegram:
+                Intent launchIntentotg = getPackageManager().getLaunchIntentForPackage("org.telegram.messenger");
+                if (launchIntentotg != null) {
+
+                    startActivity(launchIntentotg);//null pointer check in case package name was not found
+                }
+                else if (launchIntentotg == null) {
+                    Toast.makeText(getBaseContext(), "Telegram App is not installed, Redirect to Play Store !!", Toast.LENGTH_SHORT).show();
+                    Intent webPS = new Intent();
+                    webPS.setAction(Intent.ACTION_VIEW);
+                    webPS.addCategory(Intent.CATEGORY_BROWSABLE);
+                    webPS.setData(Uri.parse("http://play.google.com/store/apps/details?id=org.telegram.messenger"));
+                    startActivity(webPS);
+
+                }
+                break;
+
+                //youtube "website and app"
+            case Commands.oYoutube:
+                Intent launchIntentoyt = getPackageManager().getLaunchIntentForPackage("com.google.android.youtube");
+                if (launchIntentoyt != null) {
+
+                    startActivity(launchIntentoyt);//null pointer check in case package name was not found
+                }
+                else if (launchIntentoyt == null) {
+                    Toast.makeText(getBaseContext(), "Youtube App is not installed, Redirect to Play Store !!", Toast.LENGTH_SHORT).show();
+                    Intent webPS = new Intent();
+                    webPS.setAction(Intent.ACTION_VIEW);
+                    webPS.addCategory(Intent.CATEGORY_BROWSABLE);
+                    webPS.setData(Uri.parse("http://play.google.com/store/apps/details?id=com.google.android.youtube"));
+                    startActivity(webPS);
+
+                }
+                break;
+            case Commands.youtube:
+                Intent openyoutube = new Intent();
+                openyoutube.setAction(Intent.ACTION_VIEW);
+                openyoutube.addCategory(Intent.CATEGORY_BROWSABLE);
+                openyoutube.setData(Uri.parse("http://www.youtube.com"));
+                startActivity(openyoutube);
+                break;
+                //end of youtube
+
+            case Commands.oNetflix:
+                Intent launchIntentonf = getPackageManager().getLaunchIntentForPackage("com.netflix.mediaclient");
+                if (launchIntentonf != null) {
+
+                    startActivity(launchIntentonf);//null pointer check in case package name was not found
+                }
+                else if (launchIntentonf == null) {
+                    Toast.makeText(getBaseContext(), "Netflix App is not installed, Redirect to Play Store !!", Toast.LENGTH_SHORT).show();
+                    Intent webPS = new Intent();
+                    webPS.setAction(Intent.ACTION_VIEW);
+                    webPS.addCategory(Intent.CATEGORY_BROWSABLE);
+                    webPS.setData(Uri.parse("http://play.google.com/store/apps/details?id=com.netflix.mediaclient"));
+                    startActivity(webPS);
+
+                }
+                break;
+                //Tokopedia "website and app"
+            case Commands.oTokopedia:
+                Intent tokopedia = getPackageManager().getLaunchIntentForPackage("com.tokopedia.tkpd");
+                if (tokopedia != null) {
+
+                    startActivity(tokopedia);//null pointer check in case package name was not found
+                }
+                else if (tokopedia == null) {
+                    Toast.makeText(getBaseContext(), "Tokopedia App is not installed, Redirect to Play Store !!", Toast.LENGTH_SHORT).show();
+                    Intent webPS = new Intent();
+                    webPS.setAction(Intent.ACTION_VIEW);
+                    webPS.addCategory(Intent.CATEGORY_BROWSABLE);
+                    webPS.setData(Uri.parse("http://play.google.com/store/apps/details?id=com.tokopedia.tkpd"));
+                    startActivity(webPS);
+
+                }
+                break;
+            case Commands.tokopedia:
+                Intent opentokopedia = new Intent();
+                opentokopedia.setAction(Intent.ACTION_VIEW);
+                opentokopedia.addCategory(Intent.CATEGORY_BROWSABLE);
+                opentokopedia.setData(Uri.parse("http://www.tokopedia.com"));
+                startActivity(opentokopedia);
+                break;
+                //end of tokopedia
+
+                //bukalapak "website and app"
+            case Commands.oBukalapak:
+                Intent bukalapak = getPackageManager().getLaunchIntentForPackage("com.bukalapak.android");
+                if (bukalapak != null) {
+
+                    startActivity(bukalapak);//null pointer check in case package name was not found
+                }
+                else if (bukalapak == null) {
+                    Toast.makeText(getBaseContext(), "bukalapak App is not installed, Redirect to Play Store !!", Toast.LENGTH_SHORT).show();
+                    Intent webPS = new Intent();
+                    webPS.setAction(Intent.ACTION_VIEW);
+                    webPS.addCategory(Intent.CATEGORY_BROWSABLE);
+                    webPS.setData(Uri.parse("http://play.google.com/store/apps/details?id=com.bukalapak.android"));
+                    startActivity(webPS);
+
+                }
+                break;
+            case Commands.bukalapak:
+                Intent openbukalapak = new Intent();
+                openbukalapak.setAction(Intent.ACTION_VIEW);
+                openbukalapak.addCategory(Intent.CATEGORY_BROWSABLE);
+                openbukalapak.setData(Uri.parse("http://www.bukalapak.com"));
+                startActivity(openbukalapak);
+                break;
+                //end of bukalapak
+
+                //bli bli "website and app"
+            case Commands.oBlibli:
+                Intent blibli = getPackageManager().getLaunchIntentForPackage("blibli.mobile.commerce");
+                if (blibli != null) {
+
+                    startActivity(blibli);//null pointer check in case package name was not found
+                }
+                else if (blibli == null) {
+                    Toast.makeText(getBaseContext(), "Bli Bli App is not installed, Redirect to Play Store !!", Toast.LENGTH_SHORT).show();
+                    Intent webPS = new Intent();
+                    webPS.setAction(Intent.ACTION_VIEW);
+                    webPS.addCategory(Intent.CATEGORY_BROWSABLE);
+                    webPS.setData(Uri.parse("http://play.google.com/store/apps/details?id=blibli.mobile.commerce"));
+                    startActivity(webPS);
+
+                }
+                break;
+            case Commands.blibli:
+                Intent openblibli = new Intent();
+                openblibli.setAction(Intent.ACTION_VIEW);
+                openblibli.addCategory(Intent.CATEGORY_BROWSABLE);
+                openblibli.setData(Uri.parse("http://www.blibli.com"));
+                startActivity(openblibli);
+                break;
+                //end of blibli
+
+            case Commands.oGojek:
+                Intent gojek = getPackageManager().getLaunchIntentForPackage("com.gojek.app");
+                if (gojek != null) {
+
+                    startActivity(gojek);//null pointer check in case package name was not found
+                }
+                else if (gojek == null) {
+                    Toast.makeText(getBaseContext(), "Gojek App is not installed, Redirect to Play Store !!", Toast.LENGTH_SHORT).show();
+                    Intent webPS = new Intent();
+                    webPS.setAction(Intent.ACTION_VIEW);
+                    webPS.addCategory(Intent.CATEGORY_BROWSABLE);
+                    webPS.setData(Uri.parse("http://play.google.com/store/apps/details?id=com.gojek.app"));
+                    startActivity(webPS);
+
+                }
+                break;
+
+                //Amazon "website and app"
+            case Commands.oAmazon:
+                Intent Amazon = getPackageManager().getLaunchIntentForPackage("com.amazon.mShop.android.shopping");
+                if (Amazon != null) {
+
+                    startActivity(Amazon);//null pointer check in case package name was not found
+                }
+                else if (Amazon == null) {
+                    Toast.makeText(getBaseContext(), "Amazon App is not installed, Redirect to Play Store !!", Toast.LENGTH_SHORT).show();
+                    Intent webPS = new Intent();
+                    webPS.setAction(Intent.ACTION_VIEW);
+                    webPS.addCategory(Intent.CATEGORY_BROWSABLE);
+                    webPS.setData(Uri.parse("http://play.google.com/store/apps/details?id=com.amazon.mShop.android.shopping"));
+                    startActivity(webPS);
+
+                }
+                break;
+            case Commands.amazon:
+                Intent openamazon = new Intent();
+                openamazon.setAction(Intent.ACTION_VIEW);
+                openamazon.addCategory(Intent.CATEGORY_BROWSABLE);
+                openamazon.setData(Uri.parse("http://www.amazon.com"));
+                startActivity(openamazon);
+                break;
+                //end of Amazon
+
+            //Yahoo "website and app"
+            case Commands.oYahoo:
+                Intent yahoo = getPackageManager().getLaunchIntentForPackage("com.yahoo.mobile.client.android.mail");
+                if (yahoo != null) {
+
+                    startActivity(yahoo);//null pointer check in case package name was not found
+                }
+                else if (yahoo == null) {
+                    Toast.makeText(getBaseContext(), "Yahoo mail App is not installed, Redirect to Play Store !!", Toast.LENGTH_SHORT).show();
+                    Intent webPS = new Intent();
+                    webPS.setAction(Intent.ACTION_VIEW);
+                    webPS.addCategory(Intent.CATEGORY_BROWSABLE);
+                    webPS.setData(Uri.parse("http://play.google.com/store/apps/details?id=com.yahoo.mobile.client.android.mail"));
+                    startActivity(webPS);
+
+                }
+                break;
+            case Commands.yahoo:
+                Intent openyahoo = new Intent();
+                openyahoo.setAction(Intent.ACTION_VIEW);
+                openyahoo.addCategory(Intent.CATEGORY_BROWSABLE);
+                openyahoo.setData(Uri.parse("http://www.yahoo.com"));
+                startActivity(openyahoo);
+                break;
+            //end of Yahoo
+
+            case Commands.oGrab:
+                Intent Grab = getPackageManager().getLaunchIntentForPackage("com.grabtaxi.passenger");
+                if (Grab != null) {
+
+                    startActivity(Grab);//null pointer check in case package name was not found
+                }
+                else if (Grab == null) {
+                    Toast.makeText(getBaseContext(), "Grab App is not installed, Redirect to Play Store !!", Toast.LENGTH_SHORT).show();
+                    Intent webPS = new Intent();
+                    webPS.setAction(Intent.ACTION_VIEW);
+                    webPS.addCategory(Intent.CATEGORY_BROWSABLE);
+                    webPS.setData(Uri.parse("http://play.google.com/store/apps/details?id=com.grabtaxi.passenger"));
+                    startActivity(webPS);
+
                 }
                 break;
             case Commands.remmodule:

@@ -25,9 +25,9 @@ public class HelpFrag extends DialogFragment implements TextToSpeech.OnInitListe
     IsSpeaking i;
     String module = MainActivity.module;
     private TextToSpeech tts;
-    String main = "This Application meant to be simple voice command application , you can open any stock android 7+ app by calling name\n" +
+    String main = "This Application meant to be simple voice command application , you can open any stock android 7+ app by calling name like open message\n" +
             "You can do silent mode and normal mode by calling Switch to silent mode and switch to normal mode\n" +
-            "You can open additional app like Via browser , VPN , Gmail , GDrive , Discord , Playstore \n" +
+            "You can open additional app like Via browser , VPN , Gmail , GDrive , Discord , Playstore and many more \n" +
             "Will Add more feature soon" ;
     String gmail = "To read mails say GET MAILS \n To send a mail say COMPOSE MAIL \n To search mail say SEARCH SUBJECT your subject \n " +
             "To open a specific category say GET MAILS category";

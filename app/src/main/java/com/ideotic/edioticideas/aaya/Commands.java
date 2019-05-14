@@ -22,10 +22,27 @@ public class Commands {
     public static final String playstore = "open Play Store";
     public static final String oTwitter = "open Twitter";
     public static final String oFacebook = "open Facebook";
+    public static final String oSnapchat = "open Snapchat";
+    public static final String oTelegram = "open telegram";
+    public static final String oYoutube = "open YouTube";
+    public static final String oNetflix = "open Netflix";
+    public static final String oTokopedia = "open tokopedia";
+    public static final String oBukalapak = "open bukalapak";
+    public static final String oBlibli = "open blibli";
+    public static final String oGojek = "open gojek";
+    public static final String oAmazon = "open Amazon";
+    public static final String oGrab = "open grab";
+    public static final String oYahoo = "open Yahoo mail";
 
     //Open website
     public static final String facebook = "go to Facebook";
     public static final String twitter = "go to Twitter";
+    public static final String youtube = "go to YouTube";
+    public static final String tokopedia = "go to tokopedia";
+    public static final String bukalapak = "go to bukalapak";
+    public static final String blibli = "go to blibli";
+    public static final String amazon = "go to Amazon";
+    public static final String yahoo = "go to Yahoo";
 
 
     //Profiler
