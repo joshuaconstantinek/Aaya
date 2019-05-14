@@ -1,4 +1,7 @@
 # Aaya
+**IM CURRENTLY UPDATING THE APP PLEASE CLONE THIS REPO FOR FUTURE UPDATE, YOU CAN HELP ME WITH PULL REQUEST !**
+
+
 **Personal Voice Assistant For Blind & Aware**
 
    ![aayalogogit](https://user-images.githubusercontent.com/26801020/34158538-dac784a6-e4eb-11e7-95fe-e94a263cc0e1.png)
