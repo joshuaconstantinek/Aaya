@@ -7,19 +7,31 @@ public class Commands {
     //say my name commands
     public static final String sayModule = "my name";
 
-    //opem apps
+    //open additional apps
     public static final String viaApps = "open browser app";
     public static final String vpnApps = "open VPN app";
-    public static final String sendMSG = "send Message";
+    public static final String sendMSG = "send message that I am busy";
+    public static final String oMessage = "open message";
     public static final String oContacts = "view contact";
     public static final String oGmail = "open Gmail";
     public static final String oCalculator = "I need calculator";
     public static final String oMusic = "open music";
+    public static final String oDiscord = "open Discord";
+    public static final String oGdrive = "open Google Drive";
+    public static final String oInsta = "open Instagram";
+    public static final String playstore = "open Play Store";
+    public static final String oTwitter = "open Twitter";
+    public static final String oFacebook = "open Facebook";
+
+    //Open website
+    public static final String facebook = "go to Facebook";
+    public static final String twitter = "go to Twitter";
+
 
     //Profiler
     public static final String Silent = "switch to silent mode";
     public static final String Normal = "switch to normal mode";
-    public static final String Vibrate = "switch to vibrate mode";
+
 
     //Main Activity Commands
     public static final String mailModule = "mail";

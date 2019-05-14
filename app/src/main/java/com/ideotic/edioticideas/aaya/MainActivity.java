@@ -19,7 +19,7 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
-
+import android.net.Uri;
 import org.xml.sax.InputSource;
 import org.xml.sax.XMLReader;
 
@@ -169,10 +169,97 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
                     startActivity(launchIntent1);//null pointer check in case package name was not found
                 }
                 break;
+            case Commands.facebook:
+                Intent intentfb = new Intent();
+                intentfb.setAction(Intent.ACTION_VIEW);
+                intentfb.addCategory(Intent.CATEGORY_BROWSABLE);
+                intentfb.setData(Uri.parse("http://www.facebook.com"));
+                startActivity(intentfb);
+                break;
+            case Commands.twitter:
+                Intent intenttw = new Intent();
+                intenttw.setAction(Intent.ACTION_VIEW);
+                intenttw.addCategory(Intent.CATEGORY_BROWSABLE);
+                intenttw.setData(Uri.parse("http://www.twitter.com"));
+                startActivity(intenttw);
+                break;
             case Commands.sendMSG:
+                //Toast.makeText(getBaseContext(), "Choose Contatcs", Toast.LENGTH_SHORT).show();
+                Intent intentmsg = new Intent(Intent.ACTION_SEND);
+                intentmsg.setType("text/plain");
+                String text = " Sorry , Im busy , later ! ";
+                // change with required  application package
+
+                intentmsg.setPackage("com.android.messaging");
+                if (intentmsg != null) {
+                    intentmsg.putExtra(Intent.EXTRA_TEXT, text);//
+                    startActivity(Intent.createChooser(intentmsg, text));
+                } else {
+
+                    Toast.makeText(this, "App not found", Toast.LENGTH_SHORT)
+                            .show();
+                }
+            case Commands.oMessage:
                 Intent launchIntent2 = getPackageManager().getLaunchIntentForPackage("com.android.messaging");
-                if (launchIntent2 != null) {
-                    startActivity(launchIntent2);//null pointer check in case package name was not found
+               if (launchIntent2 != null) {
+                   startActivity(launchIntent2);//null pointer check in case package name was not found
+                }
+                break;
+            case Commands.playstore:
+                Intent launchIntentps = getPackageManager().getLaunchIntentForPackage("com.android.vending");
+                if (launchIntentps != null) {
+
+                    startActivity(launchIntentps);//null pointer check in case package name was not found
+                }
+
+                break;
+            case Commands.oInsta:
+                Intent launchIntentoig = getPackageManager().getLaunchIntentForPackage("com.instagram.android");
+                //Intent launchIntentpsIG = getPackageManager().getLaunchIntentForPackage("com.android.vending");
+                if (launchIntentoig != null) {
+
+                    startActivity(launchIntentoig);//null pointer check in case package name was not found
+                }
+                else if (launchIntentoig == null) {
+                    Toast.makeText(getBaseContext(), "Instagram App is not installed, Redirect to Play Store !!", Toast.LENGTH_SHORT).show();
+                    Intent webPS = new Intent();
+                    webPS.setAction(Intent.ACTION_VIEW);
+                    webPS.addCategory(Intent.CATEGORY_BROWSABLE);
+                    webPS.setData(Uri.parse("http://play.google.com/store/apps/details?id=com.instagram.android"));
+                    startActivity(webPS);
+
+                }
+                break;
+            case Commands.oFacebook:
+                Intent launchIntentofb = getPackageManager().getLaunchIntentForPackage("com.facebook.katana");
+                if (launchIntentofb != null) {
+
+                    startActivity(launchIntentofb);//null pointer check in case package name was not found
+                }
+                else if (launchIntentofb == null) {
+                    Toast.makeText(getBaseContext(), "Facebook App is not installed, Redirect to Play Store !!", Toast.LENGTH_SHORT).show();
+                    Intent webPS = new Intent();
+                    webPS.setAction(Intent.ACTION_VIEW);
+                    webPS.addCategory(Intent.CATEGORY_BROWSABLE);
+                    webPS.setData(Uri.parse("http://play.google.com/store/apps/details?id=com.facebook.katana"));
+                    startActivity(webPS);
+
+                }
+                break;
+            case Commands.oTwitter:
+                Intent launchIntentotw = getPackageManager().getLaunchIntentForPackage("com.twitter.android");
+                if (launchIntentotw != null) {
+
+                    startActivity(launchIntentotw);//null pointer check in case package name was not found
+                }
+                else if (launchIntentotw == null) {
+                    Toast.makeText(getBaseContext(), "Twitter App is not installed, Redirect to Play Store !!", Toast.LENGTH_SHORT).show();
+                    Intent webPS = new Intent();
+                    webPS.setAction(Intent.ACTION_VIEW);
+                    webPS.addCategory(Intent.CATEGORY_BROWSABLE);
+                    webPS.setData(Uri.parse("http://play.google.com/store/apps/details?id=com.twitter.android"));
+                    startActivity(webPS);
+
                 }
                 break;
             case Commands.oContacts:
@@ -199,14 +286,38 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
                     startActivity(launchIntent6);//null pointer check in case package name was not found
                 }
                 break;
+            case Commands.oDiscord:
+                Intent launchIntent7 = getPackageManager().getLaunchIntentForPackage("com.discord");
+                if (launchIntent7 != null) {
+                    startActivity(launchIntent7);//null pointer check in case package name was not found
+                }
+                break;
+            case Commands.oGdrive:
+                Intent launchIntent8 = getPackageManager().getLaunchIntentForPackage("com.google.android.apps.docs");
+                if (launchIntent8 != null) {
+                    startActivity(launchIntent8);//null pointer check in case package name was not found
+                }
+                break;
             case Commands.remmodule:
                 Toast.makeText(getBaseContext(), "Reminder Module", Toast.LENGTH_SHORT).show();
                 Intent intentr = new Intent(MainActivity.this, ReminderModule.class);
                 startActivity(intentr);
                 break;
             case Commands.Silent:
-                Toast.makeText(getBaseContext(), "Working !!", Toast.LENGTH_SHORT).show();
-                am.setRingerMode(AudioManager.RINGER_MODE_SILENT);
+                Toast.makeText(getBaseContext(), "Silent Mode !!!", Toast.LENGTH_SHORT).show();
+                am.setStreamMute(AudioManager.STREAM_NOTIFICATION, true);
+                am.setStreamMute(AudioManager.STREAM_ALARM, true);
+                am.setStreamMute(AudioManager.STREAM_MUSIC, true);
+                am.setStreamMute(AudioManager.STREAM_RING, true);
+                am.setStreamMute(AudioManager.STREAM_SYSTEM, true);
+                break;
+            case Commands.Normal:
+                Toast.makeText(getBaseContext(), "Normal Mode !!!", Toast.LENGTH_SHORT).show();
+                am.setStreamMute(AudioManager.STREAM_NOTIFICATION, false);
+                am.setStreamMute(AudioManager.STREAM_ALARM, false);
+                am.setStreamMute(AudioManager.STREAM_MUSIC, false);
+                am.setStreamMute(AudioManager.STREAM_RING, false);
+                am.setStreamMute(AudioManager.STREAM_SYSTEM, false);
                 break;
             case Commands.helpModule:
                 module = "main";
@@ -238,6 +349,7 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
                 break;
         }
     }
+
 
     /**
      * Showing google speech input dialog

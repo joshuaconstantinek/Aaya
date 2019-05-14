@@ -25,10 +25,10 @@ public class HelpFrag extends DialogFragment implements TextToSpeech.OnInitListe
     IsSpeaking i;
     String module = MainActivity.module;
     private TextToSpeech tts;
-    String main = "say MAIL to go to mail module \n say PHONE to go to phone module \n say LOCATION to know your current location" +
-            "\n say REMINDER to set a reminder \n say  PLAY MUSIC to hear a song \n say NOTE to make a note \n say EMERGENCY in case of emergency" +
-            "\n say DATE or TIME to know current date and time \n say HOW IS THE WEATHER to know current weather" +
-            "\n say MY NAME to get your Name " ;
+    String main = "This Application meant to be simple voice command application , you can open any stock android 7+ app by calling name\n" +
+            "You can do silent mode and normal mode by calling Switch to silent mode and switch to normal mode\n" +
+            "You can open additional app like Via browser , VPN , Gmail , GDrive , Discord , Playstore \n" +
+            "Will Add more feature soon" ;
     String gmail = "To read mails say GET MAILS \n To send a mail say COMPOSE MAIL \n To search mail say SEARCH SUBJECT your subject \n " +
             "To open a specific category say GET MAILS category";
 
