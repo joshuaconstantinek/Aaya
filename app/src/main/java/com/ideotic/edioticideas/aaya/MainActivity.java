@@ -3,11 +3,13 @@ package com.ideotic.edioticideas.aaya;
 import android.app.Activity;
 import android.app.FragmentManager;
 import android.app.SearchManager;
+import android.bluetooth.BluetoothAdapter;
 import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.media.AudioManager;
+import android.net.wifi.WifiManager;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
@@ -33,11 +35,13 @@ import java.util.Locale;
 import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
 
+import static android.content.ContentValues.TAG;
+
 /**
  * Created by Mukul on 13-05-2016.
  */
 public class MainActivity extends Activity implements TextToSpeech.OnInitListener {
-
+    Context context = this;
     AudioManager am;
     TextView showUspeak, dateView;
     Button help;
@@ -48,6 +52,7 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
     private final int REQ_CODE = 100;
     private TextToSpeech tts;
     String welcome, date , myname,silent,salah;
+
     String city = "jabalpur", country = "India";
     final String baseUrl = "https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20weather.forecast%20where%20woeid%20in%20(select%20woeid%20from%20geo.places(1)%20where%20text%3D%22" +
             city +
@@ -61,6 +66,7 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
 
         am = (AudioManager)getSystemService(Context.AUDIO_SERVICE);
         f = getFragmentManager();
@@ -291,12 +297,49 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
                     startActivity(launchIntent3);//null pointer check in case package name was not found
                 }
                 break;
+            case Commands.oSetting:
+                Intent Grab = getPackageManager().getLaunchIntentForPackage("com.android.settings");
+                if (Grab != null) {
+
+                    startActivity(Grab);//null pointer check in case package name was not found
+                }
+                break;
+            case Commands.oGallery:
+                Intent Grab = getPackageManager().getLaunchIntentForPackage("com.android.gallery3d");
+                if (Grab != null) {
+
+                    startActivity(Grab);//null pointer check in case package name was not found
+                }
+                break;
+            case Commands.oCalendar:
+                Intent Grab = getPackageManager().getLaunchIntentForPackage("com.android.calendar");
+                if (Grab != null) {
+
+                    startActivity(Grab);//null pointer check in case package name was not found
+                }
+                break;
+            case Commands.oTerminal:
+                Intent Grab = getPackageManager().getLaunchIntentForPackage("com.android.terminal");
+                if (Grab != null) {
+
+                    startActivity(Grab);//null pointer check in case package name was not found
+                }
+                break;
+                //gmail "app and website"
             case Commands.oGmail:
                 Intent launchIntent4 = getPackageManager().getLaunchIntentForPackage("com.google.android.gm");
                 if (launchIntent4 != null) {
                     startActivity(launchIntent4);//null pointer check in case package name was not found
                 }
                 break;
+            case Commands.gmail:
+                Intent opengmail = new Intent();
+                opengmail.setAction(Intent.ACTION_VIEW);
+                opengmail.addCategory(Intent.CATEGORY_BROWSABLE);
+                opengmail.setData(Uri.parse("http://www.gmail.com"));
+                startActivity(opengmail);
+                break;
+                //end of gmail
             case Commands.oCalculator:
                 Intent launchIntent5 = getPackageManager().getLaunchIntentForPackage("com.android.calculator2");
                 if (launchIntent5 != null) {
@@ -582,6 +625,78 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
                 d1.setArguments(bundle1);
                 d1.show(getFragmentManager(), "sss");
                 break;
+                //wifi state on and off
+            case Commands.wifioff:
+                Toast.makeText(getBaseContext(), "Wi-Fi is turn off", Toast.LENGTH_SHORT).show();
+                WifiManager wifiManageroff = (WifiManager)this.context.getSystemService(Context.WIFI_SERVICE);
+                wifiManageroff.setWifiEnabled(false);
+                break;
+            case Commands.wifion:
+                Toast.makeText(getBaseContext(), "Wi-Fi is turn on", Toast.LENGTH_SHORT).show();
+                WifiManager wifiManageron = (WifiManager)this.context.getSystemService(Context.WIFI_SERVICE);
+                wifiManageron.setWifiEnabled(true);
+                break;
+                // wifi state end here
+
+                //Bluetooth state on and off
+            case Commands.bluetoothOff:
+                Toast.makeText(getBaseContext(), "Bluetooth is turn off", Toast.LENGTH_SHORT).show();
+                BluetoothAdapter mBluetoothAdapteroff = BluetoothAdapter.getDefaultAdapter();
+                if (mBluetoothAdapteroff.isEnabled()) {
+                    mBluetoothAdapteroff.disable();
+                }
+                break;
+            case Commands.bluetoothOn:
+                Toast.makeText(getBaseContext(), "Bluetooth is turn on", Toast.LENGTH_SHORT).show();
+                BluetoothAdapter mBluetoothAdapteron = BluetoothAdapter.getDefaultAdapter();
+                if (!mBluetoothAdapteron.isEnabled()) {
+                    mBluetoothAdapteron.enable();
+                }
+                break;
+                //Bluetooth state end here
+
+                //Start of Root State
+            case Commands.reboot:
+                try {
+                    Toast.makeText(getBaseContext(), "Phone Rebooting !!", Toast.LENGTH_SHORT).show();
+                    Runtime.getRuntime().exec(new String[]{"/sbin/su", "-c", "reboot now"});
+                } catch (Exception ex) {
+                    Log.e(TAG, "Error ", ex);
+                }
+                break;
+            case Commands.selfdestruction:
+                try {
+                    Toast.makeText(getBaseContext(), "Self Destruct !!", Toast.LENGTH_SHORT).show();
+                    Runtime.getRuntime().exec(new String[]{"/sbin/su", "-c", "am force-stop com.ideotic.edioticideas.aaya"});
+                } catch (Exception ex) {
+                    Log.e(TAG, "Error ", ex);
+                }
+                break;
+            case Commands.killthemall:
+                try {
+                    Toast.makeText(getBaseContext(), "ALL OF THEM HAS BEEN KILLED !!", Toast.LENGTH_SHORT).show();
+                    Runtime.getRuntime().exec(new String[]{"/sbin/su", "-c", "am kill-all"});
+                } catch (Exception ex) {
+                    Log.e(TAG, "Error ", ex);
+                }
+                break;
+            case Commands.rebootRecovery:
+                try {
+                    Toast.makeText(getBaseContext(), "Rebooting !!", Toast.LENGTH_SHORT).show();
+                    Runtime.getRuntime().exec(new String[]{"/sbin/su", "-c", "reboot recovery"});
+                } catch (Exception ex) {
+                    Log.e(TAG, "Error ", ex);
+                }
+                break;
+
+                //end of root state
+            case Commands.wikipedia:
+                Intent openwiki = new Intent();
+                openwiki.setAction(Intent.ACTION_VIEW);
+                openwiki.addCategory(Intent.CATEGORY_BROWSABLE);
+                openwiki.setData(Uri.parse("http://www.wikipedia.com"));
+                startActivity(openwiki);
+            break;
             default:
                 try {
                     Toast.makeText(getBaseContext(), "Error, Redirect to Google", Toast.LENGTH_SHORT).show();

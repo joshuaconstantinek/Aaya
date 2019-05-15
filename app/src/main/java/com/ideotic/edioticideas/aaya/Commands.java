@@ -2,6 +2,8 @@ package com.ideotic.edioticideas.aaya;
 
 /**
  * Created by Mukul on 13-05-2016.
+ * edited and continue the development by
+ * joshua on may-2019
  */
 public class Commands {
     //say my name commands
@@ -13,6 +15,9 @@ public class Commands {
     public static final String sendMSG = "send message that I am busy";
     public static final String oMessage = "open message";
     public static final String oContacts = "view contact";
+    public static final String oSetting = "open setting";
+    public static final String oGallery = "open gallery";
+    public static final String oCalendar = "open calendar";
     public static final String oGmail = "open Gmail";
     public static final String oCalculator = "I need calculator";
     public static final String oMusic = "open music";
@@ -33,6 +38,8 @@ public class Commands {
     public static final String oAmazon = "open Amazon";
     public static final String oGrab = "open grab";
     public static final String oYahoo = "open Yahoo mail";
+    public static final String oTerminal = "open terminal";
+
 
     //Open website
     public static final String facebook = "go to Facebook";
@@ -43,11 +50,24 @@ public class Commands {
     public static final String blibli = "go to blibli";
     public static final String amazon = "go to Amazon";
     public static final String yahoo = "go to Yahoo";
-
+    public static final String gmail = "go to Gmail";
+    public static final String wikipedia = "go to Wikipedia";
 
     //Profiler
     public static final String Silent = "switch to silent mode";
     public static final String Normal = "switch to normal mode";
+
+    //Network state
+    public static final String wifioff = "turn off Wi-Fi";
+    public static final String wifion = "turn on Wi-Fi";
+    public static final String bluetoothOn = "turn on Bluetooth";
+    public static final String bluetoothOff = "turn off Bluetooth";
+
+    //root state shit
+    public static final String reboot = "reboot phone";
+    public static final String rebootRecovery = "reboot to recovery";
+    public static final String killthemall = "Kill Them All";
+    public static final String selfdestruction = "self destruction";
 
 
     //Main Activity Commands
