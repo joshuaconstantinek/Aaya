@@ -79,12 +79,12 @@
 
     <TextView
         android:id="@+id/textView8"
-        android:layout_width="292dp"
-        android:layout_height="97dp"
+        android:layout_width="254dp"
+        android:layout_height="91dp"
         android:layout_alignStart="@+id/textViewtapto"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="-96dp"
-        android:layout_marginTop="130dp"
+        android:layout_marginStart="-78dp"
+        android:layout_marginTop="134dp"
         android:text="Jojo Test build"
         android:textSize="36sp" />
 </RelativeLayout>

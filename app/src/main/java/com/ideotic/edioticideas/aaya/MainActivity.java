@@ -13,6 +13,7 @@ import android.net.wifi.WifiManager;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.provider.MediaStore;
 import android.speech.RecognizerIntent;
 import android.speech.tts.TextToSpeech;
 import android.util.Log;
@@ -41,6 +42,7 @@ import static android.content.ContentValues.TAG;
  * Created by Mukul on 13-05-2016.
  */
 public class MainActivity extends Activity implements TextToSpeech.OnInitListener {
+
     Context context = this;
     AudioManager am;
     TextView showUspeak, dateView;
@@ -298,31 +300,31 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
                 }
                 break;
             case Commands.oSetting:
-                Intent Grab = getPackageManager().getLaunchIntentForPackage("com.android.settings");
-                if (Grab != null) {
+                Intent setting = getPackageManager().getLaunchIntentForPackage("com.android.settings");
+                if (setting != null) {
 
-                    startActivity(Grab);//null pointer check in case package name was not found
+                    startActivity(setting);//null pointer check in case package name was not found
                 }
                 break;
             case Commands.oGallery:
-                Intent Grab = getPackageManager().getLaunchIntentForPackage("com.android.gallery3d");
-                if (Grab != null) {
+                Intent gallery = getPackageManager().getLaunchIntentForPackage("com.android.gallery3d");
+                if (gallery != null) {
 
-                    startActivity(Grab);//null pointer check in case package name was not found
+                    startActivity(gallery);//null pointer check in case package name was not found
                 }
                 break;
             case Commands.oCalendar:
-                Intent Grab = getPackageManager().getLaunchIntentForPackage("com.android.calendar");
-                if (Grab != null) {
+                Intent calendar = getPackageManager().getLaunchIntentForPackage("com.android.calendar");
+                if (calendar != null) {
 
-                    startActivity(Grab);//null pointer check in case package name was not found
+                    startActivity(calendar);//null pointer check in case package name was not found
                 }
                 break;
             case Commands.oTerminal:
-                Intent Grab = getPackageManager().getLaunchIntentForPackage("com.android.terminal");
-                if (Grab != null) {
+                Intent terminal = getPackageManager().getLaunchIntentForPackage("com.android.terminal");
+                if (terminal != null) {
 
-                    startActivity(Grab);//null pointer check in case package name was not found
+                    startActivity(terminal);//null pointer check in case package name was not found
                 }
                 break;
                 //gmail "app and website"
@@ -571,12 +573,12 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
             //end of Yahoo
 
             case Commands.oGrab:
-                Intent Grab = getPackageManager().getLaunchIntentForPackage("com.grabtaxi.passenger");
-                if (Grab != null) {
+                Intent Grab1 = getPackageManager().getLaunchIntentForPackage("com.grabtaxi.passenger");
+                if (Grab1 != null) {
 
-                    startActivity(Grab);//null pointer check in case package name was not found
+                    startActivity(Grab1);//null pointer check in case package name was not found
                 }
-                else if (Grab == null) {
+                else if (Grab1 == null) {
                     Toast.makeText(getBaseContext(), "Grab App is not installed, Redirect to Play Store !!", Toast.LENGTH_SHORT).show();
                     Intent webPS = new Intent();
                     webPS.setAction(Intent.ACTION_VIEW);
@@ -697,6 +699,50 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
                 openwiki.setData(Uri.parse("http://www.wikipedia.com"));
                 startActivity(openwiki);
             break;
+            //start of experimental feature
+            case Commands.instantPicandPrev:
+                Intent quckpic = getPackageManager().getLaunchIntentForPackage("org.cyanogenmod.snap");
+                if (quckpic != null) {
+
+                    startActivity(quckpic);//null pointer check in case package name was not found
+                    try {
+                        Runtime.getRuntime().exec(new String[]{"/sbin/su", "-c", "sleep 1; input tap 606 1664; sleep 1; input tap 180 1653; sleep .5; input tap 590 957;"});
+                        // Runtime.getRuntime().exec(new String[]{"/sbin/su", "-c", "input tap 606 1664"});
+                    } catch (Exception ex) {
+                        Log.e(TAG, "Error ", ex);
+                    }
+
+                }
+                break;
+            case Commands.takeApic:
+                Intent takeApic = getPackageManager().getLaunchIntentForPackage("org.cyanogenmod.snap");
+
+                if (takeApic != null) {
+
+                    startActivity(takeApic);//null pointer check in case package name was not found
+                  try {
+                   Runtime.getRuntime().exec(new String[]{"/sbin/su", "-c", "sleep 2; input tap 1052 1675; input tap 1050 1569; sleep .5; input tap 606 1664;"});
+               } catch (Exception ex) {
+                Log.e(TAG, "Error ", ex);
+            }
+
+                }
+                break;
+            case Commands.takeAvid:
+                Intent takeAvid = getPackageManager().getLaunchIntentForPackage("org.cyanogenmod.snap");
+                if (takeAvid != null) {
+
+                    startActivity(takeAvid);//null pointer check in case package name was not found
+                    try {
+                        Runtime.getRuntime().exec(new String[]{"/sbin/su", "-c", "sleep 1; input tap 1059 1675; input tap 1047 1435; sleep .5; input tap 606 1664;"});
+                    } catch (Exception ex) {
+                        Log.e(TAG, "Error ", ex);
+                    }
+
+                }
+                break;
+
+            //end of experimental feature
             default:
                 try {
                     Toast.makeText(getBaseContext(), "Error, Redirect to Google", Toast.LENGTH_SHORT).show();

@@ -41,6 +41,11 @@ public class Commands {
     public static final String oTerminal = "open terminal";
 
 
+    //Experimental Feature
+    public static final String takeApic = "take a picture";
+    public static final String takeAvid = "take a video";
+    public static final String instantPicandPrev = "take a quick picture";
+
     //Open website
     public static final String facebook = "go to Facebook";
     public static final String twitter = "go to Twitter";

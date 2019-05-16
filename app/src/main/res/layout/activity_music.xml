@@ -64,7 +64,7 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="20dp"
-        android:text="To Stop Music Tap Centre"
+        android:text="Tap at the center to stop music"
         android:textColor="@color/white" />
 
     <SeekBar
