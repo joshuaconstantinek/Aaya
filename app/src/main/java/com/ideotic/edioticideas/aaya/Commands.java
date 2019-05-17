@@ -45,6 +45,10 @@ public class Commands {
     public static final String takeApic = "take a picture";
     public static final String takeAvid = "take a video";
     public static final String instantPicandPrev = "take a quick picture";
+    public static final String lowscreenbright = "make it dark";
+    public static final String maxscreenbright = "make it bright";
+    public static final String balancescreenbright = "make it balance";
+    public static final String javascript = "test JavaScript";
 
     //Open website
     public static final String facebook = "go to Facebook";

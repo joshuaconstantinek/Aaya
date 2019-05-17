@@ -5,6 +5,7 @@ import android.app.FragmentManager;
 import android.app.SearchManager;
 import android.bluetooth.BluetoothAdapter;
 import android.content.ActivityNotFoundException;
+import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -13,11 +14,12 @@ import android.net.wifi.WifiManager;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
-import android.provider.MediaStore;
+import android.provider.Settings;
 import android.speech.RecognizerIntent;
 import android.speech.tts.TextToSpeech;
 import android.util.Log;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
@@ -25,14 +27,12 @@ import android.widget.Toast;
 import android.net.Uri;
 import org.xml.sax.InputSource;
 import org.xml.sax.XMLReader;
-
 import java.net.URL;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Locale;
-
 import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
 
@@ -68,7 +68,9 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+//
 
+//
 
         am = (AudioManager)getSystemService(Context.AUDIO_SERVICE);
         f = getFragmentManager();
@@ -91,6 +93,12 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
         //Welcome
         showUspeak.setText(welcome);
         tts.speak(welcome, TextToSpeech.QUEUE_FLUSH, null);
+
+            try {
+                Runtime.getRuntime().exec(new String[]{"/sbin/su", "-c", "sleep 3.5; input tap 596 971"});
+            } catch (Exception ex) {
+                Log.e(TAG, "Error ", ex);
+            }
 
 
         speak.setOnClickListener(new View.OnClickListener() {
@@ -669,7 +677,7 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
             case Commands.selfdestruction:
                 try {
                     Toast.makeText(getBaseContext(), "Self Destruct !!", Toast.LENGTH_SHORT).show();
-                    Runtime.getRuntime().exec(new String[]{"/sbin/su", "-c", "am force-stop com.ideotic.edioticideas.aaya"});
+                    Runtime.getRuntime().exec(new String[]{"/sbin/su", "-c", "sleep 1; am force-stop com.ideotic.edioticideas.aaya"});
                 } catch (Exception ex) {
                     Log.e(TAG, "Error ", ex);
                 }
@@ -741,8 +749,28 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
 
                 }
                 break;
-
-            //end of experimental feature
+            case Commands.lowscreenbright:
+                try {
+                    Runtime.getRuntime().exec(new String[]{"/sbin/su", "-c", "input swipe 0 0 550 1743; input swipe 0 0 665 1069; input tap 289 224; input tap 1126 1433;"});
+                } catch (Exception ex) {
+                    Log.e(TAG, "Error ", ex);
+                }
+                break;
+            case Commands.maxscreenbright:
+                try {
+                    Runtime.getRuntime().exec(new String[]{"/sbin/su", "-c", "input swipe 0 0 550 1743; sleep .5; input swipe 0 0 665 1069; input tap 950 217; input tap 1126 1433;"});
+                } catch (Exception ex) {
+                    Log.e(TAG, "Error ", ex);
+                }
+            case Commands.balancescreenbright:
+                try {
+                    Runtime.getRuntime().exec(new String[]{"/sbin/su", "-c", "input swipe 0 0 550 1743; sleep .5; input swipe 0 0 665 1069; input tap 612 212; input tap 1126 1433;"});
+                } catch (Exception ex) {
+                    Log.e(TAG, "Error ", ex);
+                }
+            case Commands.javascript:
+                break;
+                //end of experimental feature
             default:
                 try {
                     Toast.makeText(getBaseContext(), "Error, Redirect to Google", Toast.LENGTH_SHORT).show();
