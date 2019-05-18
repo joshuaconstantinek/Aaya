@@ -1,12 +1,14 @@
 package com.ideotic.edioticideas.aaya;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.FragmentManager;
 import android.app.SearchManager;
 import android.bluetooth.BluetoothAdapter;
 import android.content.ActivityNotFoundException;
 import android.content.ContentResolver;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.media.AudioManager;
@@ -123,6 +125,7 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
 
 
 
+
     private void launchModule(String commandTolaunch) {
         switch (commandTolaunch) {
             case Commands.mailModule:
@@ -184,6 +187,37 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
                 if (launchIntent1 != null) {
                     startActivity(launchIntent1);//null pointer check in case package name was not found
                 }
+                else if (launchIntent1 == null){
+                    DialogInterface.OnClickListener dialogClickListener = new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            switch (which){
+                                case DialogInterface.BUTTON_POSITIVE:
+                                    try
+                                    {
+                                        Runtime.getRuntime().exec(new String[]{"/sbin/su", "-c", "sleep 1; input tap 1000 524"});
+                                    } catch (Exception ex) {
+                                        Log.e(TAG, "Error ", ex);
+                                    }
+                                    Toast.makeText(getBaseContext(), "Downloading Turbo VPN app !", Toast.LENGTH_SHORT).show();
+                                    Intent webPS = new Intent();
+                                    webPS.setAction(Intent.ACTION_VIEW);
+                                    webPS.addCategory(Intent.CATEGORY_BROWSABLE);
+                                    webPS.setData(Uri.parse("http://play.google.com/store/apps/details?id=free.vpn.unblock.proxy.turbovpn"));
+                                    startActivity(webPS);
+                                    break;
+
+                                case DialogInterface.BUTTON_NEGATIVE:
+                                    //No button clicked
+                                    break;
+                            }
+                        }
+                    };
+
+                    AlertDialog.Builder builder = new AlertDialog.Builder(context);
+                    builder.setMessage("VPN isn't installed , Download VPN App ?").setPositiveButton("Yes", dialogClickListener)
+                            .setNegativeButton("No", dialogClickListener).show();
+                }
                 break;
             case Commands.sendMSG:
                 //Toast.makeText(getBaseContext(), "Choose Contatcs", Toast.LENGTH_SHORT).show();
@@ -223,12 +257,36 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
                     startActivity(launchIntentoig);//null pointer check in case package name was not found
                 }
                 else if (launchIntentoig == null) {
-                    Toast.makeText(getBaseContext(), "Instagram App is not installed, Redirect to Play Store !!", Toast.LENGTH_SHORT).show();
-                    Intent webPS = new Intent();
-                    webPS.setAction(Intent.ACTION_VIEW);
-                    webPS.addCategory(Intent.CATEGORY_BROWSABLE);
-                    webPS.setData(Uri.parse("http://play.google.com/store/apps/details?id=com.instagram.android"));
-                    startActivity(webPS);
+                    DialogInterface.OnClickListener dialogClickListener = new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            switch (which){
+                                case DialogInterface.BUTTON_POSITIVE:
+                                    try
+                                    {
+                                        Runtime.getRuntime().exec(new String[]{"/sbin/su", "-c", "sleep 1; input tap 1000 524"});
+                                    } catch (Exception ex) {
+                                        Log.e(TAG, "Error ", ex);
+                                    }
+                                    Toast.makeText(getBaseContext(), "Downloading Instagram app !", Toast.LENGTH_SHORT).show();
+                                    Intent webPS = new Intent();
+                                    webPS.setAction(Intent.ACTION_VIEW);
+                                    webPS.addCategory(Intent.CATEGORY_BROWSABLE);
+                                    webPS.setData(Uri.parse("http://play.google.com/store/apps/details?id=com.instagram.android"));
+                                    startActivity(webPS);
+                                    break;
+
+                                case DialogInterface.BUTTON_NEGATIVE:
+                                    //No button clicked
+                                    break;
+                            }
+                        }
+                    };
+
+                    AlertDialog.Builder builder = new AlertDialog.Builder(context);
+                    builder.setMessage("Instagram isn't installed , Download Instagram App ?").setPositiveButton("Yes", dialogClickListener)
+                            .setNegativeButton("No", dialogClickListener).show();
+
 
                 }
                 break;
@@ -240,12 +298,36 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
                     startActivity(launchIntentoSC);//null pointer check in case package name was not found
                 }
                 else if (launchIntentoSC == null) {
-                    Toast.makeText(getBaseContext(), "Snapchat App is not installed, Redirect to Play Store !!", Toast.LENGTH_SHORT).show();
-                    Intent webPS = new Intent();
-                    webPS.setAction(Intent.ACTION_VIEW);
-                    webPS.addCategory(Intent.CATEGORY_BROWSABLE);
-                    webPS.setData(Uri.parse("http://play.google.com/store/apps/details?id=com.snapchat.android"));
-                    startActivity(webPS);
+                    DialogInterface.OnClickListener dialogforsnapchat = new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            switch (which){
+                                case DialogInterface.BUTTON_POSITIVE:
+                                    try
+                                    {
+                                        Runtime.getRuntime().exec(new String[]{"/sbin/su", "-c", "sleep 1; input tap 1000 524"});
+                                    } catch (Exception ex) {
+                                        Log.e(TAG, "Error ", ex);
+                                    }
+                                    Toast.makeText(getBaseContext(), "Snapchat App is not installed, Redirect to Play Store !!", Toast.LENGTH_SHORT).show();
+                                    Intent webPS = new Intent();
+                                    webPS.setAction(Intent.ACTION_VIEW);
+                                    webPS.addCategory(Intent.CATEGORY_BROWSABLE);
+                                    webPS.setData(Uri.parse("http://play.google.com/store/apps/details?id=com.snapchat.android"));
+                                    startActivity(webPS);
+                                    break;
+
+                                case DialogInterface.BUTTON_NEGATIVE:
+                                    //No button clicked
+                                    break;
+                            }
+                        }
+                    };
+
+                    AlertDialog.Builder builder = new AlertDialog.Builder(context);
+                    builder.setMessage("Snapchat isn't installed , Download Snapchat App ?").setPositiveButton("Yes", dialogforsnapchat)
+                            .setNegativeButton("No", dialogforsnapchat).show();
+                    
 
                 }
                 break;
@@ -257,12 +339,36 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
                     startActivity(launchIntentofb);//null pointer check in case package name was not found
                 }
                 else if (launchIntentofb == null) {
-                    Toast.makeText(getBaseContext(), "Facebook App is not installed, Redirect to Play Store !!", Toast.LENGTH_SHORT).show();
-                    Intent webPS = new Intent();
-                    webPS.setAction(Intent.ACTION_VIEW);
-                    webPS.addCategory(Intent.CATEGORY_BROWSABLE);
-                    webPS.setData(Uri.parse("http://play.google.com/store/apps/details?id=com.facebook.katana"));
-                    startActivity(webPS);
+                    DialogInterface.OnClickListener dialogClickListener = new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            switch (which){
+                                case DialogInterface.BUTTON_POSITIVE:
+                                    try
+                                    {
+                                        Runtime.getRuntime().exec(new String[]{"/sbin/su", "-c", "sleep 1; input tap 1000 524"});
+                                    } catch (Exception ex) {
+                                        Log.e(TAG, "Error ", ex);
+                                    }
+                                    Toast.makeText(getBaseContext(), "Downloading Facebook app !", Toast.LENGTH_SHORT).show();
+                                    Intent webPS = new Intent();
+                                    webPS.setAction(Intent.ACTION_VIEW);
+                                    webPS.addCategory(Intent.CATEGORY_BROWSABLE);
+                                    webPS.setData(Uri.parse("http://play.google.com/store/apps/details?id=com.facebook.katana"));
+                                    startActivity(webPS);
+                                    break;
+
+                                case DialogInterface.BUTTON_NEGATIVE:
+                                    //No button clicked
+                                    break;
+                            }
+                        }
+                    };
+
+                    AlertDialog.Builder builder = new AlertDialog.Builder(context);
+                    builder.setMessage("Facebook isn't installed , Download Facebook App ?").setPositiveButton("Yes", dialogClickListener)
+                            .setNegativeButton("No", dialogClickListener).show();
+
 
                 }
                 break;
@@ -283,12 +389,36 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
                     startActivity(launchIntentotw);//null pointer check in case package name was not found
                 }
                 else if (launchIntentotw == null) {
-                    Toast.makeText(getBaseContext(), "Twitter App is not installed, Redirect to Play Store !!", Toast.LENGTH_SHORT).show();
-                    Intent webPS = new Intent();
-                    webPS.setAction(Intent.ACTION_VIEW);
-                    webPS.addCategory(Intent.CATEGORY_BROWSABLE);
-                    webPS.setData(Uri.parse("http://play.google.com/store/apps/details?id=com.twitter.android"));
-                    startActivity(webPS);
+                    DialogInterface.OnClickListener dialogClickListener = new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            switch (which){
+                                case DialogInterface.BUTTON_POSITIVE:
+                                    try
+                                    {
+                                        Runtime.getRuntime().exec(new String[]{"/sbin/su", "-c", "sleep 1; input tap 1000 524"});
+                                    } catch (Exception ex) {
+                                        Log.e(TAG, "Error ", ex);
+                                    }
+                                    Toast.makeText(getBaseContext(), "Downloading Twitter app !", Toast.LENGTH_SHORT).show();
+                                    Intent webPS = new Intent();
+                                    webPS.setAction(Intent.ACTION_VIEW);
+                                    webPS.addCategory(Intent.CATEGORY_BROWSABLE);
+                                    webPS.setData(Uri.parse("http://play.google.com/store/apps/details?id=com.twitter.android"));
+                                    startActivity(webPS);
+                                    break;
+
+                                case DialogInterface.BUTTON_NEGATIVE:
+                                    //No button clicked
+                                    break;
+                            }
+                        }
+                    };
+
+                    AlertDialog.Builder builder = new AlertDialog.Builder(context);
+                    builder.setMessage("Twitter isn't installed , Download Twitter App ?").setPositiveButton("Yes", dialogClickListener)
+                            .setNegativeButton("No", dialogClickListener).show();
+
 
                 }
                 break;
@@ -367,6 +497,37 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
                 if (launchIntent7 != null) {
                     startActivity(launchIntent7);//null pointer check in case package name was not found
                 }
+                else if(launchIntent7 == null){
+                    DialogInterface.OnClickListener dialogClickListener = new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            switch (which){
+                                case DialogInterface.BUTTON_POSITIVE:
+                                    try
+                                    {
+                                        Runtime.getRuntime().exec(new String[]{"/sbin/su", "-c", "sleep 1; input tap 1000 524"});
+                                    } catch (Exception ex) {
+                                        Log.e(TAG, "Error ", ex);
+                                    }
+                                    Toast.makeText(getBaseContext(), "Downloading Discord app !", Toast.LENGTH_SHORT).show();
+                                    Intent webPS = new Intent();
+                                    webPS.setAction(Intent.ACTION_VIEW);
+                                    webPS.addCategory(Intent.CATEGORY_BROWSABLE);
+                                    webPS.setData(Uri.parse("http://play.google.com/store/apps/details?id=com.discord"));
+                                    startActivity(webPS);
+                                    break;
+
+                                case DialogInterface.BUTTON_NEGATIVE:
+                                    //No button clicked
+                                    break;
+                            }
+                        }
+                    };
+
+                    AlertDialog.Builder builder = new AlertDialog.Builder(context);
+                    builder.setMessage("Discord isn't installed , Download Discord App ?").setPositiveButton("Yes", dialogClickListener)
+                            .setNegativeButton("No", dialogClickListener).show();
+                }
                 break;
             case Commands.oGdrive:
                 Intent launchIntent8 = getPackageManager().getLaunchIntentForPackage("com.google.android.apps.docs");
@@ -381,12 +542,36 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
                     startActivity(launchIntentotg);//null pointer check in case package name was not found
                 }
                 else if (launchIntentotg == null) {
-                    Toast.makeText(getBaseContext(), "Telegram App is not installed, Redirect to Play Store !!", Toast.LENGTH_SHORT).show();
-                    Intent webPS = new Intent();
-                    webPS.setAction(Intent.ACTION_VIEW);
-                    webPS.addCategory(Intent.CATEGORY_BROWSABLE);
-                    webPS.setData(Uri.parse("http://play.google.com/store/apps/details?id=org.telegram.messenger"));
-                    startActivity(webPS);
+                    DialogInterface.OnClickListener dialogfortelegram = new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            switch (which){
+                                case DialogInterface.BUTTON_POSITIVE:
+                                    try
+                                    {
+                                        Runtime.getRuntime().exec(new String[]{"/sbin/su", "-c", "sleep 1; input tap 1000 524"});
+                                    } catch (Exception ex) {
+                                        Log.e(TAG, "Error ", ex);
+                                    }
+                                    Toast.makeText(getBaseContext(), "Downloading Telegram app !", Toast.LENGTH_SHORT).show();
+                                    Intent webPS = new Intent();
+                                    webPS.setAction(Intent.ACTION_VIEW);
+                                    webPS.addCategory(Intent.CATEGORY_BROWSABLE);
+                                    webPS.setData(Uri.parse("http://play.google.com/store/apps/details?id=org.telegram.messenger"));
+                                    startActivity(webPS);
+                                    break;
+
+                                case DialogInterface.BUTTON_NEGATIVE:
+                                    //No button clicked
+                                    break;
+                            }
+                        }
+                    };
+
+                    AlertDialog.Builder builder = new AlertDialog.Builder(context);
+                    builder.setMessage("Telegram isn't installed , Download Telegram App ?").setPositiveButton("Yes", dialogfortelegram)
+                            .setNegativeButton("No", dialogfortelegram).show();
+                    
 
                 }
                 break;
@@ -399,12 +584,36 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
                     startActivity(launchIntentoyt);//null pointer check in case package name was not found
                 }
                 else if (launchIntentoyt == null) {
-                    Toast.makeText(getBaseContext(), "Youtube App is not installed, Redirect to Play Store !!", Toast.LENGTH_SHORT).show();
-                    Intent webPS = new Intent();
-                    webPS.setAction(Intent.ACTION_VIEW);
-                    webPS.addCategory(Intent.CATEGORY_BROWSABLE);
-                    webPS.setData(Uri.parse("http://play.google.com/store/apps/details?id=com.google.android.youtube"));
-                    startActivity(webPS);
+                    DialogInterface.OnClickListener dialogforyoutube = new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            switch (which){
+                                case DialogInterface.BUTTON_POSITIVE:
+                                    try
+                                    {
+                                        Runtime.getRuntime().exec(new String[]{"/sbin/su", "-c", "sleep 1; input tap 1000 524"});
+                                    } catch (Exception ex) {
+                                        Log.e(TAG, "Error ", ex);
+                                    }
+                                    Toast.makeText(getBaseContext(), "Youtube App is not installed, Redirect to Play Store !!", Toast.LENGTH_SHORT).show();
+                                    Intent webPS = new Intent();
+                                    webPS.setAction(Intent.ACTION_VIEW);
+                                    webPS.addCategory(Intent.CATEGORY_BROWSABLE);
+                                    webPS.setData(Uri.parse("http://play.google.com/store/apps/details?id=com.google.android.youtube"));
+                                    startActivity(webPS);
+                                    break;
+
+                                case DialogInterface.BUTTON_NEGATIVE:
+                                    //No button clicked
+                                    break;
+                            }
+                        }
+                    };
+
+                    AlertDialog.Builder builder = new AlertDialog.Builder(context);
+                    builder.setMessage("Youtube isn't installed , Download Youtube App ?").setPositiveButton("Yes", dialogforyoutube)
+                            .setNegativeButton("No", dialogforyoutube).show();
+                    
 
                 }
                 break;
@@ -424,12 +633,36 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
                     startActivity(launchIntentonf);//null pointer check in case package name was not found
                 }
                 else if (launchIntentonf == null) {
-                    Toast.makeText(getBaseContext(), "Netflix App is not installed, Redirect to Play Store !!", Toast.LENGTH_SHORT).show();
-                    Intent webPS = new Intent();
-                    webPS.setAction(Intent.ACTION_VIEW);
-                    webPS.addCategory(Intent.CATEGORY_BROWSABLE);
-                    webPS.setData(Uri.parse("http://play.google.com/store/apps/details?id=com.netflix.mediaclient"));
-                    startActivity(webPS);
+                    DialogInterface.OnClickListener dialogfornetflix = new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            switch (which){
+                                case DialogInterface.BUTTON_POSITIVE:
+                                    try
+                                    {
+                                        Runtime.getRuntime().exec(new String[]{"/sbin/su", "-c", "sleep 1; input tap 1000 524"});
+                                    } catch (Exception ex) {
+                                        Log.e(TAG, "Error ", ex);
+                                    }
+                                    Toast.makeText(getBaseContext(), "Downloading Netflix app !", Toast.LENGTH_SHORT).show();
+                                    Intent webPS = new Intent();
+                                    webPS.setAction(Intent.ACTION_VIEW);
+                                    webPS.addCategory(Intent.CATEGORY_BROWSABLE);
+                                    webPS.setData(Uri.parse("http://play.google.com/store/apps/details?id=com.netflix.mediaclient"));
+                                    startActivity(webPS);
+
+                                    break;
+
+                                case DialogInterface.BUTTON_NEGATIVE:
+                                    //No button clicked
+                                    break;
+                            }
+                        }
+                    };
+
+                    AlertDialog.Builder builder = new AlertDialog.Builder(context);
+                    builder.setMessage("Netflix isn't installed , Download Netflix App ?").setPositiveButton("Yes", dialogfornetflix)
+                            .setNegativeButton("No", dialogfornetflix).show();
 
                 }
                 break;
@@ -441,12 +674,36 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
                     startActivity(tokopedia);//null pointer check in case package name was not found
                 }
                 else if (tokopedia == null) {
-                    Toast.makeText(getBaseContext(), "Tokopedia App is not installed, Redirect to Play Store !!", Toast.LENGTH_SHORT).show();
-                    Intent webPS = new Intent();
-                    webPS.setAction(Intent.ACTION_VIEW);
-                    webPS.addCategory(Intent.CATEGORY_BROWSABLE);
-                    webPS.setData(Uri.parse("http://play.google.com/store/apps/details?id=com.tokopedia.tkpd"));
-                    startActivity(webPS);
+                    DialogInterface.OnClickListener dialogfortokopedia = new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            switch (which){
+                                case DialogInterface.BUTTON_POSITIVE:
+                                    try
+                                    {
+                                        Runtime.getRuntime().exec(new String[]{"/sbin/su", "-c", "sleep 1; input tap 1000 524"});
+                                    } catch (Exception ex) {
+                                        Log.e(TAG, "Error ", ex);
+                                    }
+                                    Toast.makeText(getBaseContext(), "Downloading Tokopedia app !", Toast.LENGTH_SHORT).show();
+                                    Intent webPS = new Intent();
+                                    webPS.setAction(Intent.ACTION_VIEW);
+                                    webPS.addCategory(Intent.CATEGORY_BROWSABLE);
+                                    webPS.setData(Uri.parse("http://play.google.com/store/apps/details?id=com.tokopedia.tkpd"));
+                                    startActivity(webPS);
+                                    break;
+
+                                case DialogInterface.BUTTON_NEGATIVE:
+                                    //No button clicked
+                                    break;
+                            }
+                        }
+                    };
+
+                    AlertDialog.Builder builder = new AlertDialog.Builder(context);
+                    builder.setMessage("Tokopedia isn't installed , Download Tokopedia App ?").setPositiveButton("Yes", dialogfortokopedia)
+                            .setNegativeButton("No", dialogfortokopedia).show();
+
 
                 }
                 break;
@@ -467,12 +724,35 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
                     startActivity(bukalapak);//null pointer check in case package name was not found
                 }
                 else if (bukalapak == null) {
-                    Toast.makeText(getBaseContext(), "bukalapak App is not installed, Redirect to Play Store !!", Toast.LENGTH_SHORT).show();
-                    Intent webPS = new Intent();
-                    webPS.setAction(Intent.ACTION_VIEW);
-                    webPS.addCategory(Intent.CATEGORY_BROWSABLE);
-                    webPS.setData(Uri.parse("http://play.google.com/store/apps/details?id=com.bukalapak.android"));
-                    startActivity(webPS);
+                    DialogInterface.OnClickListener dialogClickListener = new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            switch (which){
+                                case DialogInterface.BUTTON_POSITIVE:
+                                    try
+                                    {
+                                        Runtime.getRuntime().exec(new String[]{"/sbin/su", "-c", "sleep 1; input tap 1000 524"});
+                                    } catch (Exception ex) {
+                                        Log.e(TAG, "Error ", ex);
+                                    }
+                                    Toast.makeText(getBaseContext(), "Downloading BukaLapak app !", Toast.LENGTH_SHORT).show();
+                                    Intent webPS = new Intent();
+                                    webPS.setAction(Intent.ACTION_VIEW);
+                                    webPS.addCategory(Intent.CATEGORY_BROWSABLE);
+                                    webPS.setData(Uri.parse("http://play.google.com/store/apps/details?id=com.bukalapak.android"));
+                                    startActivity(webPS);
+                                    break;
+
+                                case DialogInterface.BUTTON_NEGATIVE:
+                                    //No button clicked
+                                    break;
+                            }
+                        }
+                    };
+
+                    AlertDialog.Builder builder = new AlertDialog.Builder(context);
+                    builder.setMessage("Bukalapak isn't installed , Download Bukalapak App ?").setPositiveButton("Yes", dialogClickListener)
+                            .setNegativeButton("No", dialogClickListener).show();
 
                 }
                 break;
@@ -493,12 +773,36 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
                     startActivity(blibli);//null pointer check in case package name was not found
                 }
                 else if (blibli == null) {
-                    Toast.makeText(getBaseContext(), "Bli Bli App is not installed, Redirect to Play Store !!", Toast.LENGTH_SHORT).show();
-                    Intent webPS = new Intent();
-                    webPS.setAction(Intent.ACTION_VIEW);
-                    webPS.addCategory(Intent.CATEGORY_BROWSABLE);
-                    webPS.setData(Uri.parse("http://play.google.com/store/apps/details?id=blibli.mobile.commerce"));
-                    startActivity(webPS);
+                    DialogInterface.OnClickListener dialogforblibli = new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            switch (which){
+                                case DialogInterface.BUTTON_POSITIVE:
+                                    try
+                                    {
+                                        Runtime.getRuntime().exec(new String[]{"/sbin/su", "-c", "sleep 1; input tap 1000 524"});
+                                    } catch (Exception ex) {
+                                        Log.e(TAG, "Error ", ex);
+                                    }
+                                    Toast.makeText(getBaseContext(), "Downloading Bli Bli app !", Toast.LENGTH_SHORT).show();
+                                    Intent webPS = new Intent();
+                                    webPS.setAction(Intent.ACTION_VIEW);
+                                    webPS.addCategory(Intent.CATEGORY_BROWSABLE);
+                                    webPS.setData(Uri.parse("http://play.google.com/store/apps/details?id=blibli.mobile.commerce"));
+                                    startActivity(webPS);
+
+                                    break;
+
+                                case DialogInterface.BUTTON_NEGATIVE:
+                                    //No button clicked
+                                    break;
+                            }
+                        }
+                    };
+
+                    AlertDialog.Builder builder = new AlertDialog.Builder(context);
+                    builder.setMessage("blibli isn't installed , Download blibli App ?").setPositiveButton("Yes", dialogforblibli)
+                            .setNegativeButton("No", dialogforblibli).show();
 
                 }
                 break;
@@ -518,12 +822,35 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
                     startActivity(gojek);//null pointer check in case package name was not found
                 }
                 else if (gojek == null) {
-                    Toast.makeText(getBaseContext(), "Gojek App is not installed, Redirect to Play Store !!", Toast.LENGTH_SHORT).show();
-                    Intent webPS = new Intent();
-                    webPS.setAction(Intent.ACTION_VIEW);
-                    webPS.addCategory(Intent.CATEGORY_BROWSABLE);
-                    webPS.setData(Uri.parse("http://play.google.com/store/apps/details?id=com.gojek.app"));
-                    startActivity(webPS);
+                    DialogInterface.OnClickListener dialogforgojek = new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            switch (which){
+                                case DialogInterface.BUTTON_POSITIVE:
+                                    try
+                                    {
+                                        Runtime.getRuntime().exec(new String[]{"/sbin/su", "-c", "sleep 1; input tap 1000 524"});
+                                    } catch (Exception ex) {
+                                        Log.e(TAG, "Error ", ex);
+                                    }
+                                    Toast.makeText(getBaseContext(), "Downloading Gojek app !", Toast.LENGTH_SHORT).show();
+                                    Intent webPS = new Intent();
+                                    webPS.setAction(Intent.ACTION_VIEW);
+                                    webPS.addCategory(Intent.CATEGORY_BROWSABLE);
+                                    webPS.setData(Uri.parse("http://play.google.com/store/apps/details?id=com.gojek.app"));
+                                    startActivity(webPS);
+                                    break;
+
+                                case DialogInterface.BUTTON_NEGATIVE:
+                                    //No button clicked
+                                    break;
+                            }
+                        }
+                    };
+
+                    AlertDialog.Builder builder = new AlertDialog.Builder(context);
+                    builder.setMessage("Gojek isn't installed , Download Gojek App ?").setPositiveButton("Yes", dialogforgojek)
+                            .setNegativeButton("No", dialogforgojek).show();
 
                 }
                 break;
@@ -536,12 +863,36 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
                     startActivity(Amazon);//null pointer check in case package name was not found
                 }
                 else if (Amazon == null) {
-                    Toast.makeText(getBaseContext(), "Amazon App is not installed, Redirect to Play Store !!", Toast.LENGTH_SHORT).show();
-                    Intent webPS = new Intent();
-                    webPS.setAction(Intent.ACTION_VIEW);
-                    webPS.addCategory(Intent.CATEGORY_BROWSABLE);
-                    webPS.setData(Uri.parse("http://play.google.com/store/apps/details?id=com.amazon.mShop.android.shopping"));
-                    startActivity(webPS);
+                    DialogInterface.OnClickListener dialogforamazon = new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            switch (which){
+                                case DialogInterface.BUTTON_POSITIVE:
+                                    try
+                                    {
+                                        Runtime.getRuntime().exec(new String[]{"/sbin/su", "-c", "sleep 1; input tap 1000 524"});
+                                    } catch (Exception ex) {
+                                        Log.e(TAG, "Error ", ex);
+                                    }
+                                    Toast.makeText(getBaseContext(), "Downloading Amazon app !", Toast.LENGTH_SHORT).show();
+                                    Intent webPS = new Intent();
+                                    webPS.setAction(Intent.ACTION_VIEW);
+                                    webPS.addCategory(Intent.CATEGORY_BROWSABLE);
+                                    webPS.setData(Uri.parse("http://play.google.com/store/apps/details?id=com.amazon.mShop.android.shopping"));
+                                    startActivity(webPS);
+
+                                    break;
+
+                                case DialogInterface.BUTTON_NEGATIVE:
+                                    //No button clicked
+                                    break;
+                            }
+                        }
+                    };
+
+                    AlertDialog.Builder builder = new AlertDialog.Builder(context);
+                    builder.setMessage("Amazon isn't installed , Download Amazon App ?").setPositiveButton("Yes", dialogforamazon)
+                            .setNegativeButton("No", dialogforamazon).show();
 
                 }
                 break;
@@ -562,12 +913,36 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
                     startActivity(yahoo);//null pointer check in case package name was not found
                 }
                 else if (yahoo == null) {
-                    Toast.makeText(getBaseContext(), "Yahoo mail App is not installed, Redirect to Play Store !!", Toast.LENGTH_SHORT).show();
-                    Intent webPS = new Intent();
-                    webPS.setAction(Intent.ACTION_VIEW);
-                    webPS.addCategory(Intent.CATEGORY_BROWSABLE);
-                    webPS.setData(Uri.parse("http://play.google.com/store/apps/details?id=com.yahoo.mobile.client.android.mail"));
-                    startActivity(webPS);
+                    DialogInterface.OnClickListener dialogforyahoo = new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            switch (which){
+                                case DialogInterface.BUTTON_POSITIVE:
+                                    try
+                                    {
+                                        Runtime.getRuntime().exec(new String[]{"/sbin/su", "-c", "sleep 1; input tap 1000 524"});
+                                    } catch (Exception ex) {
+                                        Log.e(TAG, "Error ", ex);
+                                    }
+                                    Toast.makeText(getBaseContext(), "Downloading Yahoo Mail app !", Toast.LENGTH_SHORT).show();
+                                    Intent webPS = new Intent();
+                                    webPS.setAction(Intent.ACTION_VIEW);
+                                    webPS.addCategory(Intent.CATEGORY_BROWSABLE);
+                                    webPS.setData(Uri.parse("http://play.google.com/store/apps/details?id=com.yahoo.mobile.client.android.mail"));
+                                    startActivity(webPS);
+                                    break;
+
+                                case DialogInterface.BUTTON_NEGATIVE:
+                                    //No button clicked
+                                    break;
+                            }
+                        }
+                    };
+                    AlertDialog.Builder builder = new AlertDialog.Builder(context);
+                    builder.setMessage("Yahoo mail isn't installed , Download Yahoo Mail App ?").setPositiveButton("Yes", dialogforyahoo)
+                            .setNegativeButton("No", dialogforyahoo).show();
+
+
 
                 }
                 break;
@@ -693,7 +1068,7 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
             case Commands.rebootRecovery:
                 try {
                     Toast.makeText(getBaseContext(), "Rebooting !!", Toast.LENGTH_SHORT).show();
-                    Runtime.getRuntime().exec(new String[]{"/sbin/su", "-c", "reboot recovery"});
+                    Runtime.getRuntime().exec(new String[]{"/sbin/su", "-c", "sleep .5; reboot recovery"});
                 } catch (Exception ex) {
                     Log.e(TAG, "Error ", ex);
                 }
@@ -757,8 +1132,9 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
                 }
                 break;
             case Commands.maxscreenbright:
+
                 try {
-                    Runtime.getRuntime().exec(new String[]{"/sbin/su", "-c", "input swipe 0 0 550 1743; sleep .5; input swipe 0 0 665 1069; input tap 950 217; input tap 1126 1433;"});
+                    Runtime.getRuntime().exec(new String[]{"/sbin/su", "-c", "input swipe 0 0 550 1743; sleep .5; input swipe 0 0 665 1069; input tap 950 224; input tap 1126 1433;"});
                 } catch (Exception ex) {
                     Log.e(TAG, "Error ", ex);
                 }
