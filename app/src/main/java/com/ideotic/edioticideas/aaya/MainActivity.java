@@ -6,7 +6,6 @@ import android.app.FragmentManager;
 import android.app.SearchManager;
 import android.bluetooth.BluetoothAdapter;
 import android.content.ActivityNotFoundException;
-import android.content.ContentResolver;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -16,12 +15,10 @@ import android.net.wifi.WifiManager;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
-import android.provider.Settings;
 import android.speech.RecognizerIntent;
 import android.speech.tts.TextToSpeech;
 import android.util.Log;
 import android.view.View;
-import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
@@ -55,7 +52,7 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
     boolean check = false;
     private final int REQ_CODE = 100;
     private TextToSpeech tts;
-    String welcome, date , myname,silent,salah;
+    String welcome, date , myname;
 
     String city = "jabalpur", country = "India";
     final String baseUrl = "https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20weather.forecast%20where%20woeid%20in%20(select%20woeid%20from%20geo.places(1)%20where%20text%3D%22" +
@@ -79,8 +76,6 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
         welcome = "Hi " + preferences.getString(Needs.NAME, " ") + " what can i do for u today ? ";
         myname = "Hello your name is " + preferences.getString(Needs.NAME, " ") + " Have a good day " + preferences.getString(Needs.NAME, " ") ;
-        salah = "No database " + preferences.getString(Needs.NAME, " ");
-        silent = preferences.getString(Needs.NAME, " ") + " phone has entered silent mode";
         //Grabbing References
         showUspeak = (TextView) findViewById(R.id.textViewShow);
         help = (Button) findViewById(R.id.buttonHelp);
@@ -97,7 +92,7 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
         tts.speak(welcome, TextToSpeech.QUEUE_FLUSH, null);
 
             try {
-                Runtime.getRuntime().exec(new String[]{"/sbin/su", "-c", "sleep 3.5; input tap 596 971"});
+                Runtime.getRuntime().exec(new String[]{"/sbin/su", "-c", "sleep 3; input tap 596 971"});
             } catch (Exception ex) {
                 Log.e(TAG, "Error ", ex);
             }
@@ -195,7 +190,7 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
                                 case DialogInterface.BUTTON_POSITIVE:
                                     try
                                     {
-                                        Runtime.getRuntime().exec(new String[]{"/sbin/su", "-c", "sleep 1; input tap 1000 524"});
+                                        Runtime.getRuntime().exec(new String[]{"/sbin/su", "-c", "sleep 3; input tap 1000 524"});
                                     } catch (Exception ex) {
                                         Log.e(TAG, "Error ", ex);
                                     }
@@ -251,7 +246,6 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
                 break;
             case Commands.oInsta:
                 Intent launchIntentoig = getPackageManager().getLaunchIntentForPackage("com.instagram.android");
-                //Intent launchIntentpsIG = getPackageManager().getLaunchIntentForPackage("com.android.vending");
                 if (launchIntentoig != null) {
 
                     startActivity(launchIntentoig);//null pointer check in case package name was not found
@@ -264,7 +258,7 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
                                 case DialogInterface.BUTTON_POSITIVE:
                                     try
                                     {
-                                        Runtime.getRuntime().exec(new String[]{"/sbin/su", "-c", "sleep 1; input tap 1000 524"});
+                                        Runtime.getRuntime().exec(new String[]{"/sbin/su", "-c", "sleep 3; input tap 1000 524"});
                                     } catch (Exception ex) {
                                         Log.e(TAG, "Error ", ex);
                                     }
@@ -305,7 +299,7 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
                                 case DialogInterface.BUTTON_POSITIVE:
                                     try
                                     {
-                                        Runtime.getRuntime().exec(new String[]{"/sbin/su", "-c", "sleep 1; input tap 1000 524"});
+                                        Runtime.getRuntime().exec(new String[]{"/sbin/su", "-c", "sleep 3; input tap 1000 524"});
                                     } catch (Exception ex) {
                                         Log.e(TAG, "Error ", ex);
                                     }
@@ -346,7 +340,7 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
                                 case DialogInterface.BUTTON_POSITIVE:
                                     try
                                     {
-                                        Runtime.getRuntime().exec(new String[]{"/sbin/su", "-c", "sleep 1; input tap 1000 524"});
+                                        Runtime.getRuntime().exec(new String[]{"/sbin/su", "-c", "sleep 3; input tap 1000 524"});
                                     } catch (Exception ex) {
                                         Log.e(TAG, "Error ", ex);
                                     }
@@ -396,7 +390,7 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
                                 case DialogInterface.BUTTON_POSITIVE:
                                     try
                                     {
-                                        Runtime.getRuntime().exec(new String[]{"/sbin/su", "-c", "sleep 1; input tap 1000 524"});
+                                        Runtime.getRuntime().exec(new String[]{"/sbin/su", "-c", "sleep 3; input tap 1000 524"});
                                     } catch (Exception ex) {
                                         Log.e(TAG, "Error ", ex);
                                     }
@@ -505,7 +499,7 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
                                 case DialogInterface.BUTTON_POSITIVE:
                                     try
                                     {
-                                        Runtime.getRuntime().exec(new String[]{"/sbin/su", "-c", "sleep 1; input tap 1000 524"});
+                                        Runtime.getRuntime().exec(new String[]{"/sbin/su", "-c", "sleep 3; input tap 1000 524"});
                                     } catch (Exception ex) {
                                         Log.e(TAG, "Error ", ex);
                                     }
@@ -549,7 +543,7 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
                                 case DialogInterface.BUTTON_POSITIVE:
                                     try
                                     {
-                                        Runtime.getRuntime().exec(new String[]{"/sbin/su", "-c", "sleep 1; input tap 1000 524"});
+                                        Runtime.getRuntime().exec(new String[]{"/sbin/su", "-c", "sleep 3; input tap 1000 524"});
                                     } catch (Exception ex) {
                                         Log.e(TAG, "Error ", ex);
                                     }
@@ -591,7 +585,7 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
                                 case DialogInterface.BUTTON_POSITIVE:
                                     try
                                     {
-                                        Runtime.getRuntime().exec(new String[]{"/sbin/su", "-c", "sleep 1; input tap 1000 524"});
+                                        Runtime.getRuntime().exec(new String[]{"/sbin/su", "-c", "sleep 3; input tap 1000 524"});
                                     } catch (Exception ex) {
                                         Log.e(TAG, "Error ", ex);
                                     }
@@ -640,7 +634,7 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
                                 case DialogInterface.BUTTON_POSITIVE:
                                     try
                                     {
-                                        Runtime.getRuntime().exec(new String[]{"/sbin/su", "-c", "sleep 1; input tap 1000 524"});
+                                        Runtime.getRuntime().exec(new String[]{"/sbin/su", "-c", "sleep 3; input tap 1000 524"});
                                     } catch (Exception ex) {
                                         Log.e(TAG, "Error ", ex);
                                     }
@@ -681,7 +675,7 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
                                 case DialogInterface.BUTTON_POSITIVE:
                                     try
                                     {
-                                        Runtime.getRuntime().exec(new String[]{"/sbin/su", "-c", "sleep 1; input tap 1000 524"});
+                                        Runtime.getRuntime().exec(new String[]{"/sbin/su", "-c", "sleep 3; input tap 1000 524"});
                                     } catch (Exception ex) {
                                         Log.e(TAG, "Error ", ex);
                                     }
@@ -731,7 +725,7 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
                                 case DialogInterface.BUTTON_POSITIVE:
                                     try
                                     {
-                                        Runtime.getRuntime().exec(new String[]{"/sbin/su", "-c", "sleep 1; input tap 1000 524"});
+                                        Runtime.getRuntime().exec(new String[]{"/sbin/su", "-c", "sleep 3; input tap 1000 524"});
                                     } catch (Exception ex) {
                                         Log.e(TAG, "Error ", ex);
                                     }
@@ -780,7 +774,7 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
                                 case DialogInterface.BUTTON_POSITIVE:
                                     try
                                     {
-                                        Runtime.getRuntime().exec(new String[]{"/sbin/su", "-c", "sleep 1; input tap 1000 524"});
+                                        Runtime.getRuntime().exec(new String[]{"/sbin/su", "-c", "sleep 3; input tap 1000 524"});
                                     } catch (Exception ex) {
                                         Log.e(TAG, "Error ", ex);
                                     }
@@ -829,7 +823,7 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
                                 case DialogInterface.BUTTON_POSITIVE:
                                     try
                                     {
-                                        Runtime.getRuntime().exec(new String[]{"/sbin/su", "-c", "sleep 1; input tap 1000 524"});
+                                        Runtime.getRuntime().exec(new String[]{"/sbin/su", "-c", "sleep 3; input tap 1000 524"});
                                     } catch (Exception ex) {
                                         Log.e(TAG, "Error ", ex);
                                     }
@@ -870,7 +864,7 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
                                 case DialogInterface.BUTTON_POSITIVE:
                                     try
                                     {
-                                        Runtime.getRuntime().exec(new String[]{"/sbin/su", "-c", "sleep 1; input tap 1000 524"});
+                                        Runtime.getRuntime().exec(new String[]{"/sbin/su", "-c", "sleep 3; input tap 1000 524"});
                                     } catch (Exception ex) {
                                         Log.e(TAG, "Error ", ex);
                                     }
@@ -920,7 +914,7 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
                                 case DialogInterface.BUTTON_POSITIVE:
                                     try
                                     {
-                                        Runtime.getRuntime().exec(new String[]{"/sbin/su", "-c", "sleep 1; input tap 1000 524"});
+                                        Runtime.getRuntime().exec(new String[]{"/sbin/su", "-c", "sleep 3; input tap 1000 524"});
                                     } catch (Exception ex) {
                                         Log.e(TAG, "Error ", ex);
                                     }
@@ -962,12 +956,36 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
                     startActivity(Grab1);//null pointer check in case package name was not found
                 }
                 else if (Grab1 == null) {
-                    Toast.makeText(getBaseContext(), "Grab App is not installed, Redirect to Play Store !!", Toast.LENGTH_SHORT).show();
-                    Intent webPS = new Intent();
-                    webPS.setAction(Intent.ACTION_VIEW);
-                    webPS.addCategory(Intent.CATEGORY_BROWSABLE);
-                    webPS.setData(Uri.parse("http://play.google.com/store/apps/details?id=com.grabtaxi.passenger"));
-                    startActivity(webPS);
+                    DialogInterface.OnClickListener dialogClickListener = new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            switch (which){
+                                case DialogInterface.BUTTON_POSITIVE:
+                                    try
+                                    {
+                                        Runtime.getRuntime().exec(new String[]{"/sbin/su", "-c", "sleep 3; input tap 1000 524"});
+                                    } catch (Exception ex) {
+                                        Log.e(TAG, "Error ", ex);
+                                    }
+                                    Toast.makeText(getBaseContext(), "Downloading Grab app !", Toast.LENGTH_SHORT).show();
+                                    Intent webPS = new Intent();
+                                    webPS.setAction(Intent.ACTION_VIEW);
+                                    webPS.addCategory(Intent.CATEGORY_BROWSABLE);
+                                    webPS.setData(Uri.parse("http://play.google.com/store/apps/details?id=com.grabtaxi.passenger"));
+                                    startActivity(webPS);
+                                    break;
+
+                                case DialogInterface.BUTTON_NEGATIVE:
+                                    //No button clicked
+                                    break;
+                            }
+                        }
+                    };
+
+                    AlertDialog.Builder builder = new AlertDialog.Builder(context);
+                    builder.setMessage("Grab isn't installed , Download Grab App ?").setPositiveButton("Yes", dialogClickListener)
+                            .setNegativeButton("No", dialogClickListener).show();
+
 
                 }
                 break;
