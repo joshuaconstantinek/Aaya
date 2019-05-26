@@ -52,7 +52,7 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
     boolean check = false;
     private final int REQ_CODE = 100;
     private TextToSpeech tts;
-    String welcome, date , myname;
+    String welcome, date , myname ,reasonsecret;
 
     String city = "jabalpur", country = "India";
     final String baseUrl = "https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20weather.forecast%20where%20woeid%20in%20(select%20woeid%20from%20geo.places(1)%20where%20text%3D%22" +
@@ -76,6 +76,11 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
         welcome = "Hi " + preferences.getString(Needs.NAME, " ") + " what can i do for u today ? ";
         myname = "Hello your name is " + preferences.getString(Needs.NAME, " ") + " Have a good day " + preferences.getString(Needs.NAME, " ") ;
+        reasonsecret = preferences.getString(Needs.NAME, " ") + " You Create me " +
+                "because she hurt you so much, " +
+                "You dont know what to do," +
+                " You need to get up and move on, " +
+                "Please master, Improve me and make your self rich, i love you  " + preferences.getString(Needs.NAME, " ");
         //Grabbing References
         showUspeak = (TextView) findViewById(R.id.textViewShow);
         help = (Button) findViewById(R.id.buttonHelp);
@@ -170,6 +175,13 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
                 bundle3.putString(Commands.DATE,myname);
                 d3.setArguments(bundle3);
                 d3.show(getFragmentManager(), "sss");
+                break;
+            case Commands.saysecret:
+                display_frag z1 = new display_frag();
+                Bundle saysecret = new Bundle();
+                saysecret.putString(Commands.DATE,reasonsecret);
+                z1.setArguments(saysecret);
+                z1.show(getFragmentManager(), "sss");
                 break;
             case Commands.viaApps:
                 Intent launchIntent = getPackageManager().getLaunchIntentForPackage("mark.via.gp");

@@ -83,8 +83,9 @@
         android:layout_height="91dp"
         android:layout_alignStart="@+id/textViewtapto"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="-78dp"
-        android:layout_marginTop="134dp"
+        android:layout_marginStart="-84dp"
+        android:layout_marginTop="86dp"
         android:text="Jojo Test build"
         android:textSize="36sp" />
+
 </RelativeLayout>

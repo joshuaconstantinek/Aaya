@@ -8,6 +8,7 @@ package com.ideotic.edioticideas.aaya;
 public class Commands {
     //say my name commands
     public static final String sayModule = "my name";
+    public static final String saysecret = "the reason you are born";
 
     //open additional apps
     public static final String viaApps = "open browser app";
