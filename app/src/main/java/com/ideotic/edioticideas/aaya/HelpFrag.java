@@ -25,14 +25,8 @@ public class HelpFrag extends DialogFragment implements TextToSpeech.OnInitListe
     IsSpeaking i;
     String module = MainActivity.module;
     private TextToSpeech tts;
-    String main = "This Application meant to be simple voice command application , you can open any stock android 7+ app by calling name like open message\n" +
-            "You can do silent mode and normal mode by calling Switch to silent mode and switch to normal mode\n" +
-            "You can open additional app like Facebook , twitter , Instagram and many more \n" +
-            "you can turn on and off wifi or bluetooth by say turn off/on Bluetooth or wifi\n" +
-            "You can reboot your phone by saying reboot phone\n" +
-            "Experimental feature such as Take a picture , take a quick picture and take a video works only with rooted user\n" +
-            "and for Experimental feature only works for Nvidia shield K1 with Lineage OS 14\n" +
-            "Will Add more feature soon" ;
+    String main = "This Application meant to be simple voice command application " +
+            "cuurently support for Nvidia Shield k1 and some basic application is supported almost every phone" ;
     String gmail = "To read mails say GET MAILS \n To send a mail say COMPOSE MAIL \n To search mail say SEARCH SUBJECT your subject \n " +
             "To open a specific category say GET MAILS category";
 

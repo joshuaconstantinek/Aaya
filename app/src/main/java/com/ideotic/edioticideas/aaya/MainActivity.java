@@ -189,6 +189,12 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
                     startActivity(launchIntent);//null pointer check in case package name was not found
                 }
                 break;
+            case Commands.browser:
+                Intent browser = getPackageManager().getLaunchIntentForPackage("android.browser");
+                if (browser != null) {
+                    startActivity(browser);//null pointer check in case package name was not found
+                }
+                break;
             case Commands.vpnApps:
                 Intent launchIntent1 = getPackageManager().getLaunchIntentForPackage("free.vpn.unblock.proxy.turbovpn");
                 if (launchIntent1 != null) {
@@ -215,7 +221,12 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
                                     break;
 
                                 case DialogInterface.BUTTON_NEGATIVE:
-                                    //No button clicked
+                                    Toast.makeText(getBaseContext(), "Say what you need", Toast.LENGTH_SHORT).show();
+                                    try {
+                                        Runtime.getRuntime().exec(new String[]{"/sbin/su", "-c", "sleep .5; input tap 596 971"});
+                                    } catch (Exception ex) {
+                                        Log.e(TAG, "Error ", ex);
+                                    }
                                     break;
                             }
                         }
@@ -283,7 +294,12 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
                                     break;
 
                                 case DialogInterface.BUTTON_NEGATIVE:
-                                    //No button clicked
+                                    Toast.makeText(getBaseContext(), "Say what you need", Toast.LENGTH_SHORT).show();
+                                    try {
+                                        Runtime.getRuntime().exec(new String[]{"/sbin/su", "-c", "sleep .5; input tap 596 971"});
+                                    } catch (Exception ex) {
+                                        Log.e(TAG, "Error ", ex);
+                                    }
                                     break;
                             }
                         }
@@ -324,7 +340,12 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
                                     break;
 
                                 case DialogInterface.BUTTON_NEGATIVE:
-                                    //No button clicked
+                                    Toast.makeText(getBaseContext(), "Say what you need", Toast.LENGTH_SHORT).show();
+                                    try {
+                                        Runtime.getRuntime().exec(new String[]{"/sbin/su", "-c", "sleep .5; input tap 596 971"});
+                                    } catch (Exception ex) {
+                                        Log.e(TAG, "Error ", ex);
+                                    }
                                     break;
                             }
                         }
@@ -365,7 +386,12 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
                                     break;
 
                                 case DialogInterface.BUTTON_NEGATIVE:
-                                    //No button clicked
+                                    Toast.makeText(getBaseContext(), "Say what you need", Toast.LENGTH_SHORT).show();
+                                    try {
+                                        Runtime.getRuntime().exec(new String[]{"/sbin/su", "-c", "sleep .5; input tap 596 971"});
+                                    } catch (Exception ex) {
+                                        Log.e(TAG, "Error ", ex);
+                                    }
                                     break;
                             }
                         }
@@ -415,7 +441,12 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
                                     break;
 
                                 case DialogInterface.BUTTON_NEGATIVE:
-                                    //No button clicked
+                                    Toast.makeText(getBaseContext(), "Say what you need", Toast.LENGTH_SHORT).show();
+                                    try {
+                                        Runtime.getRuntime().exec(new String[]{"/sbin/su", "-c", "sleep .5; input tap 596 971"});
+                                    } catch (Exception ex) {
+                                        Log.e(TAG, "Error ", ex);
+                                    }
                                     break;
                             }
                         }
@@ -452,9 +483,13 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
                 break;
             case Commands.oGallery:
                 Intent gallery = getPackageManager().getLaunchIntentForPackage("com.android.gallery3d");
+                Intent gallery2 = getPackageManager().getLaunchIntentForPackage("com.google.android.apps.photos");
                 if (gallery != null) {
 
                     startActivity(gallery);//null pointer check in case package name was not found
+                }
+                else if (gallery == null ){
+                    startActivity(gallery2);
                 }
                 break;
             case Commands.oCalendar:
@@ -524,7 +559,12 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
                                     break;
 
                                 case DialogInterface.BUTTON_NEGATIVE:
-                                    //No button clicked
+                                    Toast.makeText(getBaseContext(), "Say what you need", Toast.LENGTH_SHORT).show();
+                                    try {
+                                        Runtime.getRuntime().exec(new String[]{"/sbin/su", "-c", "sleep .5; input tap 596 971"});
+                                    } catch (Exception ex) {
+                                        Log.e(TAG, "Error ", ex);
+                                    }
                                     break;
                             }
                         }
@@ -568,7 +608,12 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
                                     break;
 
                                 case DialogInterface.BUTTON_NEGATIVE:
-                                    //No button clicked
+                                    Toast.makeText(getBaseContext(), "Say what you need", Toast.LENGTH_SHORT).show();
+                                    try {
+                                        Runtime.getRuntime().exec(new String[]{"/sbin/su", "-c", "sleep .5; input tap 596 971"});
+                                    } catch (Exception ex) {
+                                        Log.e(TAG, "Error ", ex);
+                                    }
                                     break;
                             }
                         }
@@ -610,7 +655,12 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
                                     break;
 
                                 case DialogInterface.BUTTON_NEGATIVE:
-                                    //No button clicked
+                                    Toast.makeText(getBaseContext(), "Say what you need", Toast.LENGTH_SHORT).show();
+                                    try {
+                                        Runtime.getRuntime().exec(new String[]{"/sbin/su", "-c", "sleep .5; input tap 596 971"});
+                                    } catch (Exception ex) {
+                                        Log.e(TAG, "Error ", ex);
+                                    }
                                     break;
                             }
                         }
@@ -660,7 +710,12 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
                                     break;
 
                                 case DialogInterface.BUTTON_NEGATIVE:
-                                    //No button clicked
+                                    Toast.makeText(getBaseContext(), "Say what you need", Toast.LENGTH_SHORT).show();
+                                    try {
+                                        Runtime.getRuntime().exec(new String[]{"/sbin/su", "-c", "sleep .5; input tap 596 971"});
+                                    } catch (Exception ex) {
+                                        Log.e(TAG, "Error ", ex);
+                                    }
                                     break;
                             }
                         }
@@ -700,7 +755,12 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
                                     break;
 
                                 case DialogInterface.BUTTON_NEGATIVE:
-                                    //No button clicked
+                                    Toast.makeText(getBaseContext(), "Say what you need", Toast.LENGTH_SHORT).show();
+                                    try {
+                                        Runtime.getRuntime().exec(new String[]{"/sbin/su", "-c", "sleep .5; input tap 596 971"});
+                                    } catch (Exception ex) {
+                                        Log.e(TAG, "Error ", ex);
+                                    }
                                     break;
                             }
                         }
@@ -750,7 +810,12 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
                                     break;
 
                                 case DialogInterface.BUTTON_NEGATIVE:
-                                    //No button clicked
+                                    Toast.makeText(getBaseContext(), "Say what you need", Toast.LENGTH_SHORT).show();
+                                    try {
+                                        Runtime.getRuntime().exec(new String[]{"/sbin/su", "-c", "sleep .5; input tap 596 971"});
+                                    } catch (Exception ex) {
+                                        Log.e(TAG, "Error ", ex);
+                                    }
                                     break;
                             }
                         }
@@ -800,7 +865,12 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
                                     break;
 
                                 case DialogInterface.BUTTON_NEGATIVE:
-                                    //No button clicked
+                                    Toast.makeText(getBaseContext(), "Say what you need", Toast.LENGTH_SHORT).show();
+                                    try {
+                                        Runtime.getRuntime().exec(new String[]{"/sbin/su", "-c", "sleep .5; input tap 596 971"});
+                                    } catch (Exception ex) {
+                                        Log.e(TAG, "Error ", ex);
+                                    }
                                     break;
                             }
                         }
@@ -848,7 +918,12 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
                                     break;
 
                                 case DialogInterface.BUTTON_NEGATIVE:
-                                    //No button clicked
+                                    Toast.makeText(getBaseContext(), "Say what you need", Toast.LENGTH_SHORT).show();
+                                    try {
+                                        Runtime.getRuntime().exec(new String[]{"/sbin/su", "-c", "sleep .5; input tap 596 971"});
+                                    } catch (Exception ex) {
+                                        Log.e(TAG, "Error ", ex);
+                                    }
                                     break;
                             }
                         }
@@ -890,7 +965,12 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
                                     break;
 
                                 case DialogInterface.BUTTON_NEGATIVE:
-                                    //No button clicked
+                                    Toast.makeText(getBaseContext(), "Say what you need", Toast.LENGTH_SHORT).show();
+                                    try {
+                                        Runtime.getRuntime().exec(new String[]{"/sbin/su", "-c", "sleep .5; input tap 596 971"});
+                                    } catch (Exception ex) {
+                                        Log.e(TAG, "Error ", ex);
+                                    }
                                     break;
                             }
                         }
@@ -939,7 +1019,12 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
                                     break;
 
                                 case DialogInterface.BUTTON_NEGATIVE:
-                                    //No button clicked
+                                    Toast.makeText(getBaseContext(), "Say what you need", Toast.LENGTH_SHORT).show();
+                                    try {
+                                        Runtime.getRuntime().exec(new String[]{"/sbin/su", "-c", "sleep .5; input tap 596 971"});
+                                    } catch (Exception ex) {
+                                        Log.e(TAG, "Error ", ex);
+                                    }
                                     break;
                             }
                         }
@@ -988,7 +1073,12 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
                                     break;
 
                                 case DialogInterface.BUTTON_NEGATIVE:
-                                    //No button clicked
+                                    Toast.makeText(getBaseContext(), "Say what you need", Toast.LENGTH_SHORT).show();
+                                    try {
+                                        Runtime.getRuntime().exec(new String[]{"/sbin/su", "-c", "sleep .5; input tap 596 971"});
+                                    } catch (Exception ex) {
+                                        Log.e(TAG, "Error ", ex);
+                                    }
                                     break;
                             }
                         }
@@ -1013,6 +1103,12 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
                 am.setStreamMute(AudioManager.STREAM_MUSIC, true);
                 am.setStreamMute(AudioManager.STREAM_RING, true);
                 am.setStreamMute(AudioManager.STREAM_SYSTEM, true);
+                Toast.makeText(getBaseContext(), "Say what you need", Toast.LENGTH_SHORT).show();
+                try {
+                    Runtime.getRuntime().exec(new String[]{"/sbin/su", "-c", "sleep .5; input tap 596 971"});
+                } catch (Exception ex) {
+                    Log.e(TAG, "Error ", ex);
+                }
                 break;
             case Commands.Normal:
                 Toast.makeText(getBaseContext(), "Normal Mode !!!", Toast.LENGTH_SHORT).show();
@@ -1021,6 +1117,12 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
                 am.setStreamMute(AudioManager.STREAM_MUSIC, false);
                 am.setStreamMute(AudioManager.STREAM_RING, false);
                 am.setStreamMute(AudioManager.STREAM_SYSTEM, false);
+                Toast.makeText(getBaseContext(), "Say what you need", Toast.LENGTH_SHORT).show();
+                try {
+                    Runtime.getRuntime().exec(new String[]{"/sbin/su", "-c", "sleep .5; input tap 596 971"});
+                } catch (Exception ex) {
+                    Log.e(TAG, "Error ", ex);
+                }
                 break;
             case Commands.helpModule:
                 module = "main";
@@ -1045,11 +1147,23 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
                 Toast.makeText(getBaseContext(), "Wi-Fi is turn off", Toast.LENGTH_SHORT).show();
                 WifiManager wifiManageroff = (WifiManager)this.context.getSystemService(Context.WIFI_SERVICE);
                 wifiManageroff.setWifiEnabled(false);
+                Toast.makeText(getBaseContext(), "Say what you need", Toast.LENGTH_SHORT).show();
+                try {
+                    Runtime.getRuntime().exec(new String[]{"/sbin/su", "-c", "sleep .5; input tap 596 971"});
+                } catch (Exception ex) {
+                    Log.e(TAG, "Error ", ex);
+                }
                 break;
             case Commands.wifion:
                 Toast.makeText(getBaseContext(), "Wi-Fi is turn on", Toast.LENGTH_SHORT).show();
                 WifiManager wifiManageron = (WifiManager)this.context.getSystemService(Context.WIFI_SERVICE);
                 wifiManageron.setWifiEnabled(true);
+                Toast.makeText(getBaseContext(), "Say what you need", Toast.LENGTH_SHORT).show();
+                try {
+                    Runtime.getRuntime().exec(new String[]{"/sbin/su", "-c", "sleep .5; input tap 596 971"});
+                } catch (Exception ex) {
+                    Log.e(TAG, "Error ", ex);
+                }
                 break;
                 // wifi state end here
 
@@ -1059,6 +1173,12 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
                 BluetoothAdapter mBluetoothAdapteroff = BluetoothAdapter.getDefaultAdapter();
                 if (mBluetoothAdapteroff.isEnabled()) {
                     mBluetoothAdapteroff.disable();
+                    Toast.makeText(getBaseContext(), "Say what you need", Toast.LENGTH_SHORT).show();
+                    try {
+                        Runtime.getRuntime().exec(new String[]{"/sbin/su", "-c", "sleep .5; input tap 596 971"});
+                    } catch (Exception ex) {
+                        Log.e(TAG, "Error ", ex);
+                    }
                 }
                 break;
             case Commands.bluetoothOn:
@@ -1066,6 +1186,12 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
                 BluetoothAdapter mBluetoothAdapteron = BluetoothAdapter.getDefaultAdapter();
                 if (!mBluetoothAdapteron.isEnabled()) {
                     mBluetoothAdapteron.enable();
+                    Toast.makeText(getBaseContext(), "Say what you need", Toast.LENGTH_SHORT).show();
+                    try {
+                        Runtime.getRuntime().exec(new String[]{"/sbin/su", "-c", "sleep .5; input tap 596 971"});
+                    } catch (Exception ex) {
+                        Log.e(TAG, "Error ", ex);
+                    }
                 }
                 break;
                 //Bluetooth state end here
@@ -1091,6 +1217,7 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
                 try {
                     Toast.makeText(getBaseContext(), "ALL OF THEM HAS BEEN KILLED !!", Toast.LENGTH_SHORT).show();
                     Runtime.getRuntime().exec(new String[]{"/sbin/su", "-c", "am kill-all"});
+                    Runtime.getRuntime().exec(new String[]{"/sbin/su", "-c", "sleep 1; input tap 596 971"});
                 } catch (Exception ex) {
                     Log.e(TAG, "Error ", ex);
                 }
@@ -1120,7 +1247,6 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
                     startActivity(quckpic);//null pointer check in case package name was not found
                     try {
                         Runtime.getRuntime().exec(new String[]{"/sbin/su", "-c", "sleep 1; input tap 606 1664; sleep 1; input tap 180 1653; sleep .5; input tap 590 957;"});
-                        // Runtime.getRuntime().exec(new String[]{"/sbin/su", "-c", "input tap 606 1664"});
                     } catch (Exception ex) {
                         Log.e(TAG, "Error ", ex);
                     }
@@ -1157,6 +1283,7 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
             case Commands.lowscreenbright:
                 try {
                     Runtime.getRuntime().exec(new String[]{"/sbin/su", "-c", "input swipe 0 0 550 1743; input swipe 0 0 665 1069; input tap 289 224; input tap 1126 1433;"});
+                    Runtime.getRuntime().exec(new String[]{"/sbin/su", "-c", "sleep 3.5; input tap 596 971"});
                 } catch (Exception ex) {
                     Log.e(TAG, "Error ", ex);
                 }
@@ -1164,19 +1291,67 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
             case Commands.maxscreenbright:
 
                 try {
-                    Runtime.getRuntime().exec(new String[]{"/sbin/su", "-c", "input swipe 0 0 550 1743; sleep .5; input swipe 0 0 665 1069; input tap 950 224; input tap 1126 1433;"});
+                    Runtime.getRuntime().exec(new String[]{"/sbin/su", "-c", "input swipe 0 0 550 1743; input swipe 0 0 665 1069; input tap 950 224; input tap 1126 1433;"});
+                    Runtime.getRuntime().exec(new String[]{"/sbin/su", "-c", "sleep 3.5; input tap 596 971"});
                 } catch (Exception ex) {
                     Log.e(TAG, "Error ", ex);
                 }
+                break;
             case Commands.balancescreenbright:
                 try {
                     Runtime.getRuntime().exec(new String[]{"/sbin/su", "-c", "input swipe 0 0 550 1743; sleep .5; input swipe 0 0 665 1069; input tap 612 212; input tap 1126 1433;"});
+                    Runtime.getRuntime().exec(new String[]{"/sbin/su", "-c", "sleep 3.5; input tap 596 971"});
                 } catch (Exception ex) {
                     Log.e(TAG, "Error ", ex);
                 }
-            case Commands.javascript:
+                break;
+            case Commands.RecordVoice:
+                    Intent voicerecordlineage = getPackageManager().getLaunchIntentForPackage("org.lineageos.recorder");
+                    Intent voicerecordsamsung = getPackageManager().getLaunchIntentForPackage("com.sec.android.app.voicenote");
+                    if (voicerecordlineage != null) {
+
+                        startActivity(voicerecordlineage);//null pointer check in case package name was not found
+                        try {
+                            Runtime.getRuntime().exec(new String[]{"/sbin/su", "-c", "sleep 1; input tap 592 1381;"});
+                        } catch (Exception ex) {
+                            Log.e(TAG, "Error ", ex);
+                        }
+                        //currently only support local recorder for auto record function
+                    }
+                    else if (voicerecordlineage == null){
+                        startActivity(voicerecordsamsung);
+                    }
+                break;
+            case Commands.recordscreen:
+                        Intent screenrecord = getPackageManager().getLaunchIntentForPackage("org.lineageos.recorder");
+
+                        if (screenrecord != null) {
+
+                            startActivity(screenrecord);//null pointer check in case package name was not found
+                            try {
+                                Runtime.getRuntime().exec(new String[]{"/sbin/su", "-c", "sleep 1; input tap 599 488;"});
+                            } catch (Exception ex) {
+                                Log.e(TAG, "Error ", ex);
+                            }
+                            //currently only support local recorder for auto record screen function
+                        }
+                    break;
+            case Commands.turnoffscreen:
+                    try {
+                        Runtime.getRuntime().exec(new String[]{"/sbin/su", "-c", "input tap 959 11"});
+                        Runtime.getRuntime().exec(new String[]{"/sbin/su", "-c", "sleep .1; input tap 959 11"});
+                    } catch (Exception ex) {
+                        Log.e(TAG, "Error ", ex);
+                    }
                 break;
                 //end of experimental feature
+            case Commands.movies:
+                Intent openmovies = new Intent();
+                openmovies.setAction(Intent.ACTION_VIEW);
+                openmovies.addCategory(Intent.CATEGORY_BROWSABLE);
+                openmovies.setData(Uri.parse("http://www.indoxxi.tube.com"));
+                startActivity(openmovies);
+                break;
             default:
                 try {
                     Toast.makeText(getBaseContext(), "Error, Redirect to Google", Toast.LENGTH_SHORT).show();

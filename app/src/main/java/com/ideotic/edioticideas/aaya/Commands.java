@@ -11,7 +11,8 @@ public class Commands {
     public static final String saysecret = "the reason you are born";
 
     //open additional apps
-    public static final String viaApps = "open browser app";
+    public static final String viaApps = "open via browser";
+    public static final String browser = "open browser";
     public static final String vpnApps = "open VPN app";
     public static final String sendMSG = "send message that I am busy";
     public static final String oMessage = "open message";
@@ -49,7 +50,10 @@ public class Commands {
     public static final String lowscreenbright = "make it dark";
     public static final String maxscreenbright = "make it bright";
     public static final String balancescreenbright = "make it balance";
-    public static final String javascript = "test JavaScript";
+    public static final String RecordVoice = "record sound now";
+    public static final String recordscreen = "record screen now";
+
+
 
     //Open website
     public static final String facebook = "go to Facebook";
@@ -62,6 +66,7 @@ public class Commands {
     public static final String yahoo = "go to Yahoo";
     public static final String gmail = "go to Gmail";
     public static final String wikipedia = "go to Wikipedia";
+    public static final String movies = "go watch some movies";
 
     //Profiler
     public static final String Silent = "switch to silent mode";
@@ -78,6 +83,7 @@ public class Commands {
     public static final String rebootRecovery = "reboot to recovery";
     public static final String killthemall = "Kill Them All";
     public static final String selfdestruction = "self destruction";
+    public static final String turnoffscreen = "turn off screen";
 
 
     //Main Activity Commands
