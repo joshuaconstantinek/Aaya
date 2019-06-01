@@ -188,6 +188,41 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
                 if (launchIntent != null) {
                     startActivity(launchIntent);//null pointer check in case package name was not found
                 }
+                else if (launchIntent == null){
+                    DialogInterface.OnClickListener dialogforvia = new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            switch (which){
+                                case DialogInterface.BUTTON_POSITIVE:
+                                    try
+                                    {
+                                        Runtime.getRuntime().exec(new String[]{"/sbin/su", "-c", "sleep 3; input tap 1000 524"});
+                                    } catch (Exception ex) {
+                                        Log.e(TAG, "Error ", ex);
+                                    }
+                                    Toast.makeText(getBaseContext(), "Downloading VIA app !", Toast.LENGTH_SHORT).show();
+                                    Intent webPS = new Intent();
+                                    webPS.setAction(Intent.ACTION_VIEW);
+                                    webPS.addCategory(Intent.CATEGORY_BROWSABLE);
+                                    webPS.setData(Uri.parse("http://play.google.com/store/apps/details?id=mark.via.gp"));
+                                    startActivity(webPS);
+                                    break;
+
+                                case DialogInterface.BUTTON_NEGATIVE:
+                                    Toast.makeText(getBaseContext(), "Say what you need", Toast.LENGTH_SHORT).show();
+                                    try {
+                                        Runtime.getRuntime().exec(new String[]{"/sbin/su", "-c", "sleep .5; input tap 596 971"});
+                                    } catch (Exception ex) {
+                                        Log.e(TAG, "Error ", ex);
+                                    }
+                            }
+                        }
+                    };
+
+                    AlertDialog.Builder builder = new AlertDialog.Builder(context);
+                    builder.setMessage("VPN isn't installed , Download VPN App ?").setPositiveButton("Yes", dialogforvia)
+                            .setNegativeButton("No", dialogforvia).show();
+                }
                 break;
             case Commands.browser:
                 Intent browser = getPackageManager().getLaunchIntentForPackage("android.browser");
@@ -264,6 +299,10 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
                 if (launchIntentps != null) {
 
                     startActivity(launchIntentps);//null pointer check in case package name was not found
+                }
+                else
+                {
+                    Toast.makeText(getBaseContext(), "Play Store Isn't Installed", Toast.LENGTH_SHORT).show();
                 }
 
                 break;
@@ -512,6 +551,41 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
                 if (launchIntent4 != null) {
                     startActivity(launchIntent4);//null pointer check in case package name was not found
                 }
+                else if (launchIntent4 == null) {
+                    DialogInterface.OnClickListener dialogforgmail = new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            switch (which) {
+                                case DialogInterface.BUTTON_POSITIVE:
+                                    try {
+                                        Runtime.getRuntime().exec(new String[]{"/sbin/su", "-c", "sleep 3; input tap 1000 524"});
+                                    } catch (Exception ex) {
+                                        Log.e(TAG, "Error ", ex);
+                                    }
+                                    Toast.makeText(getBaseContext(), "Downloading Gmail app !", Toast.LENGTH_SHORT).show();
+                                    Intent webPS = new Intent();
+                                    webPS.setAction(Intent.ACTION_VIEW);
+                                    webPS.addCategory(Intent.CATEGORY_BROWSABLE);
+                                    webPS.setData(Uri.parse("http://play.google.com/store/apps/details?id=com.google.android.gm"));
+                                    startActivity(webPS);
+                                    break;
+
+                                case DialogInterface.BUTTON_NEGATIVE:
+                                    Toast.makeText(getBaseContext(), "Say what you need", Toast.LENGTH_SHORT).show();
+                                    try {
+                                        Runtime.getRuntime().exec(new String[]{"/sbin/su", "-c", "sleep .5; input tap 596 971"});
+                                    } catch (Exception ex) {
+                                        Log.e(TAG, "Error ", ex);
+                                    }
+
+                            }
+                        }
+                    };
+
+                    AlertDialog.Builder builder = new AlertDialog.Builder(context);
+                    builder.setMessage("Google Drive isn't installed , Download Google Drive App ?").setPositiveButton("Yes", dialogforgmail)
+                            .setNegativeButton("No", dialogforgmail).show();
+                }
                 break;
             case Commands.gmail:
                 Intent opengmail = new Intent();
@@ -565,7 +639,6 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
                                     } catch (Exception ex) {
                                         Log.e(TAG, "Error ", ex);
                                     }
-                                    break;
                             }
                         }
                     };
@@ -579,6 +652,43 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
                 Intent launchIntent8 = getPackageManager().getLaunchIntentForPackage("com.google.android.apps.docs");
                 if (launchIntent8 != null) {
                     startActivity(launchIntent8);//null pointer check in case package name was not found
+                }
+                else if(launchIntent8 == null){
+                    DialogInterface.OnClickListener dialogforgdrive = new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            switch (which){
+                                case DialogInterface.BUTTON_POSITIVE:
+                                    try
+                                    {
+                                        Runtime.getRuntime().exec(new String[]{"/sbin/su", "-c", "sleep 3; input tap 1000 524"});
+                                    } catch (Exception ex) {
+                                        Log.e(TAG, "Error ", ex);
+                                    }
+                                    Toast.makeText(getBaseContext(), "Downloading Google Drive app !", Toast.LENGTH_SHORT).show();
+                                    Intent webPS = new Intent();
+                                    webPS.setAction(Intent.ACTION_VIEW);
+                                    webPS.addCategory(Intent.CATEGORY_BROWSABLE);
+                                    webPS.setData(Uri.parse("http://play.google.com/store/apps/details?id=com.google.android.apps.docs"));
+                                    startActivity(webPS);
+                                    break;
+
+                                case DialogInterface.BUTTON_NEGATIVE:
+                                    Toast.makeText(getBaseContext(), "Say what you need", Toast.LENGTH_SHORT).show();
+                                    try {
+                                        Runtime.getRuntime().exec(new String[]{"/sbin/su", "-c", "sleep .5; input tap 596 971"});
+                                    } catch (Exception ex) {
+                                        Log.e(TAG, "Error ", ex);
+                                    }
+                            }
+                        }
+                    };
+
+                    AlertDialog.Builder builder = new AlertDialog.Builder(context);
+                    builder.setMessage("Google Drive isn't installed , Download Google Drive App ?").setPositiveButton("Yes", dialogforgdrive)
+                            .setNegativeButton("No", dialogforgdrive).show();
+
+
                 }
                 break;
             case Commands.oTelegram:
