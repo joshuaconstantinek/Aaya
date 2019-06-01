@@ -23,46 +23,19 @@ day to day chores are simplified.
 
 **This Application ic capable of**
 
-Calling services
+Opening and Donwloading Social media apps
 
+Opening Social media website
 
-Text message exchange
+Brightness Control
 
+Capture and take Video
 
-Mail exchange and search
+Turn off and On Wifi/Bluetooth
 
+and MORE 
 
-Alarm
-
-
-Event handle
-
-
-Location services
-
-
-Music player service
-
-
-Contacts and call logs
-
-
-Checking weather
-
-
-Emergency,
-
-
-Making notes
-
-
-Google searching engine
-
-
-Date/ Time
-
-
-Help menu
+SOON ADD MORE!!
 
 
 # Prerequisites
