@@ -4,93 +4,97 @@ package com.ideotic.edioticideas.aaya;
  * Created by Mukul on 13-05-2016.
  * edited and continue the development by
  * joshua on may-2019
+ * *13/10/19 convert all shit to indonesia*
  */
 public class Commands {
     //say my name commands
+    public static final String namaSendiri = "Nama saya";
     public static final String sayModule = "my name";
     public static final String saysecret = "the reason you are born";
+    public static final String idulfitri = "say something";
 
     //open additional apps
-    public static final String viaApps = "open via browser";
-    public static final String browser = "open browser";
-    public static final String vpnApps = "open VPN app";
-    public static final String sendMSG = "send message that I am busy";
-    public static final String oMessage = "open message";
-    public static final String oContacts = "view contact";
-    public static final String oSetting = "open setting";
-    public static final String oGallery = "open gallery";
-    public static final String oCalendar = "open calendar";
-    public static final String oGmail = "open Gmail";
-    public static final String oCalculator = "I need calculator";
-    public static final String oMusic = "open music";
-    public static final String oDiscord = "open Discord";
-    public static final String oGdrive = "open Google Drive";
-    public static final String oInsta = "open Instagram";
-    public static final String playstore = "open Play Store";
-    public static final String oTwitter = "open Twitter";
-    public static final String oFacebook = "open Facebook";
-    public static final String oSnapchat = "open Snapchat";
-    public static final String oTelegram = "open telegram";
-    public static final String oYoutube = "open YouTube";
-    public static final String oNetflix = "open Netflix";
-    public static final String oTokopedia = "open tokopedia";
-    public static final String oBukalapak = "open bukalapak";
-    public static final String oBlibli = "open blibli";
-    public static final String oGojek = "open gojek";
-    public static final String oAmazon = "open Amazon";
-    public static final String oGrab = "open grab";
-    public static final String oYahoo = "open Yahoo mail";
-    public static final String oTerminal = "open terminal";
+    public static final String viaApps = "buka aplikasi via";
+    public static final String browser = "buka aplikasi seluncur";
+    public static final String vpnApps = "buka aplikasi VPN";
+    public static final String sendMSG = "noatavailiable";
+    public static final String oMessage = "buka pesan";
+    public static final String oContacts = "lihat kontak";
+    public static final String oSetting = "buka pengaturan";
+    public static final String oGallery = "buka Gallery";
+    public static final String oCalendar = "buka Kalendar";
+    public static final String oGmail = "buka Gmail";
+    public static final String oCalculator = "Buka Kalkulator";
+    public static final String oMusic = "buka music";
+    public static final String oDiscord = "buka Discord";
+    public static final String oGdrive = "buka Google Drive";
+    public static final String oInsta = "buka Instagram";
+    public static final String playstore = "Buka Play Store";
+    public static final String oTwitter = "buka Twitter";
+    public static final String oFacebook = "buka Facebook";
+    public static final String oSnapchat = "buka Snapchat";
+    public static final String oTelegram = "buka Telegram";
+    public static final String oYoutube = "buka YouTube";
+    public static final String oNetflix = "buka netflix";
+    public static final String oTokopedia = "buka Tokopedia";
+    public static final String oBukalapak = "buka Bukalapak";
+    public static final String oBlibli = "buka Blibli";
+    public static final String oGojek = "Buka go-jek";
+    public static final String oAmazon = "Buka Amazon";
+    public static final String oGrab = "Buka grab";
+    public static final String oYahoo = "buka Yahoo Mail";
+    public static final String oTerminal = "Buka Terminal";
 
 
     //Experimental Feature
-    public static final String takeApic = "take a picture";
-    public static final String takeAvid = "take a video";
-    public static final String instantPicandPrev = "take a quick picture";
-    public static final String lowscreenbright = "make it dark";
-    public static final String maxscreenbright = "make it bright";
-    public static final String balancescreenbright = "make it balance";
-    public static final String RecordVoice = "record sound now";
-    public static final String recordscreen = "record screen now";
+    public static final String takeApic = "ambil gambar";
+    public static final String takeAvid = "ambil video";
+    public static final String instantPicandPrev = "ambil gambar cepat";
+    public static final String lowscreenbright = "gelapkan layar";
+    public static final String maxscreenbright = "terangkan layar";
+    public static final String balancescreenbright = "cerahkan sedikit layar";
+    public static final String RecordVoice = "rekam suara sekarang";
+    public static final String recordscreen = "rekam layar sekarang";
 
 
 
     //Open website
-    public static final String facebook = "go to Facebook";
-    public static final String twitter = "go to Twitter";
-    public static final String youtube = "go to YouTube";
-    public static final String tokopedia = "go to tokopedia";
-    public static final String bukalapak = "go to bukalapak";
-    public static final String blibli = "go to blibli";
-    public static final String amazon = "go to Amazon";
-    public static final String yahoo = "go to Yahoo";
-    public static final String gmail = "go to Gmail";
-    public static final String wikipedia = "go to Wikipedia";
-    public static final String movies = "go watch some movies";
+    public static final String facebook = "beralih ke Facebook";
+    public static final String twitter = "beralih ke Twitter";
+    public static final String youtube = "beralih ke YouTube";
+    public static final String tokopedia = "beralih ke Tokopedia";
+    public static final String bukalapak = "beralih ke Bukalapak";
+    public static final String blibli = "beralih ke Blibli";
+    public static final String amazon = "beralih ke Amazon";
+    public static final String yahoo = "beralih ke Yahoo";
+    public static final String gmail = "beralih ke Gmail";
+    public static final String wikipedia = "beralih ke Wikipedia";
+    public static final String movies = "beralih ke web film";
 
     //Profiler
-    public static final String Silent = "switch to silent mode";
-    public static final String Normal = "switch to normal mode";
+    public static final String Silent = "mode diam";
+    public static final String Normal = "mode normal";
 
     //Network state
-    public static final String wifioff = "turn off Wi-Fi";
-    public static final String wifion = "turn on Wi-Fi";
-    public static final String bluetoothOn = "turn on Bluetooth";
-    public static final String bluetoothOff = "turn off Bluetooth";
+    public static final String wifioff = "matikan wifi";
+    public static final String wifion = "Nyalakan Wi-Fi";
+    public static final String bluetoothOn = "nyalakan Bluetooth";
+    public static final String bluetoothOff = "Matikan bluetooth";
 
     //root state shit
-    public static final String reboot = "reboot phone";
+    public static final String reboot = "reset ulang Android";
     public static final String rebootRecovery = "reboot to recovery";
-    public static final String killthemall = "Kill Them All";
-    public static final String selfdestruction = "self destruction";
-    public static final String turnoffscreen = "turn off screen";
+    public static final String killthemall = "Bunuh itu semua";
+    public static final String selfdestruction = "penghancuran diri sendiri";
+    public static final String turnoffscreen = "matikan layar";
+    public static final String galau = "cara menghibur teman yang lagi galau";
 
 
     //Main Activity Commands
     public static final String mailModule = "mail";
     public static final String callModule = "open phone";
     public static final String remmodule = "reminder";
-    public static final String musicModule = "play music";
+    public static final String musicModule = "putar musik";
     public static final String emergencyModule = "emergency";
     public static final String noteModule = "note";
     public static final String helpModule = "help";

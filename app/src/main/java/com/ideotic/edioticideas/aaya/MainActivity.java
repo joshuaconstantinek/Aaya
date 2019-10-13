@@ -52,7 +52,7 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
     boolean check = false;
     private final int REQ_CODE = 100;
     private TextToSpeech tts;
-    String welcome, date , myname ,reasonsecret;
+    String welcome, date , myname ,reasonsecret,sayidul,ontagalau ;
 
     String city = "jabalpur", country = "India";
     final String baseUrl = "https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20weather.forecast%20where%20woeid%20in%20(select%20woeid%20from%20geo.places(1)%20where%20text%3D%22" +
@@ -74,15 +74,17 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
         am = (AudioManager)getSystemService(Context.AUDIO_SERVICE);
         f = getFragmentManager();
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
-        welcome = "Hi " + preferences.getString(Needs.NAME, " ") + " what can i do for u today ? ";
-        myname = "Hello your name is " + preferences.getString(Needs.NAME, " ") + " Have a good day " + preferences.getString(Needs.NAME, " ") ;
+        welcome = "Hai " + preferences.getString(Needs.NAME, " ") + " Apa yang bisa saya lakukan untuk Anda ";
+        myname = "Hello nama kamu adalah " + preferences.getString(Needs.NAME, " ") + " Semoga hari mu menyenangkan" + preferences.getString(Needs.NAME, " ") ;
         reasonsecret = preferences.getString(Needs.NAME, " ") + " You Create me " +
                 "because she hurt you so much, " +
                 "You dont know what to do," +
                 " You need to get up and move on, " +
                 "Please master, Improve me and make your self rich, i love you  " + preferences.getString(Needs.NAME, " ");
+        sayidul = "Happy Eid Mubarak";
         //Grabbing References
         showUspeak = (TextView) findViewById(R.id.textViewShow);
+        ontagalau = "bacot bego , jangan phpin anak orang  anjeng";
         help = (Button) findViewById(R.id.buttonHelp);
         speak = (ImageButton) findViewById(R.id.imageButtonSpeak);
         tts = new TextToSpeech(this, this);
@@ -169,12 +171,26 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
                 d2.setArguments(bundle2);
                 d2.show(getFragmentManager(), "sss");
                 break;
-            case Commands.sayModule:
+            case Commands.sayModule: case Commands.namaSendiri:
                 display_frag d3 = new display_frag();
                 Bundle bundle3 = new Bundle();
                 bundle3.putString(Commands.DATE,myname);
                 d3.setArguments(bundle3);
                 d3.show(getFragmentManager(), "sss");
+                break;
+            case Commands.galau:
+                display_frag mm3 = new display_frag();
+                Bundle galau1 = new Bundle();
+                galau1.putString(Commands.DATE,ontagalau);
+                mm3.setArguments(galau1);
+                mm3.show(getFragmentManager(), "sss");
+                break;
+            case Commands.idulfitri:
+                display_frag id = new display_frag();
+                Bundle idulfitri = new Bundle();
+                idulfitri.putString(Commands.DATE,sayidul);
+                id.setArguments(idulfitri);
+                id.show(getFragmentManager(), "sss");
                 break;
             case Commands.saysecret:
                 display_frag z1 = new display_frag();
