@@ -413,7 +413,7 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
 
                 }
                 break;
-                // Facebook "website and app"
+                // Facebook "website , more command  and app"
             case Commands.oFacebook:
                 Intent launchIntentofb = getPackageManager().getLaunchIntentForPackage("com.facebook.katana");
                 if (launchIntentofb != null) {
@@ -459,7 +459,7 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
 
                 }
                 break;
-            case Commands.facebook:
+            case Commands.facebook: case Commands.facebook1: case Commands.facebook2: case Commands.facebook3: case Commands.facebook4: case Commands.facebook5:
                 Intent intentfb = new Intent();
                 intentfb.setAction(Intent.ACTION_VIEW);
                 intentfb.addCategory(Intent.CATEGORY_BROWSABLE);
@@ -514,7 +514,7 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
 
                 }
                 break;
-            case Commands.twitter:
+            case Commands.twitter: case Commands.twitter1: case Commands.twitter2: case Commands.twitter3: case Commands.twitter4: case Commands.twitter5:
                 Intent intenttw = new Intent();
                 intenttw.setAction(Intent.ACTION_VIEW);
                 intenttw.addCategory(Intent.CATEGORY_BROWSABLE);
@@ -603,7 +603,7 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
                             .setNegativeButton("No", dialogforgmail).show();
                 }
                 break;
-            case Commands.gmail:
+            case Commands.gmail: case Commands.gmail1: case Commands.gmail2: case Commands.gmail3: case Commands.gmail4: case Commands.gmail5: case Commands.gmail6:
                 Intent opengmail = new Intent();
                 opengmail.setAction(Intent.ACTION_VIEW);
                 opengmail.addCategory(Intent.CATEGORY_BROWSABLE);
@@ -799,7 +799,7 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
 
                 }
                 break;
-            case Commands.youtube:
+            case Commands.youtube: case Commands.youtube1: case Commands.youtube2: case Commands.youtube3: case Commands.youtube4: case Commands.youtube5: case Commands.youtube6:
                 Intent openyoutube = new Intent();
                 openyoutube.setAction(Intent.ACTION_VIEW);
                 openyoutube.addCategory(Intent.CATEGORY_BROWSABLE);
@@ -899,7 +899,7 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
 
                 }
                 break;
-            case Commands.tokopedia:
+            case Commands.tokopedia: case Commands.tokopedia1: case Commands.tokopedia2: case Commands.tokopedia3: case Commands.tokopedia4: case Commands.tokopedia5: case Commands.tokopedia6: case Commands.tokopedia7:
                 Intent opentokopedia = new Intent();
                 opentokopedia.setAction(Intent.ACTION_VIEW);
                 opentokopedia.addCategory(Intent.CATEGORY_BROWSABLE);
@@ -953,7 +953,7 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
 
                 }
                 break;
-            case Commands.bukalapak:
+            case Commands.bukalapak: case Commands.bukalapak1: case Commands.bukalapak2: case Commands.bukalapak3: case Commands.bukalapak4: case Commands.bukalapak5:
                 Intent openbukalapak = new Intent();
                 openbukalapak.setAction(Intent.ACTION_VIEW);
                 openbukalapak.addCategory(Intent.CATEGORY_BROWSABLE);
@@ -1008,7 +1008,7 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
 
                 }
                 break;
-            case Commands.blibli:
+            case Commands.blibli: case Commands.blibli1: case Commands.blibli2: case Commands.blibli3: case Commands.blibli4: case Commands.blibli5:
                 Intent openblibli = new Intent();
                 openblibli.setAction(Intent.ACTION_VIEW);
                 openblibli.addCategory(Intent.CATEGORY_BROWSABLE);
@@ -1108,7 +1108,7 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
 
                 }
                 break;
-            case Commands.amazon:
+            case Commands.amazon: case Commands.amazon1: case Commands.amazon2: case Commands.amazon3: case Commands.amazon4: case Commands.amazon5:
                 Intent openamazon = new Intent();
                 openamazon.setAction(Intent.ACTION_VIEW);
                 openamazon.addCategory(Intent.CATEGORY_BROWSABLE);
@@ -1163,7 +1163,7 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
 
                 }
                 break;
-            case Commands.yahoo:
+            case Commands.yahoo: case Commands.yahoo1: case Commands.yahoo2: case Commands.yahoo3: case Commands.yahoo4: case Commands.yahoo5: case Commands.yahoo6: case Commands.yahoo7:
                 Intent openyahoo = new Intent();
                 openyahoo.setAction(Intent.ACTION_VIEW);
                 openyahoo.addCategory(Intent.CATEGORY_BROWSABLE);
@@ -1222,7 +1222,7 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
                 Intent intentr = new Intent(MainActivity.this, ReminderModule.class);
                 startActivity(intentr);
                 break;
-            case Commands.Silent:
+            case Commands.Silent: case Commands.Silent1: case Commands.Silent2: case Commands.Silent3:
                 Toast.makeText(getBaseContext(), "Silent Mode !!!", Toast.LENGTH_SHORT).show();
                 am.setStreamMute(AudioManager.STREAM_NOTIFICATION, true);
                 am.setStreamMute(AudioManager.STREAM_ALARM, true);
@@ -1236,7 +1236,7 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
                     Log.e(TAG, "Error ", ex);
                 }
                 break;
-            case Commands.Normal:
+            case Commands.Normal: case Commands.Normal1: case Commands.Normal2:
                 Toast.makeText(getBaseContext(), "Normal Mode !!!", Toast.LENGTH_SHORT).show();
                 am.setStreamMute(AudioManager.STREAM_NOTIFICATION, false);
                 am.setStreamMute(AudioManager.STREAM_ALARM, false);
@@ -1269,7 +1269,7 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
                 d1.show(getFragmentManager(), "sss");
                 break;
                 //wifi state on and off
-            case Commands.wifioff:
+            case Commands.wifioff: case Commands.wifioff1: case Commands.wifioff2:
                 Toast.makeText(getBaseContext(), "Wi-Fi is turn off", Toast.LENGTH_SHORT).show();
                 WifiManager wifiManageroff = (WifiManager)this.context.getSystemService(Context.WIFI_SERVICE);
                 wifiManageroff.setWifiEnabled(false);
@@ -1280,7 +1280,7 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
                     Log.e(TAG, "Error ", ex);
                 }
                 break;
-            case Commands.wifion:
+            case Commands.wifion: case Commands.wifion1: case Commands.wifion2:
                 Toast.makeText(getBaseContext(), "Wi-Fi is turn on", Toast.LENGTH_SHORT).show();
                 WifiManager wifiManageron = (WifiManager)this.context.getSystemService(Context.WIFI_SERVICE);
                 wifiManageron.setWifiEnabled(true);
@@ -1294,7 +1294,7 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
                 // wifi state end here
 
                 //Bluetooth state on and off
-            case Commands.bluetoothOff:
+            case Commands.bluetoothOff: case Commands.bluetoothOff1:
                 Toast.makeText(getBaseContext(), "Bluetooth is turn off", Toast.LENGTH_SHORT).show();
                 BluetoothAdapter mBluetoothAdapteroff = BluetoothAdapter.getDefaultAdapter();
                 if (mBluetoothAdapteroff.isEnabled()) {
@@ -1307,7 +1307,7 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
                     }
                 }
                 break;
-            case Commands.bluetoothOn:
+            case Commands.bluetoothOn: case Commands.bluetoothOn1:
                 Toast.makeText(getBaseContext(), "Bluetooth is turn on", Toast.LENGTH_SHORT).show();
                 BluetoothAdapter mBluetoothAdapteron = BluetoothAdapter.getDefaultAdapter();
                 if (!mBluetoothAdapteron.isEnabled()) {
@@ -1358,7 +1358,7 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
                 break;
 
                 //end of root state
-            case Commands.wikipedia:
+            case Commands.wikipedia: case Commands.wikipedia1: case Commands.wikipedia2: case Commands.wikipedia3: case Commands.wikipedia4: case Commands.wikipedia5: case Commands.wikipedia6:
                 Intent openwiki = new Intent();
                 openwiki.setAction(Intent.ACTION_VIEW);
                 openwiki.addCategory(Intent.CATEGORY_BROWSABLE);
@@ -1379,7 +1379,7 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
 
                 }
                 break;
-            case Commands.takeApic:
+            case Commands.takeApic: case Commands.takeApic1: case Commands.takeApic2: case Commands.takeApic3:
                 Intent takeApic = getPackageManager().getLaunchIntentForPackage("org.cyanogenmod.snap");
 
                 if (takeApic != null) {
@@ -1393,7 +1393,7 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
 
                 }
                 break;
-            case Commands.takeAvid:
+            case Commands.takeAvid: case Commands.takeAvid1: case Commands.takeAvid2: case Commands.takeAvid3:
                 Intent takeAvid = getPackageManager().getLaunchIntentForPackage("org.cyanogenmod.snap");
                 if (takeAvid != null) {
 
@@ -1406,7 +1406,7 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
 
                 }
                 break;
-            case Commands.lowscreenbright:
+            case Commands.lowscreenbright: case Commands.lowscreenbright1: case Commands.lowscreenbright2: case Commands.lowscreenbright3: case Commands.lowscreenbright4:
                 try {
                     Runtime.getRuntime().exec(new String[]{"/sbin/su", "-c", "input swipe 0 0 550 1743; input swipe 0 0 665 1069; input tap 289 224; input tap 1126 1433;"});
                     Runtime.getRuntime().exec(new String[]{"/sbin/su", "-c", "sleep 3.5; input tap 596 971"});
@@ -1414,7 +1414,7 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
                     Log.e(TAG, "Error ", ex);
                 }
                 break;
-            case Commands.maxscreenbright:
+            case Commands.maxscreenbright: case Commands.maxscreenbright1: case Commands.maxscreenbright2: case Commands.maxscreenbright3: case Commands.maxscreenbright4:
 
                 try {
                     Runtime.getRuntime().exec(new String[]{"/sbin/su", "-c", "input swipe 0 0 550 1743; input swipe 0 0 665 1069; input tap 950 224; input tap 1126 1433;"});
@@ -1423,7 +1423,7 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
                     Log.e(TAG, "Error ", ex);
                 }
                 break;
-            case Commands.balancescreenbright:
+            case Commands.balancescreenbright: case Commands.balancescreenbright1: case Commands.balancescreenbright2:
                 try {
                     Runtime.getRuntime().exec(new String[]{"/sbin/su", "-c", "input swipe 0 0 550 1743; sleep .5; input swipe 0 0 665 1069; input tap 612 212; input tap 1126 1433;"});
                     Runtime.getRuntime().exec(new String[]{"/sbin/su", "-c", "sleep 3.5; input tap 596 971"});
@@ -1431,7 +1431,7 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
                     Log.e(TAG, "Error ", ex);
                 }
                 break;
-            case Commands.RecordVoice:
+            case Commands.RecordVoice: case Commands.RecordVoice1: case Commands.RecordVoice2:
                     Intent voicerecordlineage = getPackageManager().getLaunchIntentForPackage("org.lineageos.recorder");
                     Intent voicerecordsamsung = getPackageManager().getLaunchIntentForPackage("com.sec.android.app.voicenote");
                     if (voicerecordlineage != null) {
@@ -1448,7 +1448,7 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
                         startActivity(voicerecordsamsung);
                     }
                 break;
-            case Commands.recordscreen:
+            case Commands.recordscreen: case Commands.recordscreen1: case Commands.recordscreen2: case Commands.recordscreen3: case Commands.recordscreen4:
                         Intent screenrecord = getPackageManager().getLaunchIntentForPackage("org.lineageos.recorder");
 
                         if (screenrecord != null) {
@@ -1471,7 +1471,7 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
                     }
                 break;
                 //end of experimental feature
-            case Commands.movies:
+            case Commands.movies: case Commands.movies1: case Commands.movies2: case Commands.movies3: case Commands.movies4: case Commands.movies5: case Commands.movies6:
                 Intent openmovies = new Intent();
                 openmovies.setAction(Intent.ACTION_VIEW);
                 openmovies.addCategory(Intent.CATEGORY_BROWSABLE);

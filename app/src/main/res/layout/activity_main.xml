@@ -83,9 +83,9 @@
         android:layout_height="91dp"
         android:layout_alignStart="@+id/textViewtapto"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="-84dp"
-        android:layout_marginTop="86dp"
-        android:text="Jojo Test build"
-        android:textSize="36sp" />
+        android:layout_marginStart="-81dp"
+        android:layout_marginTop="153dp"
+        android:text="YOSHUA CONSTANTIN"
+        android:textSize="24sp" />
 
 </RelativeLayout>
