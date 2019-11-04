@@ -13,9 +13,9 @@ import android.widget.Toast;
 
 public class Needs extends AppCompatActivity {
     Button submit;
-    EditText etName, etContact, etAdd, etDob,etEmer;
+    EditText etName, etContact, etAdd, etDob,etEmer,etEmer2,etEmer3;
     CheckBox vImpaired;
-    String name, address, phone, data, birth, vImp = "no",emer;
+    String name, address, phone, data, birth, vImp = "no",emer,emer2,emer3;
     public final static String NAME = "name";
     public final static String ADD = "add";
     public final static String PHno = "phno";
@@ -23,6 +23,8 @@ public class Needs extends AppCompatActivity {
     public static final String BIRTH = "birth";
     public static final String VIMP = "vimp";
     public static final String EMER = "emer";
+    public static final String EMER2 = "emer2";
+    public static final String EMER3 = "emer3";
 
 
 
@@ -40,6 +42,8 @@ public class Needs extends AppCompatActivity {
         etDob = (EditText) findViewById(R.id.editTextdob);
         vImpaired = (CheckBox) findViewById(R.id.checkBoxYes);
         etEmer = (EditText) findViewById(R.id.et_emergency);
+        etEmer2 = (EditText) findViewById(R.id.et_emergency2);
+        etEmer3 = (EditText) findViewById(R.id.et_emergency3);
 
 
         submit.setOnClickListener(new View.OnClickListener() {
@@ -65,6 +69,8 @@ public class Needs extends AppCompatActivity {
                     editor.putString(BIRTH,birth);
                     editor.putString(VIMP,vImp);
                     editor.putString(EMER,emer);
+                    editor.putString(EMER2,emer2);
+                    editor.putString(EMER3,emer3);
                     editor.commit();
                     /*
                     AayaDatabase enterDatabase = new AayaDatabase(Needs.this);

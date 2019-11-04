@@ -82,7 +82,10 @@ public class Commands {
     public static final String recordscreen4 = "layar di rekam";
 
 
-
+    //Compose email Experimental
+    public static final String composeE = "kirim email";
+    public static final String composeEm = "kirim email ke ibu";
+    //end of compose email
     //Open website
     //Facebook
     public static final String facebook = "beralih ke Facebook";
@@ -241,7 +244,10 @@ public class Commands {
 
     //compose based commands
     public static final String MAIL_COMPOSE_MAIL = "compose mail";
-
+    //Calling mom and dad
+    public static final String callDad = "call Dad";
+    public static final String callMom = "call Mom";
+    //end of calling
     //Weather Module
     public static final String TEMP = "s";
     public static final String WEEK = "w";
@@ -256,7 +262,7 @@ public class Commands {
     //Phone Module Commands
     public static final String CALL_LOG = "call logs";
     public static final String SMS = "messages";
-    public static final String CALL = "call";
+    public static final String CALL = "call ";
     public static final String CONTACTS = "search contact";
     public static final String SMS_SEND = "send message";
     public static final String PHONE_HELP = "help";

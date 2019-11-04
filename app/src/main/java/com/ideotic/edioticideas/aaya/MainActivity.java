@@ -52,7 +52,7 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
     boolean check = false;
     private final int REQ_CODE = 100;
     private TextToSpeech tts;
-    String welcome, date , myname ,reasonsecret,sayidul,ontagalau ;
+    String welcome, date , myname ,reasonsecret,sayidul,ontagalau  , ibu , bapak , emerEmail;
 
     String city = "jabalpur", country = "India";
     final String baseUrl = "https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20weather.forecast%20where%20woeid%20in%20(select%20woeid%20from%20geo.places(1)%20where%20text%3D%22" +
@@ -74,6 +74,9 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
         am = (AudioManager)getSystemService(Context.AUDIO_SERVICE);
         f = getFragmentManager();
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
+        emerEmail = preferences.getString(Needs.EMER3, " ");
+        ibu = preferences.getString(Needs.EMER2, " ");
+        bapak = preferences.getString(Needs.EMER, " ");
         welcome = "Hai " + preferences.getString(Needs.NAME, " ") + " Apa yang bisa saya lakukan untuk Anda ";
         myname = "Hello nama kamu adalah " + preferences.getString(Needs.NAME, " ") + " Semoga hari mu menyenangkan" + preferences.getString(Needs.NAME, " ") ;
         reasonsecret = preferences.getString(Needs.NAME, " ") + " You Create me " +
@@ -1478,6 +1481,25 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
                 openmovies.setData(Uri.parse("http://www.indoxxi.tube.com"));
                 startActivity(openmovies);
                 break;
+            case Commands.composeEm:
+                Intent composeE=new Intent(Intent.ACTION_SEND);
+                String[] recipients={""+emerEmail};
+                composeE.putExtra(composeE.EXTRA_EMAIL, recipients);
+                composeE.putExtra(composeE.EXTRA_SUBJECT," ");
+                composeE.putExtra(composeE.EXTRA_TEXT,"Isi Email..");
+                composeE.putExtra(composeE.EXTRA_CC,"yoshua@mail");
+                composeE.setType("text/html");
+                composeE.setPackage("com.google.android.gm");
+                startActivity(Intent.createChooser(composeE, "Send mail"));
+                break;
+            case Commands.callMom:
+                startActivity(new Intent(Intent.ACTION_DIAL, Uri.fromParts("tel", ibu, null)));
+                break;
+            case Commands.callDad:
+                startActivity(new Intent(Intent.ACTION_DIAL, Uri.fromParts("tel", bapak, null)));
+
+                break;
+
             default:
                 try {
                     Toast.makeText(getBaseContext(), "Error, Redirect to Google", Toast.LENGTH_SHORT).show();
