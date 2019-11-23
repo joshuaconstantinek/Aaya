@@ -202,7 +202,7 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
                 z1.setArguments(saysecret);
                 z1.show(getFragmentManager(), "sss");
                 break;
-            case Commands.viaApps:
+            case Commands.viaApps: case Commands.viaApps1: case Commands.viaApps2: case Commands.viaApps3:
                 Intent launchIntent = getPackageManager().getLaunchIntentForPackage("mark.via.gp");
                 if (launchIntent != null) {
                     startActivity(launchIntent);//null pointer check in case package name was not found
@@ -219,7 +219,7 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
                                     } catch (Exception ex) {
                                         Log.e(TAG, "Error ", ex);
                                     }
-                                    Toast.makeText(getBaseContext(), "Downloading VIA app !", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(getBaseContext(), "Mengunduh VIA", Toast.LENGTH_SHORT).show();
                                     Intent webPS = new Intent();
                                     webPS.setAction(Intent.ACTION_VIEW);
                                     webPS.addCategory(Intent.CATEGORY_BROWSABLE);
@@ -239,11 +239,11 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
                     };
 
                     AlertDialog.Builder builder = new AlertDialog.Builder(context);
-                    builder.setMessage("VPN isn't installed , Download VPN App ?").setPositiveButton("Yes", dialogforvia)
+                    builder.setMessage("Aplikasi VIA tidak terinstal , apakah ingin mengunduh VIA?").setPositiveButton("Yes", dialogforvia)
                             .setNegativeButton("No", dialogforvia).show();
                 }
                 break;
-            case Commands.browser:
+            case Commands.browser: case Commands.browser1: case Commands.browser2: case Commands.browser3: case Commands.browser4: case Commands.browser5: case Commands.browser6: case Commands.browser7:
                 Intent browser = getPackageManager().getLaunchIntentForPackage("android.browser");
                 if (browser != null) {
                     startActivity(browser);//null pointer check in case package name was not found
@@ -266,7 +266,7 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
                                     } catch (Exception ex) {
                                         Log.e(TAG, "Error ", ex);
                                     }
-                                    Toast.makeText(getBaseContext(), "Downloading Turbo VPN app !", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(getBaseContext(), "Mengunduh Turbo VPN", Toast.LENGTH_SHORT).show();
                                     Intent webPS = new Intent();
                                     webPS.setAction(Intent.ACTION_VIEW);
                                     webPS.addCategory(Intent.CATEGORY_BROWSABLE);
@@ -287,7 +287,7 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
                     };
 
                     AlertDialog.Builder builder = new AlertDialog.Builder(context);
-                    builder.setMessage("VPN isn't installed , Download VPN App ?").setPositiveButton("Yes", dialogClickListener)
+                    builder.setMessage("Aplikasi VPN tidak terinstal , apakah ingin mengunduh VPN?").setPositiveButton("Yes", dialogClickListener)
                             .setNegativeButton("No", dialogClickListener).show();
                 }
                 break;
@@ -307,13 +307,13 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
                     Toast.makeText(this, "App not found", Toast.LENGTH_SHORT)
                             .show();
                 }
-            case Commands.oMessage:
+            case Commands.oMessage: case Commands.oMessage1: case Commands.oMessage2:
                 Intent launchIntent2 = getPackageManager().getLaunchIntentForPackage("com.android.messaging");
                if (launchIntent2 != null) {
                    startActivity(launchIntent2);//null pointer check in case package name was not found
                 }
                 break;
-            case Commands.playstore:
+            case Commands.playstore: case Commands.playstore1: case Commands.playstore2: case Commands.playstore3: case Commands.playstore4: case Commands.playstore5: case Commands.playstore6: case Commands.playstore7: case Commands.playstore8:
                 Intent launchIntentps = getPackageManager().getLaunchIntentForPackage("com.android.vending");
                 if (launchIntentps != null) {
 
@@ -325,7 +325,7 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
                 }
 
                 break;
-            case Commands.oInsta:
+            case Commands.oInsta: case Commands.oInsta1: case Commands.oInsta2: case Commands.oInsta3: case Commands.oInsta4:
                 Intent launchIntentoig = getPackageManager().getLaunchIntentForPackage("com.instagram.android");
                 if (launchIntentoig != null) {
 
@@ -343,7 +343,7 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
                                     } catch (Exception ex) {
                                         Log.e(TAG, "Error ", ex);
                                     }
-                                    Toast.makeText(getBaseContext(), "Downloading Instagram app !", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(getBaseContext(), "Mengunduh Instagram", Toast.LENGTH_SHORT).show();
                                     Intent webPS = new Intent();
                                     webPS.setAction(Intent.ACTION_VIEW);
                                     webPS.addCategory(Intent.CATEGORY_BROWSABLE);
@@ -364,13 +364,13 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
                     };
 
                     AlertDialog.Builder builder = new AlertDialog.Builder(context);
-                    builder.setMessage("Instagram isn't installed , Download Instagram App ?").setPositiveButton("Yes", dialogClickListener)
+                    builder.setMessage("Aplikasi Instagram tidak terinstal , apakah ingin mengunduh Instagram?").setPositiveButton("Yes", dialogClickListener)
                             .setNegativeButton("No", dialogClickListener).show();
 
 
                 }
                 break;
-            case Commands.oSnapchat:
+            case Commands.oSnapchat: case Commands.oSnapchat1: case Commands.oSnapchat2: case Commands.oSnapchat3: case Commands.oSnapchat4:
                 Intent launchIntentoSC = getPackageManager().getLaunchIntentForPackage("com.snapchat.android");
 
                 if (launchIntentoSC != null) {
@@ -389,7 +389,7 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
                                     } catch (Exception ex) {
                                         Log.e(TAG, "Error ", ex);
                                     }
-                                    Toast.makeText(getBaseContext(), "Snapchat App is not installed, Redirect to Play Store !!", Toast.LENGTH_SHORT).show();
+
                                     Intent webPS = new Intent();
                                     webPS.setAction(Intent.ACTION_VIEW);
                                     webPS.addCategory(Intent.CATEGORY_BROWSABLE);
@@ -410,14 +410,14 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
                     };
 
                     AlertDialog.Builder builder = new AlertDialog.Builder(context);
-                    builder.setMessage("Snapchat isn't installed , Download Snapchat App ?").setPositiveButton("Yes", dialogforsnapchat)
+                    builder.setMessage("Aplikasi Snapchat tidak terinstal , apakah ingin mengunduh Snapchat?").setPositiveButton("Yes", dialogforsnapchat)
                             .setNegativeButton("No", dialogforsnapchat).show();
                     
 
                 }
                 break;
                 // Facebook "website , more command  and app"
-            case Commands.oFacebook:
+            case Commands.oFacebook: case Commands.oFacebook1: case Commands.oFacebook2: case Commands.oFacebook3: case Commands.oFacebook4: case Commands.oFacebook5:
                 Intent launchIntentofb = getPackageManager().getLaunchIntentForPackage("com.facebook.katana");
                 if (launchIntentofb != null) {
 
@@ -435,7 +435,7 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
                                     } catch (Exception ex) {
                                         Log.e(TAG, "Error ", ex);
                                     }
-                                    Toast.makeText(getBaseContext(), "Downloading Facebook app !", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(getBaseContext(), "Mengunduh Facebook", Toast.LENGTH_SHORT).show();
                                     Intent webPS = new Intent();
                                     webPS.setAction(Intent.ACTION_VIEW);
                                     webPS.addCategory(Intent.CATEGORY_BROWSABLE);
@@ -456,13 +456,13 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
                     };
 
                     AlertDialog.Builder builder = new AlertDialog.Builder(context);
-                    builder.setMessage("Facebook isn't installed , Download Facebook App ?").setPositiveButton("Yes", dialogClickListener)
+                    builder.setMessage("Aplikasi Facebook tidak terinstal , apakah ingin mengunduh Facebook?").setPositiveButton("Yes", dialogClickListener)
                             .setNegativeButton("No", dialogClickListener).show();
 
 
                 }
                 break;
-            case Commands.facebook: case Commands.facebook1: case Commands.facebook2: case Commands.facebook3: case Commands.facebook4: case Commands.facebook5:
+            case Commands.webfbb: case Commands.webfbc: case Commands.webfbd: case Commands.webfbe: case Commands.webfbf: case Commands.webfbz:
                 Intent intentfb = new Intent();
                 intentfb.setAction(Intent.ACTION_VIEW);
                 intentfb.addCategory(Intent.CATEGORY_BROWSABLE);
@@ -472,7 +472,7 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
                 //end of facebook
 
                 //Twitter "website and app"
-            case Commands.oTwitter:
+            case Commands.oTwitter: case Commands.oTwitter1: case Commands.oTwitter2: case Commands.oTwitter3: case Commands.oTwitter4:
                 Intent launchIntentotw = getPackageManager().getLaunchIntentForPackage("com.twitter.android");
                 if (launchIntentotw != null) {
 
@@ -490,7 +490,7 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
                                     } catch (Exception ex) {
                                         Log.e(TAG, "Error ", ex);
                                     }
-                                    Toast.makeText(getBaseContext(), "Downloading Twitter app !", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(getBaseContext(), "Mengunduh Twitter !", Toast.LENGTH_SHORT).show();
                                     Intent webPS = new Intent();
                                     webPS.setAction(Intent.ACTION_VIEW);
                                     webPS.addCategory(Intent.CATEGORY_BROWSABLE);
@@ -511,13 +511,13 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
                     };
 
                     AlertDialog.Builder builder = new AlertDialog.Builder(context);
-                    builder.setMessage("Twitter isn't installed , Download Twitter App ?").setPositiveButton("Yes", dialogClickListener)
+                    builder.setMessage("Aplikasi Twitter tidak terinstal , apakah ingin mengunduh Twitter?").setPositiveButton("Yes", dialogClickListener)
                             .setNegativeButton("No", dialogClickListener).show();
 
 
                 }
                 break;
-            case Commands.twitter: case Commands.twitter1: case Commands.twitter2: case Commands.twitter3: case Commands.twitter4: case Commands.twitter5:
+            case Commands.twitter: case Commands.twitter2: case Commands.twitter3: case Commands.twitter4: case Commands.twitter5:
                 Intent intenttw = new Intent();
                 intenttw.setAction(Intent.ACTION_VIEW);
                 intenttw.addCategory(Intent.CATEGORY_BROWSABLE);
@@ -526,7 +526,7 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
                 break;
                 //end of twitter
 
-            case Commands.oContacts:
+            case Commands.oContacts: case Commands.oContacts1: case Commands.oContacts2: case Commands.oContacts3:
                 Intent launchIntent3 = getPackageManager().getLaunchIntentForPackage("com.android.contacts");
                 if (launchIntent3 != null) {
                     startActivity(launchIntent3);//null pointer check in case package name was not found
@@ -539,7 +539,7 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
                     startActivity(setting);//null pointer check in case package name was not found
                 }
                 break;
-            case Commands.oGallery:
+            case Commands.oGallery: case Commands.oGallery1: case Commands.oGallery2: case Commands.oGallery3: case Commands.oGallery4: case Commands.oGallery5:
                 Intent gallery = getPackageManager().getLaunchIntentForPackage("com.android.gallery3d");
                 Intent gallery2 = getPackageManager().getLaunchIntentForPackage("com.google.android.apps.photos");
                 if (gallery != null) {
@@ -550,7 +550,7 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
                     startActivity(gallery2);
                 }
                 break;
-            case Commands.oCalendar:
+            case Commands.oCalendar: case Commands.oCalendar1: case Commands.oCalendar2: case Commands.oCalendar3: case Commands.oCalendar4: case Commands.oCalendar5:
                 Intent calendar = getPackageManager().getLaunchIntentForPackage("com.android.calendar");
                 if (calendar != null) {
 
@@ -565,7 +565,7 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
                 }
                 break;
                 //gmail "app and website"
-            case Commands.oGmail:
+            case Commands.oGmail: case Commands.oGmail1: case Commands.oGmail2: case Commands.oGmail3: case Commands.oGmail4:
                 Intent launchIntent4 = getPackageManager().getLaunchIntentForPackage("com.google.android.gm");
                 if (launchIntent4 != null) {
                     startActivity(launchIntent4);//null pointer check in case package name was not found
@@ -606,7 +606,7 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
                             .setNegativeButton("No", dialogforgmail).show();
                 }
                 break;
-            case Commands.gmail: case Commands.gmail1: case Commands.gmail2: case Commands.gmail3: case Commands.gmail4: case Commands.gmail5: case Commands.gmail6:
+            case Commands.gmail: case Commands.gmail2: case Commands.gmail3: case Commands.gmail4: case Commands.gmail5: case Commands.gmail6:
                 Intent opengmail = new Intent();
                 opengmail.setAction(Intent.ACTION_VIEW);
                 opengmail.addCategory(Intent.CATEGORY_BROWSABLE);
@@ -614,19 +614,19 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
                 startActivity(opengmail);
                 break;
                 //end of gmail
-            case Commands.oCalculator:
+            case Commands.oCalculator: case Commands.oCalculator1: case Commands.oCalculator2: case Commands.oCalculator3: case Commands.oCalculator4:
                 Intent launchIntent5 = getPackageManager().getLaunchIntentForPackage("com.android.calculator2");
                 if (launchIntent5 != null) {
                     startActivity(launchIntent5);//null pointer check in case package name was not found
                 }
                 break;
-            case Commands.oMusic:
+            case Commands.oMusic: case Commands.oMusic1: case Commands.oMusic2: case Commands.oMusic3: case Commands.oMusic4: case Commands.oMusic5:
                 Intent launchIntent6 = getPackageManager().getLaunchIntentForPackage("com.cyanogenmod.eleven");
                 if (launchIntent6 != null) {
                     startActivity(launchIntent6);//null pointer check in case package name was not found
                 }
                 break;
-            case Commands.oDiscord:
+            case Commands.oDiscord: case Commands.oDiscord1: case Commands.oDiscord2: case Commands.oDiscord3: case Commands.oDiscord4:
                 Intent launchIntent7 = getPackageManager().getLaunchIntentForPackage("com.discord");
                 if (launchIntent7 != null) {
                     startActivity(launchIntent7);//null pointer check in case package name was not found
@@ -643,7 +643,7 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
                                     } catch (Exception ex) {
                                         Log.e(TAG, "Error ", ex);
                                     }
-                                    Toast.makeText(getBaseContext(), "Downloading Discord app !", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(getBaseContext(), "Mengunduh Discord ", Toast.LENGTH_SHORT).show();
                                     Intent webPS = new Intent();
                                     webPS.setAction(Intent.ACTION_VIEW);
                                     webPS.addCategory(Intent.CATEGORY_BROWSABLE);
@@ -663,11 +663,11 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
                     };
 
                     AlertDialog.Builder builder = new AlertDialog.Builder(context);
-                    builder.setMessage("Discord isn't installed , Download Discord App ?").setPositiveButton("Yes", dialogClickListener)
+                    builder.setMessage("Aplikasi Discord tidak terinstal , apakah ingin mengunduh Discord?").setPositiveButton("Yes", dialogClickListener)
                             .setNegativeButton("No", dialogClickListener).show();
                 }
                 break;
-            case Commands.oGdrive:
+            case Commands.oGdrive: case Commands.oGdrive1: case Commands.oGdrive2: case Commands.oGdrive3: case Commands.oGdrive4:
                 Intent launchIntent8 = getPackageManager().getLaunchIntentForPackage("com.google.android.apps.docs");
                 if (launchIntent8 != null) {
                     startActivity(launchIntent8);//null pointer check in case package name was not found
@@ -684,7 +684,7 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
                                     } catch (Exception ex) {
                                         Log.e(TAG, "Error ", ex);
                                     }
-                                    Toast.makeText(getBaseContext(), "Downloading Google Drive app !", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(getBaseContext(), "Mengunduh Google Drive", Toast.LENGTH_SHORT).show();
                                     Intent webPS = new Intent();
                                     webPS.setAction(Intent.ACTION_VIEW);
                                     webPS.addCategory(Intent.CATEGORY_BROWSABLE);
@@ -704,13 +704,13 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
                     };
 
                     AlertDialog.Builder builder = new AlertDialog.Builder(context);
-                    builder.setMessage("Google Drive isn't installed , Download Google Drive App ?").setPositiveButton("Yes", dialogforgdrive)
+                    builder.setMessage("Aplikasi Google Drive tidak terinstal , apakah ingin mengunduh Google drive?").setPositiveButton("Yes", dialogforgdrive)
                             .setNegativeButton("No", dialogforgdrive).show();
 
 
                 }
                 break;
-            case Commands.oTelegram:
+            case Commands.oTelegram: case Commands.oTelegram1: case Commands.oTelegram2: case Commands.oTelegram3: case Commands.oTelegram4:
                 Intent launchIntentotg = getPackageManager().getLaunchIntentForPackage("org.telegram.messenger");
                 if (launchIntentotg != null) {
 
@@ -728,7 +728,7 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
                                     } catch (Exception ex) {
                                         Log.e(TAG, "Error ", ex);
                                     }
-                                    Toast.makeText(getBaseContext(), "Downloading Telegram app !", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(getBaseContext(), "Mengunduh Telegram", Toast.LENGTH_SHORT).show();
                                     Intent webPS = new Intent();
                                     webPS.setAction(Intent.ACTION_VIEW);
                                     webPS.addCategory(Intent.CATEGORY_BROWSABLE);
@@ -749,7 +749,7 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
                     };
 
                     AlertDialog.Builder builder = new AlertDialog.Builder(context);
-                    builder.setMessage("Telegram isn't installed , Download Telegram App ?").setPositiveButton("Yes", dialogfortelegram)
+                    builder.setMessage("Aplikasi Telegram tidak terinstal , apakah ingin mengunduh Telegram?").setPositiveButton("Yes", dialogfortelegram)
                             .setNegativeButton("No", dialogfortelegram).show();
                     
 
@@ -757,7 +757,7 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
                 break;
 
                 //youtube "website and app"
-            case Commands.oYoutube:
+            case Commands.oYoutube: case Commands.oYoutube1: case Commands.oYoutube2: case Commands.oYoutube3: case Commands.oYoutube4:
                 Intent launchIntentoyt = getPackageManager().getLaunchIntentForPackage("com.google.android.youtube");
                 if (launchIntentoyt != null) {
 
@@ -775,7 +775,7 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
                                     } catch (Exception ex) {
                                         Log.e(TAG, "Error ", ex);
                                     }
-                                    Toast.makeText(getBaseContext(), "Youtube App is not installed, Redirect to Play Store !!", Toast.LENGTH_SHORT).show();
+
                                     Intent webPS = new Intent();
                                     webPS.setAction(Intent.ACTION_VIEW);
                                     webPS.addCategory(Intent.CATEGORY_BROWSABLE);
@@ -796,13 +796,13 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
                     };
 
                     AlertDialog.Builder builder = new AlertDialog.Builder(context);
-                    builder.setMessage("Youtube isn't installed , Download Youtube App ?").setPositiveButton("Yes", dialogforyoutube)
+                    builder.setMessage("Aplikasi Youtube tidak terinstal , apakah ingin mengunduh Youtube?").setPositiveButton("Yes", dialogforyoutube)
                             .setNegativeButton("No", dialogforyoutube).show();
                     
 
                 }
                 break;
-            case Commands.youtube: case Commands.youtube1: case Commands.youtube2: case Commands.youtube3: case Commands.youtube4: case Commands.youtube5: case Commands.youtube6:
+            case Commands.youtube: case Commands.youtube2: case Commands.youtube3: case Commands.youtube4: case Commands.youtube5: case Commands.youtube6: case Commands.youtube1:
                 Intent openyoutube = new Intent();
                 openyoutube.setAction(Intent.ACTION_VIEW);
                 openyoutube.addCategory(Intent.CATEGORY_BROWSABLE);
@@ -811,7 +811,7 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
                 break;
                 //end of youtube
 
-            case Commands.oNetflix:
+            case Commands.oNetflix: case Commands.oNetflix1: case Commands.oNetflix2: case Commands.oNetflix3: case Commands.oNetflix4:
                 Intent launchIntentonf = getPackageManager().getLaunchIntentForPackage("com.netflix.mediaclient");
                 if (launchIntentonf != null) {
 
@@ -829,7 +829,7 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
                                     } catch (Exception ex) {
                                         Log.e(TAG, "Error ", ex);
                                     }
-                                    Toast.makeText(getBaseContext(), "Downloading Netflix app !", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(getBaseContext(), "Mengunduh Netflix", Toast.LENGTH_SHORT).show();
                                     Intent webPS = new Intent();
                                     webPS.setAction(Intent.ACTION_VIEW);
                                     webPS.addCategory(Intent.CATEGORY_BROWSABLE);
@@ -851,13 +851,13 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
                     };
 
                     AlertDialog.Builder builder = new AlertDialog.Builder(context);
-                    builder.setMessage("Netflix isn't installed , Download Netflix App ?").setPositiveButton("Yes", dialogfornetflix)
+                    builder.setMessage("Aplikasi Netflix tidak terinstal , apakah ingin mengunduh Netflix?").setPositiveButton("Yes", dialogfornetflix)
                             .setNegativeButton("No", dialogfornetflix).show();
 
                 }
                 break;
                 //Tokopedia "website and app"
-            case Commands.oTokopedia:
+            case Commands.oTokopedia: case Commands.oTokopedia1: case Commands.oTokopedia2: case Commands.oTokopedia3: case Commands.oTokopedia4: case Commands.oTokopedia5:
                 Intent tokopedia = getPackageManager().getLaunchIntentForPackage("com.tokopedia.tkpd");
                 if (tokopedia != null) {
 
@@ -875,7 +875,7 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
                                     } catch (Exception ex) {
                                         Log.e(TAG, "Error ", ex);
                                     }
-                                    Toast.makeText(getBaseContext(), "Downloading Tokopedia app !", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(getBaseContext(), "Mengunduh Tokopedia", Toast.LENGTH_SHORT).show();
                                     Intent webPS = new Intent();
                                     webPS.setAction(Intent.ACTION_VIEW);
                                     webPS.addCategory(Intent.CATEGORY_BROWSABLE);
@@ -896,13 +896,13 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
                     };
 
                     AlertDialog.Builder builder = new AlertDialog.Builder(context);
-                    builder.setMessage("Tokopedia isn't installed , Download Tokopedia App ?").setPositiveButton("Yes", dialogfortokopedia)
+                    builder.setMessage("Aplikasi Tokopedia tidak terinstal , apakah ingin mengunduh Tokopedia?").setPositiveButton("Yes", dialogfortokopedia)
                             .setNegativeButton("No", dialogfortokopedia).show();
 
 
                 }
                 break;
-            case Commands.tokopedia: case Commands.tokopedia1: case Commands.tokopedia2: case Commands.tokopedia3: case Commands.tokopedia4: case Commands.tokopedia5: case Commands.tokopedia6: case Commands.tokopedia7:
+            case Commands.tokopedia: case Commands.tokopedia2: case Commands.tokopedia3: case Commands.tokopedia4: case Commands.tokopedia6: case Commands.tokopedia7:
                 Intent opentokopedia = new Intent();
                 opentokopedia.setAction(Intent.ACTION_VIEW);
                 opentokopedia.addCategory(Intent.CATEGORY_BROWSABLE);
@@ -912,7 +912,7 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
                 //end of tokopedia
 
                 //bukalapak "website and app"
-            case Commands.oBukalapak:
+            case Commands.oBukalapak: case Commands.oBukalapak1: case Commands.oBukalapak2: case Commands.oBukalapak3: case Commands.oBukalapak4: case Commands.oBukalapak5:
                 Intent bukalapak = getPackageManager().getLaunchIntentForPackage("com.bukalapak.android");
                 if (bukalapak != null) {
 
@@ -930,7 +930,7 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
                                     } catch (Exception ex) {
                                         Log.e(TAG, "Error ", ex);
                                     }
-                                    Toast.makeText(getBaseContext(), "Downloading BukaLapak app !", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(getBaseContext(), "Mengunduh BukaLapak", Toast.LENGTH_SHORT).show();
                                     Intent webPS = new Intent();
                                     webPS.setAction(Intent.ACTION_VIEW);
                                     webPS.addCategory(Intent.CATEGORY_BROWSABLE);
@@ -951,12 +951,12 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
                     };
 
                     AlertDialog.Builder builder = new AlertDialog.Builder(context);
-                    builder.setMessage("Bukalapak isn't installed , Download Bukalapak App ?").setPositiveButton("Yes", dialogClickListener)
+                    builder.setMessage("Aplikasi Bukalapak tidak terinstal , apakah ingin mengunduh Bukalapak?").setPositiveButton("Yes", dialogClickListener)
                             .setNegativeButton("No", dialogClickListener).show();
 
                 }
                 break;
-            case Commands.bukalapak: case Commands.bukalapak1: case Commands.bukalapak2: case Commands.bukalapak3: case Commands.bukalapak4: case Commands.bukalapak5:
+            case Commands.bukalapak: case Commands.bukalapak2: case Commands.bukalapak3:
                 Intent openbukalapak = new Intent();
                 openbukalapak.setAction(Intent.ACTION_VIEW);
                 openbukalapak.addCategory(Intent.CATEGORY_BROWSABLE);
@@ -966,7 +966,7 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
                 //end of bukalapak
 
                 //bli bli "website and app"
-            case Commands.oBlibli:
+            case Commands.oBlibli: case Commands.oBlibli1: case Commands.oBlibli2: case Commands.oBlibli3: case Commands.oBlibli4: case Commands.oBlibli5:
                 Intent blibli = getPackageManager().getLaunchIntentForPackage("blibli.mobile.commerce");
                 if (blibli != null) {
 
@@ -984,7 +984,7 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
                                     } catch (Exception ex) {
                                         Log.e(TAG, "Error ", ex);
                                     }
-                                    Toast.makeText(getBaseContext(), "Downloading Bli Bli app !", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(getBaseContext(), "Mengunduh Bli Bli", Toast.LENGTH_SHORT).show();
                                     Intent webPS = new Intent();
                                     webPS.setAction(Intent.ACTION_VIEW);
                                     webPS.addCategory(Intent.CATEGORY_BROWSABLE);
@@ -1006,12 +1006,12 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
                     };
 
                     AlertDialog.Builder builder = new AlertDialog.Builder(context);
-                    builder.setMessage("blibli isn't installed , Download blibli App ?").setPositiveButton("Yes", dialogforblibli)
+                    builder.setMessage("Aplikasi Bli Bli tidak terinstal , apakah ingin mengunduh Bli Bli?").setPositiveButton("Yes", dialogforblibli)
                             .setNegativeButton("No", dialogforblibli).show();
 
                 }
                 break;
-            case Commands.blibli: case Commands.blibli1: case Commands.blibli2: case Commands.blibli3: case Commands.blibli4: case Commands.blibli5:
+            case Commands.blibli: case Commands.blibli2: case Commands.blibli3: case Commands.blibli5:
                 Intent openblibli = new Intent();
                 openblibli.setAction(Intent.ACTION_VIEW);
                 openblibli.addCategory(Intent.CATEGORY_BROWSABLE);
@@ -1020,7 +1020,7 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
                 break;
                 //end of blibli
 
-            case Commands.oGojek:
+            case Commands.oGojek: case Commands.oGojek1: case Commands.oGojek2: case Commands.oGojek3: case Commands.oGojek4: case Commands.oGojek5:
                 Intent gojek = getPackageManager().getLaunchIntentForPackage("com.gojek.app");
                 if (gojek != null) {
 
@@ -1038,7 +1038,7 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
                                     } catch (Exception ex) {
                                         Log.e(TAG, "Error ", ex);
                                     }
-                                    Toast.makeText(getBaseContext(), "Downloading Gojek app !", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(getBaseContext(), "Mengunduh Gojek", Toast.LENGTH_SHORT).show();
                                     Intent webPS = new Intent();
                                     webPS.setAction(Intent.ACTION_VIEW);
                                     webPS.addCategory(Intent.CATEGORY_BROWSABLE);
@@ -1059,14 +1059,14 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
                     };
 
                     AlertDialog.Builder builder = new AlertDialog.Builder(context);
-                    builder.setMessage("Gojek isn't installed , Download Gojek App ?").setPositiveButton("Yes", dialogforgojek)
+                    builder.setMessage("Aplikasi Gojek tidak terinstal , apakah ingin mengunduh Gojek?").setPositiveButton("Yes", dialogforgojek)
                             .setNegativeButton("No", dialogforgojek).show();
 
                 }
                 break;
 
                 //Amazon "website and app"
-            case Commands.oAmazon:
+            case Commands.oAmazon: case Commands.oAmazon1: case Commands.oAmazon2: case Commands.oAmazon3:
                 Intent Amazon = getPackageManager().getLaunchIntentForPackage("com.amazon.mShop.android.shopping");
                 if (Amazon != null) {
 
@@ -1084,7 +1084,7 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
                                     } catch (Exception ex) {
                                         Log.e(TAG, "Error ", ex);
                                     }
-                                    Toast.makeText(getBaseContext(), "Downloading Amazon app !", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(getBaseContext(), "Mengunduh Amazon", Toast.LENGTH_SHORT).show();
                                     Intent webPS = new Intent();
                                     webPS.setAction(Intent.ACTION_VIEW);
                                     webPS.addCategory(Intent.CATEGORY_BROWSABLE);
@@ -1106,12 +1106,12 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
                     };
 
                     AlertDialog.Builder builder = new AlertDialog.Builder(context);
-                    builder.setMessage("Amazon isn't installed , Download Amazon App ?").setPositiveButton("Yes", dialogforamazon)
+                    builder.setMessage("Aplikasi Amazon tidak terinstal , apakah ingin mengunduh Amazon?").setPositiveButton("Yes", dialogforamazon)
                             .setNegativeButton("No", dialogforamazon).show();
 
                 }
                 break;
-            case Commands.amazon: case Commands.amazon1: case Commands.amazon2: case Commands.amazon3: case Commands.amazon4: case Commands.amazon5:
+            case Commands.amazon: case Commands.amazon1: case Commands.amazon2: case Commands.amazon3: case Commands.amazon5:
                 Intent openamazon = new Intent();
                 openamazon.setAction(Intent.ACTION_VIEW);
                 openamazon.addCategory(Intent.CATEGORY_BROWSABLE);
@@ -1121,7 +1121,7 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
                 //end of Amazon
 
             //Yahoo "website and app"
-            case Commands.oYahoo:
+            case Commands.oYahoo: case Commands.oYahoo1: case Commands.oYahoo2: case Commands.oYahoo3: case Commands.oYahoo4:
                 Intent yahoo = getPackageManager().getLaunchIntentForPackage("com.yahoo.mobile.client.android.mail");
                 if (yahoo != null) {
 
@@ -1139,7 +1139,7 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
                                     } catch (Exception ex) {
                                         Log.e(TAG, "Error ", ex);
                                     }
-                                    Toast.makeText(getBaseContext(), "Downloading Yahoo Mail app !", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(getBaseContext(), "Mengumduh Yahoo Mail", Toast.LENGTH_SHORT).show();
                                     Intent webPS = new Intent();
                                     webPS.setAction(Intent.ACTION_VIEW);
                                     webPS.addCategory(Intent.CATEGORY_BROWSABLE);
@@ -1159,7 +1159,7 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
                         }
                     };
                     AlertDialog.Builder builder = new AlertDialog.Builder(context);
-                    builder.setMessage("Yahoo mail isn't installed , Download Yahoo Mail App ?").setPositiveButton("Yes", dialogforyahoo)
+                    builder.setMessage("Aplikasi Yahoo Mail tidak terinstal , apakah ingin mengunduh Yahoo Mail?").setPositiveButton("Yes", dialogforyahoo)
                             .setNegativeButton("No", dialogforyahoo).show();
 
 
@@ -1173,9 +1173,65 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
                 openyahoo.setData(Uri.parse("http://www.yahoo.com"));
                 startActivity(openyahoo);
                 break;
-            //end of Yahoo
+                //end of yahoo
 
-            case Commands.oGrab:
+                //Iflix
+            case Commands.oIflix: case Commands.oIflix1: case Commands.oIflix2: case Commands.oIflix3: case Commands.oIflix4:
+                Intent iflix = getPackageManager().getLaunchIntentForPackage("iflix.play");
+                if (iflix != null) {
+
+                    startActivity(iflix);//null pointer check in case package name was not found
+                }
+                else if (iflix == null) {
+                    DialogInterface.OnClickListener dialogforiflix = new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            switch (which){
+                                case DialogInterface.BUTTON_POSITIVE:
+                                    try
+                                    {
+                                        Runtime.getRuntime().exec(new String[]{"/sbin/su", "-c", "sleep 3; input tap 1000 524"});
+                                    } catch (Exception ex) {
+                                        Log.e(TAG, "Error ", ex);
+                                    }
+                                    Toast.makeText(getBaseContext(), "Mengunduh Iflix", Toast.LENGTH_SHORT).show();
+                                    Intent webPS = new Intent();
+                                    webPS.setAction(Intent.ACTION_VIEW);
+                                    webPS.addCategory(Intent.CATEGORY_BROWSABLE);
+                                    webPS.setData(Uri.parse("https://play.google.com/store/apps/details?id=iflix.play&hl=in"));
+                                    startActivity(webPS);
+                                    break;
+
+                                case DialogInterface.BUTTON_NEGATIVE:
+                                    Toast.makeText(getBaseContext(), "Say what you need", Toast.LENGTH_SHORT).show();
+                                    try {
+                                        Runtime.getRuntime().exec(new String[]{"/sbin/su", "-c", "sleep .5; input tap 596 971"});
+                                    } catch (Exception ex) {
+                                        Log.e(TAG, "Error ", ex);
+                                    }
+                                    break;
+                            }
+                        }
+                    };
+                    AlertDialog.Builder builder = new AlertDialog.Builder(context);
+                    builder.setMessage("Aplikasi Iflix tidak terinstal , apakah ingin mengunduh Iflix?").setPositiveButton("Yes", dialogforiflix)
+                            .setNegativeButton("No", dialogforiflix).show();
+
+
+
+                }
+                break;
+            case Commands.iflix5: case Commands.iflix6: case Commands.iflix7:
+                Intent openiflix = new Intent();
+                openiflix.setAction(Intent.ACTION_VIEW);
+                openiflix.addCategory(Intent.CATEGORY_BROWSABLE);
+                openiflix.setData(Uri.parse("http://www.iflix.com"));
+                startActivity(openiflix);
+                break;
+            //end of iflix
+
+
+            case Commands.oGrab: case Commands.oGrab1: case Commands.oGrab2: case Commands.oGrab3: case Commands.oGrab4: case Commands.oGrab5: case Commands.oGrab6:
                 Intent Grab1 = getPackageManager().getLaunchIntentForPackage("com.grabtaxi.passenger");
                 if (Grab1 != null) {
 
@@ -1193,7 +1249,7 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
                                     } catch (Exception ex) {
                                         Log.e(TAG, "Error ", ex);
                                     }
-                                    Toast.makeText(getBaseContext(), "Downloading Grab app !", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(getBaseContext(), "Mengunduh Grab", Toast.LENGTH_SHORT).show();
                                     Intent webPS = new Intent();
                                     webPS.setAction(Intent.ACTION_VIEW);
                                     webPS.addCategory(Intent.CATEGORY_BROWSABLE);
@@ -1214,7 +1270,7 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
                     };
 
                     AlertDialog.Builder builder = new AlertDialog.Builder(context);
-                    builder.setMessage("Grab isn't installed , Download Grab App ?").setPositiveButton("Yes", dialogClickListener)
+                    builder.setMessage("Aplikasi Grab tidak terinstal , apakah ingin mengunduh Grab?").setPositiveButton("Yes", dialogClickListener)
                             .setNegativeButton("No", dialogClickListener).show();
 
 

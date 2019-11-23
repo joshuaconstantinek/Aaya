@@ -14,35 +14,218 @@ public class Commands {
     public static final String idulfitri = "say something";
 
     //open additional apps
-    public static final String viaApps = "buka aplikasi via";
-    public static final String browser = "buka aplikasi seluncur";
+    //VIA app
+    public static final String viaApps = "buka aplikasi Via";
+    public static final String viaApps1 = "buka Via";
+    public static final String viaApps2 = "ke aplikasi Via";
+    public static final String viaApps3 = "ke Via";
+    //end of via
+    //browser
+    public static final String browser = "Buka aplikasi seluncur";
+    public static final String browser1 = "buka seluncur";
+    public static final String browser2 = "ke aplikasi seluncur";
+    public static final String browser3 = "ke seluncur";
+    public static final String browser4 = "buka browser";
+    public static final String browser5 = "Buka aplikasi browser";
+    public static final String browser6 = "ke browser";
+    public static final String browser7 = "ke aplikasi browser";
+    //end of browser
     public static final String vpnApps = "buka aplikasi VPN";
     public static final String sendMSG = "noatavailiable";
+    //pesan
     public static final String oMessage = "buka pesan";
+    public static final String oMessage1 = "lihat pesan";
+    public static final String oMessage2 = "pesan";
+    //end pesan
+    //kondak
     public static final String oContacts = "lihat kontak";
+    public static final String oContacts1 = "kontak";
+    public static final String oContacts2 = "ke kontak";
+    public static final String oContacts3 = "buka kontak";
+    //end of kontak
     public static final String oSetting = "buka pengaturan";
-    public static final String oGallery = "buka Gallery";
-    public static final String oCalendar = "buka Kalendar";
+    //GAL
+    public static final String oGallery = "buka Galeri";
+    public static final String oGallery1 = "buka aplikasi Galeri";
+    public static final String oGallery2 = "ke galeri";
+    public static final String oGallery3 = "ke aplikasi galeri";
+    public static final String oGallery4 = "lihat foto";
+    public static final String oGallery5 = "lihat foto-foto";
+    //end of GAL
+    //kalendar
+    public static final String oCalendar = "Buka Kalender";
+    public static final String oCalendar1 = "Buka aplikasi Kalender";
+    public static final String oCalendar2 = "ke Kalender";
+    public static final String oCalendar3 = "ke aplikasi Kalender";
+    public static final String oCalendar4 = "lihat tanggalan";
+    public static final String oCalendar5 = "Tanggal berapa ini";
+    //end of kalendar
+    //gmail
     public static final String oGmail = "buka Gmail";
+    public static final String oGmail1 = "Buka aplikasi Gmail";
+    public static final String oGmail2 = "ke Gmail";
+    public static final String oGmail3 = "ke aplikasi Gmail";
+    public static final String oGmail4 = "lihat isi email";
+    //end of gmail
+    //kalkulator
     public static final String oCalculator = "Buka Kalkulator";
-    public static final String oMusic = "buka music";
-    public static final String oDiscord = "buka Discord";
+    public static final String oCalculator1 = "Buka aplikasi Kalkulator";
+    public static final String oCalculator2 = "ke Kalkulator";
+    public static final String oCalculator3 = "ke aplikasi Kalkulator";
+    public static final String oCalculator4 = "berhitung";
+    //end of calc
+    //musik
+    public static final String oMusic = "buka musik";
+    public static final String oMusic1 = "Buka aplikasi musik";
+    public static final String oMusic2 = "ke musik";
+    public static final String oMusic3 = "ke aplikasi musik";
+    public static final String oMusic4 = "dengar musik";
+    public static final String oMusic5 = "dengar lagu";
+    //end of musik
+    //app DC
+    public static final String oDiscord = "buka discord";
+    public static final String oDiscord1 = "Buka aplikasi discord";
+    public static final String oDiscord2 = "ke discord";
+    public static final String oDiscord3 = "ke aplikasi discord";
+    public static final String oDiscord4 = "discord";
+
+    //end of DC
+    //GD
     public static final String oGdrive = "buka Google Drive";
+    public static final String oGdrive1 = "Buka aplikasi Google Drive";
+    public static final String oGdrive2 = "ke Google Drive";
+    public static final String oGdrive3 = "ke aplikasi Google Drive";
+    public static final String oGdrive4 = "Google Drive";
+    //end of GD
+    //app insta
     public static final String oInsta = "buka Instagram";
+    public static final String oInsta1 = "buka aplikasi Instagram";
+    public static final String oInsta2 = "ke Instagram";
+    public static final String oInsta3 = "ke aplikasi Instagram";
+    public static final String oInsta4 = "foto Instagram";
+    //end of insta
+    //app PS
     public static final String playstore = "Buka Play Store";
+    public static final String playstore1 = "Buka aplikasi Play Store";
+    public static final String playstore2 = "ke Play Store";
+    public static final String playstore3 = "ke aplikasi Play Store";
+    public static final String playstore4 = "ke App Store";
+    public static final String playstore5 = "ke aplikasi App Store";
+    public static final String playstore6 = "Buka App Store";
+    public static final String playstore7 = "Buka aplikasi App Store";
+    public static final String playstore8 = "unduh aplikasi";
+
+    //end of PS
+    //epp twitter
     public static final String oTwitter = "buka Twitter";
-    public static final String oFacebook = "buka Facebook";
+    public static final String oTwitter1 = "Buka aplikasi Twitter";
+    public static final String oTwitter2 = "ke Twitter";
+    public static final String oTwitter3 = "ke aplikasi Twitter";
+    public static final String oTwitter4 = "beranda Twitter";
+    //end TW
+    //app fb
+    public static final String oFacebook = "Buka Facebook";
+    public static final String oFacebook1 = "Buka aplikasi Facebook";
+    public static final String oFacebook2 = "ke Facebook";
+    public static final String oFacebook3 = "ke aplikasi Facebook";
+    public static final String oFacebook4 = "sosial media Facebook";
+    public static final String oFacebook5 = "beranda Facebook";
+
+    //end of fb
+    //app snapchat
     public static final String oSnapchat = "buka Snapchat";
+    public static final String oSnapchat1 = "Buka aplikasi Snapchat";
+    public static final String oSnapchat2 = "ke Snapchat";
+    public static final String oSnapchat3 = "ke aplikasi Snapchat";
+    public static final String oSnapchat4 = "foto di Snapchat";
+    //end of SC
+    //app telegram
     public static final String oTelegram = "buka Telegram";
+    public static final String oTelegram1 = "Buka aplikasi Telegram";
+    public static final String oTelegram2 = "ke telegram";
+    public static final String oTelegram3 = "ke aplikasi elegram";
+    public static final String oTelegram4 = "sosial media telegram";
+    //end tele
+    //app yt
     public static final String oYoutube = "buka YouTube";
+    public static final String oYoutube1 = "Buka aplikasi YouTube";
+    public static final String oYoutube2 = "ke YouTube";
+    public static final String oYoutube3 = "ke aplikasi YouTube";
+    public static final String oYoutube4 = "nonton di YouTube";
+    //end yt
+    //app netflix
     public static final String oNetflix = "buka netflix";
+    public static final String oNetflix1 = "nonton netflix";
+    public static final String oNetflix2 = "Buka aplikasi netflix";
+    public static final String oNetflix3 = "ke netflix";
+    public static final String oNetflix4 = "ke aplikasi netflix";
+    //end netflix
+    //iflix
+    public static final String oIflix = "buka iflix";
+    public static final String oIflix1 = "Buka aplikasi iflix";
+    public static final String oIflix2 = "ke iflix";
+    public static final String oIflix3 = "ke aplikasi iflix";
+    public static final String oIflix4 = "nonton di aplikasi iflix";
+    //web iflix
+    public static final String iflix5 = "ke web iflix";
+    public static final String iflix6 = "buka web iflix";
+    public static final String iflix7 = "web iflix";
+
+    //end of iflix
+    //aplikasi tokopedia
     public static final String oTokopedia = "buka Tokopedia";
+    public static final String oTokopedia1 = "Buka aplikasi Tokopedia";
+    public static final String oTokopedia2 = "ke Tokopedia";
+    public static final String oTokopedia3 = "ke aplikasi Tokopedia";
+    public static final String oTokopedia4 = "belanja di Tokopedia";
+    public static final String oTokopedia5 = "olshop Tokopedia";
+    //end tokopedia
+    //app bukalapak
     public static final String oBukalapak = "buka Bukalapak";
+    public static final String oBukalapak1 = "ke Bukalapak";
+    public static final String oBukalapak2 = "buka aplikasi Bukalapak";
+    public static final String oBukalapak3 = "ke aplikasi Bukalapak";
+    public static final String oBukalapak4 = "belanja di Bukalapak";
+    public static final String oBukalapak5 = "olshop Bukalapak";
+    //end bukalapak
+    //aplikasi blibli
     public static final String oBlibli = "buka Blibli";
-    public static final String oGojek = "Buka go-jek";
+    public static final String oBlibli1 = "ke Blibli";
+    public static final String oBlibli2 = "Buka aplikasi Blibli";
+    public static final String oBlibli3 = "ke aplikasi Blibli";
+    public static final String oBlibli4 = "belanja di Blibli";
+    public static final String oBlibli5 = "olshop Blibli";
+    //end blibli
+    //app gojek
+    public static final String oGojek = "buka go-jek";
+    public static final String oGojek1 = "ke go-jek";
+    public static final String oGojek2 = "Buka aplikasi go-jek";
+    public static final String oGojek3 = "ke aplikasi go-jek";
+    public static final String oGojek4 = "pesan go-jek";
+    public static final String oGojek5 = "naik gojek";
+    //end gojek
+    //app amazon
     public static final String oAmazon = "Buka Amazon";
+    public static final String oAmazon1 = "ke aplikasi Amazon";
+    public static final String oAmazon2 = "Buka aplikasi Amazon";
+    public static final String oAmazon3 = "belanja di Amazon";
+    //end amazon
+    //grab
     public static final String oGrab = "Buka grab";
+    public static final String oGrab1 = "ke grab";
+    public static final String oGrab2 = "aplikasi grab";
+    public static final String oGrab3 = "grab car";
+    public static final String oGrab4 = "grab";
+    public static final String oGrab5 = "Buka aplikasi grab";
+    public static final String oGrab6 = "ke aplikasi grab";
+    //end grab
+    //yahoo
     public static final String oYahoo = "buka Yahoo Mail";
+    public static final String oYahoo1 = "aplikasi Yahoo Mail";
+    public static final String oYahoo2 = "ke aplikasi Yahoo Mail";
+    public static final String oYahoo3 = "Buka aplikasi email Yahoo";
+    public static final String oYahoo4 = "ke Yahoo Mail";
+    //end yahoo
     public static final String oTerminal = "Buka Terminal";
 
 
@@ -88,16 +271,15 @@ public class Commands {
     //end of compose email
     //Open website
     //Facebook
-    public static final String facebook = "beralih ke Facebook";
-    public static final String facebook1 = "ke Facebook";
-    public static final String facebook2 = "menuju ke Facebook";
-    public static final String facebook3 = "web Facebook";
-    public static final String facebook4 = "website Facebook";
-    public static final String facebook5 = "facebook.com";
+    public static final String webfbf = "beralih ke Facebook";
+    public static final String webfbz = "seluncur ke Facebook";
+    public static final String webfbb = "menuju ke Facebook";
+    public static final String webfbc = "web Facebook";
+    public static final String webfbd = "website Facebook";
+    public static final String webfbe = "facebook.com";
     //end of more Facebook Command
     //Twitter
     public static final String twitter = "beralih ke Twitter";
-    public static final String twitter1 = "ke Twitter";
     public static final String twitter2 = "menuju ke Twitter";
     public static final String twitter3 = "web Twitter";
     public static final String twitter4 = "website Twitter";
@@ -105,7 +287,7 @@ public class Commands {
     //End of more Twitter Command
     //Youtube
     public static final String youtube = "beralih ke YouTube";
-    public static final String youtube1 = "ke YouTube";
+    public static final String youtube1 ="ke Youtube";
     public static final String youtube2 = "menuju ke YouTube";
     public static final String youtube3 = "web YouTube";
     public static final String youtube4 = "website YouTube";
@@ -114,7 +296,6 @@ public class Commands {
     //End of more Yt command
     //Tokopedia
     public static final String tokopedia = "beralih ke Tokopedia";
-    public static final String tokopedia1 = "ke Tokopedia";
     public static final String tokopedia2 = "menuju ke Tokopedia";
     public static final String tokopedia3 = "web Tokopedia";
     public static final String tokopedia4 = "website Tokopedia";
@@ -124,7 +305,6 @@ public class Commands {
     //End of more tokopedia Command
     //Bukalapak
     public static final String bukalapak = "beralih ke Bukalapak";
-    public static final String bukalapak1 = "ke Bukalapak";
     public static final String bukalapak2 = "web Bukalapak";
     public static final String bukalapak3 = "website Bukalapak";
     public static final String bukalapak4 = "belanja di Bukalapak";
@@ -132,10 +312,8 @@ public class Commands {
     //end of more bukalapak command
     //blibli
     public static final String blibli = "beralih ke Blibli";
-    public static final String blibli1 = "ke Blibli";
     public static final String blibli2 = "web Blibli";
     public static final String blibli3 = "websiteBlibli";
-    public static final String blibli4 = "belanja di Blibli";
     public static final String blibli5 = "blibli.com";
     //end of more blibli command
     //Amazon
@@ -143,7 +321,6 @@ public class Commands {
     public static final String amazon1 = "ke Amazon";
     public static final String amazon2 = "web Amazon";
     public static final String amazon3 = "website Amazon";
-    public static final String amazon4 = "belanja di Amazon";
     public static final String amazon5 = "amazon.com";
     //end of amazon more command
     //Yahoo

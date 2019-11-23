@@ -1,11 +1,11 @@
 <resources>
 
     //Splash Activity
-    <string name="welcome"> Aaya</string>
-    <string name="voiceAss">Your Personnel Voice Assistant</string>
+    <string name="welcome"> Project TA Yoshua</string>
+    <string name="voiceAss">Personal Asisten untuk pengguna awam Android</string>
 
     //Needs Activity
-    <string name="app_name">Aaya</string>
+    <string name="app_name">YoshuaProject</string>
     <string name="greet">Please fill in the details so i can Assist You</string>
     <string name="visually">Are You Visually Impaired ?</string>
     <string name="button">Submit</string>
