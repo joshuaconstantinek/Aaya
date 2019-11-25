@@ -621,9 +621,11 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
                 }
                 break;
             case Commands.oMusic: case Commands.oMusic1: case Commands.oMusic2: case Commands.oMusic3: case Commands.oMusic4: case Commands.oMusic5:
-                Intent launchIntent6 = getPackageManager().getLaunchIntentForPackage("com.cyanogenmod.eleven");
-                if (launchIntent6 != null) {
-                    startActivity(launchIntent6);//null pointer check in case package name was not found
+                try {
+                    Intent intent6 = Intent.makeMainSelectorActivity(Intent.ACTION_MAIN, Intent.CATEGORY_APP_MUSIC);
+                    startActivity(intent6);
+                } catch (Exception e) {
+                    Log.d(TAG, "Exception for launching music player "+e);
                 }
                 break;
             case Commands.oDiscord: case Commands.oDiscord1: case Commands.oDiscord2: case Commands.oDiscord3: case Commands.oDiscord4:
@@ -1537,7 +1539,7 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
                 openmovies.setData(Uri.parse("http://www.indoxxi.tube.com"));
                 startActivity(openmovies);
                 break;
-            case Commands.composeEm:
+            case Commands.composeE:
                 Intent composeE=new Intent(Intent.ACTION_SEND);
                 String[] recipients={""+emerEmail};
                 composeE.putExtra(composeE.EXTRA_EMAIL, recipients);

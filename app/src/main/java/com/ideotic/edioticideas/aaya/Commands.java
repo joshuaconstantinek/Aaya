@@ -76,7 +76,7 @@ public class Commands {
     //end of calc
     //musik
     public static final String oMusic = "buka musik";
-    public static final String oMusic1 = "Buka aplikasi musik";
+    public static final String oMusic1 = "buka aplikasi musik";
     public static final String oMusic2 = "ke musik";
     public static final String oMusic3 = "ke aplikasi musik";
     public static final String oMusic4 = "dengar musik";
@@ -375,18 +375,18 @@ public class Commands {
     //end of normal
 
     //Network state
-    public static final String wifioff = "matikan wifi";
-    public static final String wifioff1 = "WIFI mati";
-    public static final String wifioff2 = "WIFI off";
-    public static final String wifion = "Nyalakan Wi-Fi";
-    public static final String wifion1 = "WIFI nyala";
-    public static final String wifion2 = "WIFI on";
+    public static final String wifioff = "matikan wi-fi";
+    public static final String wifioff1 = "wi-fi mati";
+    public static final String wifioff2 = "wi-fi off";
+    public static final String wifion = "nyalakan wi-fi";
+    public static final String wifion1 = "wi-fi nyala";
+    public static final String wifion2 = "wi-fi on";
     //end of wifi state
     //BT
-    public static final String bluetoothOn = "nyalakan Bluetooth";
+    public static final String bluetoothOn = "nyalakan bluetooth";
     public static final String bluetoothOn1 = "Bluetooth nyala";
-    public static final String bluetoothOff = "Matikan bluetooth";
-    public static final String bluetoothOff1 = "Bluetooth mati";
+    public static final String bluetoothOff = "matikan bluetooth";
+    public static final String bluetoothOff1 = "bluetooth mati";
     //End of BT
 
     //root state shit
