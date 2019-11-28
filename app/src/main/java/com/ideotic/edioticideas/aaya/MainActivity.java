@@ -1557,7 +1557,97 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
                 startActivity(new Intent(Intent.ACTION_DIAL, Uri.fromParts("tel", bapak, null)));
 
                 break;
+            case Commands.oLine: case Commands.oLine1: case Commands.oLine2: case Commands.oLine3: case Commands.oLine4: case Commands.oLine5: case Commands.oLine6:
+                Intent Line1 = getPackageManager().getLaunchIntentForPackage("jp.naver.line");
+                if (Line1 != null) {
 
+                    startActivity(Line1);//null pointer check in case package name was not found
+                }
+                else if (Line1 == null) {
+                    DialogInterface.OnClickListener dialogClickListener = new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            switch (which){
+                                case DialogInterface.BUTTON_POSITIVE:
+                                    try
+                                    {
+                                        Runtime.getRuntime().exec(new String[]{"/sbin/su", "-c", "sleep 3; input tap 1000 524"});
+                                    } catch (Exception ex) {
+                                        Log.e(TAG, "Error ", ex);
+                                    }
+                                    Toast.makeText(getBaseContext(), "Mengunduh Line", Toast.LENGTH_SHORT).show();
+                                    Intent webPS = new Intent();
+                                    webPS.setAction(Intent.ACTION_VIEW);
+                                    webPS.addCategory(Intent.CATEGORY_BROWSABLE);
+                                    webPS.setData(Uri.parse("http://play.google.com/store/apps/details?id=jp.naver.line"));
+                                    startActivity(webPS);
+                                    break;
+
+                                case DialogInterface.BUTTON_NEGATIVE:
+                                    Toast.makeText(getBaseContext(), "Say what you need", Toast.LENGTH_SHORT).show();
+                                    try {
+                                        Runtime.getRuntime().exec(new String[]{"/sbin/su", "-c", "sleep .5; input tap 596 971"});
+                                    } catch (Exception ex) {
+                                        Log.e(TAG, "Error ", ex);
+                                    }
+                                    break;
+                            }
+                        }
+                    };
+
+                    AlertDialog.Builder builder = new AlertDialog.Builder(context);
+                    builder.setMessage("Aplikasi Line tidak terinstal , apakah ingin mengunduh Line?").setPositiveButton("Yes", dialogClickListener)
+                            .setNegativeButton("No", dialogClickListener).show();
+
+
+                }
+                break;
+            case Commands.oWhatsapp: case Commands.oWhatsapp1: case Commands.oWhatsapp2: case Commands.oWhatsapp3: case Commands.oWhatsapp4: case Commands.oWhatsapp5: 
+                 Intent WA1 = getPackageManager().getLaunchIntentForPackage("com.whatsapp");
+                if (WA1 != null) {
+
+                    startActivity(WA1);//null pointer check in case package name was not found
+                }
+                else if (WA1 == null) {
+                    DialogInterface.OnClickListener dialogClickListener = new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            switch (which){
+                                case DialogInterface.BUTTON_POSITIVE:
+                                    try
+                                    {
+                                        Runtime.getRuntime().exec(new String[]{"/sbin/su", "-c", "sleep 3; input tap 1000 524"});
+                                    } catch (Exception ex) {
+                                        Log.e(TAG, "Error ", ex);
+                                    }
+                                    Toast.makeText(getBaseContext(), "Mengunduh Whatsapp", Toast.LENGTH_SHORT).show();
+                                    Intent webPS = new Intent();
+                                    webPS.setAction(Intent.ACTION_VIEW);
+                                    webPS.addCategory(Intent.CATEGORY_BROWSABLE);
+                                    webPS.setData(Uri.parse("http://play.google.com/store/apps/details?id=com.whatsapp"));
+                                    startActivity(webPS);
+                                    break;
+
+                                case DialogInterface.BUTTON_NEGATIVE:
+                                    Toast.makeText(getBaseContext(), "Say what you need", Toast.LENGTH_SHORT).show();
+                                    try {
+                                        Runtime.getRuntime().exec(new String[]{"/sbin/su", "-c", "sleep .5; input tap 596 971"});
+                                    } catch (Exception ex) {
+                                        Log.e(TAG, "Error ", ex);
+                                    }
+                                    break;
+                            }
+                        }
+                    };
+
+                    AlertDialog.Builder builder = new AlertDialog.Builder(context);
+                    builder.setMessage("Aplikasi Whatsapp tidak terinstal , apakah ingin mengunduh Whatsapp?").setPositiveButton("Yes", dialogClickListener)
+                            .setNegativeButton("No", dialogClickListener).show();
+
+
+                }
+                break;
+             
             default:
                 try {
                     Toast.makeText(getBaseContext(), "Error, Redirect to Google", Toast.LENGTH_SHORT).show();
