@@ -227,8 +227,26 @@ public class Commands {
     public static final String oYahoo4 = "ke Yahoo Mail";
     //end yahoo
     public static final String oTerminal = "Buka Terminal";
-
-
+    //SocialMedia
+    //Line
+    public static final String oLine = "buka line";
+    public static final String oLine1 = "Buka aplikasi line";
+    public static final String oLine2 = "ke line";
+    public static final String oLine3 = "ke aplikasi line";
+    public static final String oLine4 = "sosial media line";
+    public static final String oLine5 = "line";
+    public static final String oLine6 = "aplikasi line";
+    //end of line
+    //Whatsapp
+    public static final String oWhatsapp = "buka whatsapp";
+    public static final String oWhatsapp1 = "Buka aplikasi whatsapp";
+    public static final String oWhatsapp2 = "ke whatsapp";
+    public static final String oWhatsapp3 = "ke aplikasi whatsapp";
+    public static final String oWhatsapp4 = "sosial media whatsapp";
+    public static final String oWhatsapp5 = "aplikasi whatsapp";
+    //end of whatsapp
+    
+    //end of more social media
     //Experimental Feature
     public static final String takeApic = "ambil gambar";
     public static final String takeApic1 = "ambil foto";
