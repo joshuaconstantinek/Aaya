@@ -45,12 +45,13 @@ public class Commands {
     //end of kontak
     public static final String oSetting = "buka pengaturan";
     //GAL
-    public static final String oGallery = "buka Galeri";
-    public static final String oGallery1 = "buka aplikasi Galeri";
+    public static final String oGallery = "Buka galeri";
+    public static final String oGallery1 = "Buka aplikasi galeri";
     public static final String oGallery2 = "ke galeri";
     public static final String oGallery3 = "ke aplikasi galeri";
     public static final String oGallery4 = "lihat foto";
     public static final String oGallery5 = "lihat foto-foto";
+    public static final String oGallery6 = "galeri";
     //end of GAL
     //kalendar
     public static final String oCalendar = "Buka Kalender";
@@ -77,7 +78,9 @@ public class Commands {
     //musik
     public static final String oMusic = "buka musik";
     public static final String oMusic1 = "buka aplikasi musik";
+    public static final String oMusic6 = "Buka aplikasi musik";
     public static final String oMusic2 = "ke musik";
+    public static final String oMusic7 = "musik";
     public static final String oMusic3 = "ke aplikasi musik";
     public static final String oMusic4 = "dengar musik";
     public static final String oMusic5 = "dengar lagu";
@@ -229,21 +232,22 @@ public class Commands {
     public static final String oTerminal = "Buka Terminal";
     //SocialMedia
     //Line
-    public static final String oLine = "buka line";
-    public static final String oLine1 = "Buka aplikasi line";
-    public static final String oLine2 = "ke line";
-    public static final String oLine3 = "ke aplikasi line";
-    public static final String oLine4 = "sosial media line";
-    public static final String oLine5 = "line";
-    public static final String oLine6 = "aplikasi line";
+    public static final String oLine = "buka Line";
+    public static final String oLine7 = "Buka Line";
+    public static final String oLine1 = "Buka aplikasi Line";
+    public static final String oLine2 = "ke Line";
+    public static final String oLine3 = "ke aplikasi Line";
+    public static final String oLine4 = "sosial media Line";
+    public static final String oLine5 = "Line";
+    public static final String oLine6 = "aplikasi Line";
     //end of line
     //Whatsapp
-    public static final String oWhatsapp = "buka whatsapp";
-    public static final String oWhatsapp1 = "Buka aplikasi whatsapp";
-    public static final String oWhatsapp2 = "ke whatsapp";
-    public static final String oWhatsapp3 = "ke aplikasi whatsapp";
-    public static final String oWhatsapp4 = "sosial media whatsapp";
-    public static final String oWhatsapp5 = "aplikasi whatsapp";
+    public static final String oWhatsapp = "buka WhatsApp";
+    public static final String oWhatsapp1 = "Buka aplikasi WhatsApp";
+    public static final String oWhatsapp2 = "ke WhatsApp";
+    public static final String oWhatsapp3 = "ke aplikasi WhatsApp";
+    public static final String oWhatsapp4 = "sosial media WhatsApp";
+    public static final String oWhatsapp5 = "aplikasi WhatsApp";
     //end of whatsapp
     
     //end of more social media
@@ -256,11 +260,11 @@ public class Commands {
     public static final String takeAvid1 = "buat video";
     public static final String takeAvid2 = "rekam video";
     public static final String takeAvid3 = "buka kameran dan rekam video";
-    public static final String instantPicandPrev = "ambil gambar cepat";
+    public static final String instantPicandPrev = "foto cepat";
     public static final String instantPicandPrev1 = "ambil foto cepat";
     public static final String instantPicandPrev2 = "foto cepat";
     public static final String instantPicandPrev3 = "foto kilat";
-    public static final String lowscreenbright = "gelapkan layar";
+    public static final String lowscreenbright = "dark";
     public static final String lowscreenbright1 = "redupkan layar";
     public static final String lowscreenbright2 = "hitamkan layar";
     public static final String lowscreenbright3 = "redup";
@@ -294,7 +298,9 @@ public class Commands {
     public static final String webfbb = "menuju ke Facebook";
     public static final String webfbc = "web Facebook";
     public static final String webfbd = "website Facebook";
-    public static final String webfbe = "facebook.com";
+    public static final String webfbe = "Facebook.com";
+    public static final String webfb1 = "login ke Facebook";
+    public static final String webfb2 = "login Facebook";
     //end of more Facebook Command
     //Twitter
     public static final String twitter = "beralih ke Twitter";
@@ -302,6 +308,8 @@ public class Commands {
     public static final String twitter3 = "web Twitter";
     public static final String twitter4 = "website Twitter";
     public static final String twitter5 = "twitter.com";
+    public static final String twitter6 = "login Twitter";
+    public static final String twitter7 = "login ke Twitter";
     //End of more Twitter Command
     //Youtube
     public static final String youtube = "beralih ke YouTube";
@@ -391,27 +399,42 @@ public class Commands {
     public static final String Normal1 = "berbunyi";
     public static final String Normal2 = "mode berbunyi";
     //end of normal
-
+    //mode pesawat
+    public static final String airplane = "mode pesawat";
+    public static final String airplane1= "matikan sinyal";
+    //end mode pesawat
+    public static final String airplaneoff= "nyalakan sinyal";
+    public static final String airplaneoff2= "Nyalakan sinyal";
+    public static final String airplaneoff1= "matikan mode pesawat";
     //Network state
     public static final String wifioff = "matikan wi-fi";
+    public static final String wifioff3 = "Matikan wi-fi";
     public static final String wifioff1 = "wi-fi mati";
     public static final String wifioff2 = "wi-fi off";
     public static final String wifion = "nyalakan wi-fi";
+    public static final String wifion3 = "Nyalakan wi-fi";
     public static final String wifion1 = "wi-fi nyala";
     public static final String wifion2 = "wi-fi on";
     //end of wifi state
     //BT
-    public static final String bluetoothOn = "nyalakan bluetooth";
-    public static final String bluetoothOn1 = "Bluetooth nyala";
+    public static final String bluetoothOn = "Nyalakan Bluetooth";
+    public static final String bluetoothOn1 = "nyalakan bluetooth";
+    public static final String bluetoothOn2 = "nyalakan Bluetooth";
+    public static final String bluetoothOn3 = "Bluetooth nyala";
+    public static final String bluetoothOn4 = "bluetooth nyala";
     public static final String bluetoothOff = "matikan bluetooth";
-    public static final String bluetoothOff1 = "bluetooth mati";
+    public static final String bluetoothOff1 = "Matikan bluetooth";
+    public static final String bluetoothOff2 = "Matikan Bluetooth";
+    public static final String bluetoothOff3 = "bluetooth mati";
+    public static final String bluetoothOff4 = "Bluetooth Mati";
     //End of BT
 
     //root state shit
+    public static final String tes1 = "aku lapar";
     public static final String reboot = "reset ulang Android";
     public static final String rebootRecovery = "reboot to recovery";
     public static final String killthemall = "Bunuh itu semua";
-    public static final String selfdestruction = "penghancuran diri sendiri";
+    public static final String selfdestruction = "keluar";
     public static final String turnoffscreen = "matikan layar";
     public static final String galau = "cara menghibur teman yang lagi galau";
 
@@ -440,8 +463,8 @@ public class Commands {
     //compose based commands
     public static final String MAIL_COMPOSE_MAIL = "compose mail";
     //Calling mom and dad
-    public static final String callDad = "call Dad";
-    public static final String callMom = "call Mom";
+    public static final String callDad = "Panggil Ayah";
+    public static final String callMom = "Panggil ibu";
     //end of calling
     //Weather Module
     public static final String TEMP = "s";
