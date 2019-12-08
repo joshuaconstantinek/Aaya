@@ -437,7 +437,14 @@ public class Commands {
     public static final String selfdestruction = "keluar";
     public static final String turnoffscreen = "matikan layar";
     public static final String galau = "cara menghibur teman yang lagi galau";
+//MOBEL ENTOT
 
+    public static final String mlbb = "buka mobile Legends";
+    public static final String mlbb1 = "Buka Mobile Legends";
+    public static final String mlbb2 = "Mobile Legends";
+    public static final String mlbb3 = "mobile Legends";
+    public static final String mlbb4 = "mobile legends";
+    //END OF ENTOT
 
     //Main Activity Commands
     public static final String mailModule = "mail";

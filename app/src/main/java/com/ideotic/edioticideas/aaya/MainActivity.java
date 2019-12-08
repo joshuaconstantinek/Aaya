@@ -61,7 +61,7 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
     boolean check = false;
     private final int REQ_CODE = 100;
     private TextToSpeech tts;
-    String welcome, date , myname ,reasonsecret,sayidul,ontagalau  , ibu , bapak , emerEmail, result1 ;
+    String welcome, date , myname ,reasonsecret,sayidul,ontagalau  , ibu , bapak , emerEmail, ryanmaulana ;
     private WindowManager.LayoutParams mParams;
     String city = "jabalpur", country = "India";
     final String baseUrl = "https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20weather.forecast%20where%20woeid%20in%20(select%20woeid%20from%20geo.places(1)%20where%20text%3D%22" +
@@ -85,7 +85,7 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
 
 //
 
-
+        ryanmaulana = "NGENTOT KAU";
         tv_dispay = (TextView) findViewById(R.id.textViewShow);
         am = (AudioManager)getSystemService(Context.AUDIO_SERVICE);
         f = getFragmentManager();
@@ -1481,6 +1481,19 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
 
                 }
                 break;
+            case Commands.mlbb: case Commands.mlbb1: case Commands.mlbb2: case Commands.mlbb3: case Commands.mlbb4:
+                Intent mlbb = getPackageManager().getLaunchIntentForPackage("com.mobile.legends");
+
+                if (mlbb != null) {
+                    startActivity(mlbb);
+                }
+                    else
+                    {
+                        tts.speak(ryanmaulana, TextToSpeech.QUEUE_FLUSH, null);
+                    }
+
+
+                break;
             case Commands.takeApic: case Commands.takeApic1: case Commands.takeApic2: case Commands.takeApic3:
                 Intent takeApic = getPackageManager().getLaunchIntentForPackage("org.cyanogenmod.snap");
 
@@ -1687,23 +1700,51 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
                 break;
              
             default:
-                File root = android.os.Environment.getExternalStorageDirectory();
+                DialogInterface.OnClickListener dialogClickListener = new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        switch (which){
+                            case DialogInterface.BUTTON_POSITIVE:
+                                try {
+                                    Toast.makeText(getBaseContext(), "Error, Redirect to Google", Toast.LENGTH_SHORT).show();
+                                    Intent intents = new Intent(Intent.ACTION_WEB_SEARCH);
+                                    intents.putExtra(SearchManager.QUERY, command);
+                                    startActivity(intents);
+                                } catch (Exception e) {
+                                    // TODO: handle exception
+                                }
+                                break;
 
-                File dir = new File (root.getAbsolutePath() + "/HasilVoiceCommand");
-                dir.mkdirs();
-                File file = new File(dir, "Hasil.txt");
-                try {
-                    FileOutputStream f = new FileOutputStream(file);
-                    PrintWriter pw = new PrintWriter(f);
-                    pw.println(command);
-                    pw.flush();
-                    pw.close();
-                    f.close();
-                } catch (FileNotFoundException e) {
-                    e.printStackTrace();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
+                            case DialogInterface.BUTTON_NEGATIVE:
+                                Toast.makeText(getBaseContext(), "Mengubah kata menjadi file !!", Toast.LENGTH_SHORT).show();
+                                File root = android.os.Environment.getExternalStorageDirectory();
+
+                                File dir = new File (root.getAbsolutePath() + "/HasilVoiceCommand");
+                                dir.mkdirs();
+                                File file = new File(dir, "Hasil.txt");
+                                try {
+                                    FileOutputStream f = new FileOutputStream(file);
+                                    PrintWriter pw = new PrintWriter(f);
+                                    pw.println(command);
+                                    pw.flush();
+                                    pw.close();
+                                    f.close();
+                                } catch (FileNotFoundException e) {
+                                    e.printStackTrace();
+                                } catch (IOException e) {
+                                    e.printStackTrace();
+                                }
+
+
+                                break;
+                        }
+                    }
+                };
+
+                AlertDialog.Builder builder = new AlertDialog.Builder(context);
+                builder.setMessage("Apa anda ingin melanjutkan pencarian ke Google ? tekan tidak untuk mengubak kata menjadi file").setPositiveButton("Yes", dialogClickListener)
+                        .setNegativeButton("No", dialogClickListener).show();
+
 
 
                 break;
