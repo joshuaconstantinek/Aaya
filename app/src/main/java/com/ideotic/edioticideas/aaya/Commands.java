@@ -239,7 +239,12 @@ public class Commands {
     public static final String oLine3 = "ke aplikasi Line";
     public static final String oLine4 = "sosial media Line";
     public static final String oLine5 = "Line";
-    public static final String oLine6 = "aplikasi Line";
+    public static final String oLine6 = "aplikasi line";
+    public static final String oLine8 = "buka aplikasi line";
+    public static final String oLine9 = "ke line";
+    public static final String oLine10 = "ke aplikasi line";
+    public static final String oLine11 = "sosial media line";
+    public static final String oLine12 = "line";
     //end of line
     //Whatsapp
     public static final String oWhatsapp = "buka WhatsApp";
@@ -247,7 +252,13 @@ public class Commands {
     public static final String oWhatsapp2 = "ke WhatsApp";
     public static final String oWhatsapp3 = "ke aplikasi WhatsApp";
     public static final String oWhatsapp4 = "sosial media WhatsApp";
-    public static final String oWhatsapp5 = "aplikasi WhatsApp";
+    public static final String oWhatsapp5 = "buka whatsapp";
+    public static final String oWhatsapp6 = "buka aplikasi whatsapp";
+    public static final String oWhatsapp7 = "ke whatsapp";
+    public static final String oWhatsapp8 = "ke aplikasi whatsapp";
+    public static final String oWhatsapp9 = "sosial media whatsapp";
+    public static final String oWhatsapp10 = "wahatsapp";
+    public static final String oWhatsapp11 = "jalankan whatsapp";
     //end of whatsapp
     
     //end of more social media

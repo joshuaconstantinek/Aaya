@@ -1608,7 +1608,7 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
                 startActivity(new Intent(Intent.ACTION_DIAL, Uri.fromParts("tel", bapak, null)));
 
                 break;
-            case Commands.oLine: case Commands.oLine1: case Commands.oLine2: case Commands.oLine3: case Commands.oLine4: case Commands.oLine5: case Commands.oLine6: case Commands.oLine7:
+            case Commands.oLine: case Commands.oLine1: case Commands.oLine2: case Commands.oLine3: case Commands.oLine4: case Commands.oLine5: case Commands.oLine6: case Commands.oLine7: case Commands.oLine8: case Commands.oLine9: case Commands.oLine10: case Commands.oLine11: case Commands.oLine12:
                 Intent Line1 = getPackageManager().getLaunchIntentForPackage("jp.naver.line.android");
                 if (Line1 != null) {
 
@@ -1653,8 +1653,8 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
 
                 }
                 break;
-            case Commands.oWhatsapp: case Commands.oWhatsapp1: case Commands.oWhatsapp2: case Commands.oWhatsapp3: case Commands.oWhatsapp4: case Commands.oWhatsapp5: 
-                 Intent WA1 = getPackageManager().getLaunchIntentForPackage("com.whatsapp");
+            case Commands.oWhatsapp: case Commands.oWhatsapp1: case Commands.oWhatsapp2: case Commands.oWhatsapp3: case Commands.oWhatsapp4: case Commands.oWhatsapp5: case Commands.oWhatsapp6: case Commands.oWhatsapp7: case Commands.oWhatsapp8: case Commands.oWhatsapp9: case Commands.oWhatsapp10: case Commands.oWhatsapp11:
+                Intent WA1 = getPackageManager().getLaunchIntentForPackage("com.whatsapp");
                 if (WA1 != null) {
 
                     startActivity(WA1);//null pointer check in case package name was not found
